@@ -79,20 +79,22 @@
                     <section id="otp_instance" data-markdown>
                             <script type="text/template">
                                 ##Open Trip Planner: Basic Implementation for Boston
-                                [![Instance Screenshot](img/otp_screenshot.png)](http://107.170.35.214:8080/)
+                                ![Instance Screenshot](img/otp_screenshot.png)
+                                [link](http://107.170.35.214:8080/)
                             </script>
                     </section>
             
                     <section id="otp_analyst_server" data-markdown>
                             <script type="text/template">
-                                ##Open Trip Planner Analyst Server
-                                [![Analyst Splash](img/analyst_splash.png)](https://github.com/conveyal/analyst-server/)
+                                ###Open Trip Planner Analyst Server
+                                [link](https://github.com/conveyal/analyst-server/)
+                                ![Analyst Splash](img/analyst_splash.png)
                             </script>
                     </section>
                     
                     <section id="otp_analyst_server2" data-markdown>
                             <script type="text/template">
-                                ##Open Trip Planner Analyst Server  
+                                ###Open Trip Planner Analyst Server  
                                 <br />
                                 Analyst Server builds on OTP's routing algorithm to perform all-to-all travel time estimates in order to calculate
                                 accessibility (the number of "opportunities" available within a specified travel time). The web interface allows 
@@ -136,20 +138,19 @@
                         <script type="text/template">
                         ##Possible Analyses  
                         <br />  
-                        1. Travel Time comparisons
-                        2. Public facing scenario simulation
-                        3. Accessibility analysis  
-                           * How many students/employees can access Ilha in x mins?
-                           * How many potential students/employees can...?
+                        1. Travel Time Comparisons
+                        2. Public Facing Scenario Simulation
+                        3. Accessibility Analysis  
                         </script>
                     </section>
                     
                     <section data-markdown>
 					   <script type="text/template">
-                            ###1. Travel Time comparisons
+                            ###1. Travel Time Comparisons
                             <br />
                             1. For every OD pair, calculate public transit travel time using current travel time
                             2. For each proposed scenario, recalculate travel times.  
+                            3. Aggregate travel time savings.
                             <br />
                             There are [instructions](https://github.com/opentripplanner/otp-batch-analysis/blob/master/OTPMethodology.pdf) to
                             accomplish this with the basic OTP package.
@@ -158,10 +159,11 @@
                     
                     <section data-markdown>
                         <script type="text/template">
-                            ###2. Public facing scenario simulation
+                            ###2. Presenting Scenarios to the Public
                             <br />
                             Create new GTFS schedules for different proposed public transit projects, and serve these on a public-facing website so 
-                            that commuters can see how their commutes might be improved. 
+                            that commuters can see how their commutes might be improved.  
+                            Could also potentially solicit solutions and have people vote up preferred solutions to be presented.
                         </script>
                     </section>
                     
@@ -169,7 +171,7 @@
                         <script type="text/template">
                             ###3. Accessibility analysis  
                             <br />
-                               * How many students/employees can access Ilha in x mins?
+                               * How many students/employees can access the Ilha in x mins?
                                * How many potential students/employees can...?
                         </script>
                     </section>
@@ -188,6 +190,16 @@
                     </script>
                 </section>
                 
+                <section id="techreqs" data-markdown>
+					<script type="text/template">
+                        ##Computing Requirements  
+                        <br />
+                        OTP & OTPA are currently running on a Digital Ocean server with `Ubuntu 14.04` and 2 Cores, 2GB RAM, and 30GB SSD.  
+                        ($20/month)  
+                        OTPA likely requires more RAM (8 GB recommended), though we could maybe get away with using a lot of swap. 
+                    </script>
+                </section>
+                
                 
                 <section id="limitations" data-markdown>
 					<script type="text/template">
@@ -198,7 +210,7 @@
                     </script>
                 </section>
                 
-                <section id="questions" data-markdown data-center="true">
+                <section id="questions" data-markdown>
 					<script type="text/template">
                     #Perguntas  
                     #?
