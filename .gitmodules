@@ -1,0 +1,3 @@
+[submodule "gtfs-editor"]
+	path = gtfs-editor
+	url = git@github.com:conveyal/gtfs-editor.git
