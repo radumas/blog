@@ -11,6 +11,8 @@ Requires `PostgreSQL` and `PostGIS`, an open-source SQL database and the spatial
 ```shell
 sudo apt-get install postgis postgresql pgadmin3 postgresql-9.3-postgis-2.1
 ```
+
+I createad a `gtfs-editor` database and user, and had to give the user a password and enter than in the [config](#configuration). Enable PostGIS on the `gtfs-editor` database by running `CREATE EXTENSION PostGIS`. 
 It also requires `java`  
 ```shell
 sudo apt-get openjdk-7-jre
@@ -28,18 +30,8 @@ Include play in the $PATH variable, this means you can use `play` by simply ente
 ```shell
     export PATH=$PATH/path/to/playfolder/
 ```
-and edit `~/.bashrc` to make the changes permanent, by adding the line above to the end of that file. This will run the same command on boot.  
-Configure gtfs-editor application.conf
-```shell
-    cp conf/application.conf.template conf/application.conf
-```
-Created a `gtfs-editor` user for the local postgresql database using `createuser --interactive` from the `postgres` user account (switch user using `sudo su postgres`). I put the following in the config
-```bash
-# To connect to a local PostgreSQL9 database, use:
- db.url=jdbc:postgresql://127.0.0.1/gtfs-editor
- db.driver=org.postgresql.Driver
- db.user=gtfs-editor
-```
+and then edit `~/.bashrc` to make the changes permanent, by adding the line above to the end of that file. This will run the same command on boot.  
+###Dependencies
 Install dependencies.
 ```
     play dependencies
@@ -52,4 +44,49 @@ I got warnings that 3 dependencies were missing, see [open issue](https://github
 
 		:: jgridshift#jgridshift;1.0: not found
 ```
+These were *mostly* fixed by making the `repositories` section of `con/dependencies.yml` to
+```shell
+repositories:
+    - typesafe:
+        type: iBiblio
+        root: "http://repo.typesafe.com/typesafe/releases/"
+        contains:
+            - com.typesafe.akka -> *
+    - akka:
+        type: iBiblio
+        root: "http://repo.akka.io/releases/"
+        contains:
+            - voldemort.store.compress -> *
 
+    - osgeo:
+        type: iBiblio
+        root: "http://download.osgeo.org/webdav/geotools/"
+        contains:
+            - org.geotools -> *
+            - java3d -> *
+            - javax.media -> *
+            - jgridshift -> *
+
+    - conveyal:
+        type: iBiblio
+        root: "http://maven.conveyal.com/"
+        contains:
+            - org.opentripplanner -> *
+```
+###Configuration
+Copy the template and then open application.conf
+```shell
+    cp conf/application.conf.template conf/application.conf
+```
+ I put the following in the config
+```shell
+# To connect to a local PostgreSQL9 database, use:
+ db.url=jdbc:postgresql://127.0.0.1:5432/gtfs-editor
+ db.driver=org.postgresql.Driver
+ db.user=gtfs-editor
+ db.pass=PASSWORD
+```
+
+```
+###Run
+Hit `play run` and navigate to `http://localhost:9000`
