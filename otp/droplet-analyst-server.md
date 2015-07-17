@@ -21,19 +21,13 @@ ls -lha
 export PATH=/path/to/activatorfolder/:$PATH
 ```
 
-###vanilla extract
-Following the instructions from the [github repo]() execute
-```shell
-sudo apt-get install libprotobuf-c0-dev zlib1g-dev build-essential protobuf-c-compiler clang
-git clone https://github.com/conveyal/vanilla-extract.git
-protoc-c fileformat.proto --c_out=.
-protoc-c osmformat.proto --c_out=.
-```
+###~~vanilla extract~~
+**not used**
 
 ##Analyst Server
 Clone the github repo and then edit `conf/application.conf.template`
-Pointing to the installed vanilla-extract:
+Point to conveyal's vex server (the default). The local vex server support doesn't work [well anymore](https://github.com/conveyal/analyst-server/issues/117)
 ```shell
-application.vex=~/vanilla-extract/vex
+application.vex=
 ```
-And then running `activator run -mem 1500` (my VPS has 2GB of memory). I had to run this command twice due to downloads failing the first time. The create user HTTP request doesn't appear to work but by navigating to `vps.ip:9000` I was able to both create a user and access the tutorial.
+And then running `activator run -mem 1500` (my VPS has 2GB of memory). I had to run this command twice due to dependency downloads failing the first time. The create user HTTP request doesn't appear to work but by navigating to `vps.ip:9000` I was able to both create a user and access the tutorial. Chrome(ium) is the necessary browser, file uploads don't work in [Firefox](https://github.com/conveyal/analyst-server/issues/116#event-358016955)
