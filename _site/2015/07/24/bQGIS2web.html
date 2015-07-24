@@ -105,7 +105,7 @@
 
       	<p>My first leaflet map using the <a href="https://github.com/tomchadwin/qgis2web">qgis2web</a> QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons <a href="https://github.com/tomchadwin/qgis2web/issues/95">could not display</a>.</p>
 
-<h2 id="exploring-census-data-for-rio-de-janeiro">Exploring census data for Rio de Janeiro.</h2>
+<h4 id="exploring-census-data-for-rio-de-janeiro">Exploring census data for Rio de Janeiro.</h4>
 <ol>
   <li>I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station. </li>
   <li>I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.</li>
@@ -129,11 +129,11 @@ group by a.id, a.nome, a.tipo_de_si;
 
 <iframe src="/mapping/transit_working_age/index.html" height="600" width="800"></iframe>
 
-<h2 id="thoughts">Thoughts</h2>
+<h4 id="thoughts">Thoughts</h4>
 <p>The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.
 The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery.</p>
 
-<h2 id="wishes">Wishes</h2>
+<h4 id="wishes">Wishes</h4>
 <p>It would be nice if the plugin:<br />
 1. Could let you edit the variable names in the popups.
 2. Didn’t display the basemap radio button.
