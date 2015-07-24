@@ -103,7 +103,7 @@
 <code>
 git submodule add https://github.com/PanosSakkos/personal-jekyll-theme.git 
 </code>
-Which clones the repository into the <code>personal-jekyll-theme/</code> folder. <a href="http://stackoverflow.com/questions/13364511/can-i-add-a-git-submodule-to-the-existing-projects-root-where-files-are-not-jo">Unfortunately</a> one cannot add a submodule to the root directory of a project. So I added symlinks to the folders in <code>personal-jekyll-theme/</code> to the elements I didn’t think I was going to update, and then copied the things I thought I would (the <code>.html</code>in the root folder, the <code>_posts</code> directory…).</p>
+Which clones the repository into the <code>personal-jekyll-theme/</code> folder. <a href="http://stackoverflow.com/questions/13364511/can-i-add-a-git-submodule-to-the-existing-projects-root-where-files-are-not-jo">Unfortunately</a> one cannot add a submodule to the root directory of a project. So I added symlinks to the folders in <code>personal-jekyll-theme/</code> to the elements I didn’t think I was going to update, and then copied the things I thought I would (the <code>.html</code>in the root folder, the <code>_posts</code> directory…). I also had to copy the _includes folder because <a href="https://help.github.com/articles/page-build-failed-file-is-a-symlink/">github</a>.</p>
 
 <p>And then making sure my computer is properly configured to play nicely with the <a href="https://help.github.com/articles/using-jekyll-with-pages/">gh-pages version of jekyll</a>.</p>
 
