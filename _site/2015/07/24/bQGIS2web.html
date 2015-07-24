@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="transportation" />
+    <link rel="canonical" href="http://radumas.github.io/coppe-ltc/2015/07/24/bQGIS2web.html">
+    
+    <title>{ MISTI Internship with The LTC }  | Using QGIS2web to make a Leaflet Map</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/grayscale.css" rel="stylesheet">
+    <link href="/css/timeline.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico">
+</head>
+
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+  <!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            
+              <a class="navbar-brand page-scroll" href="/index.html#page-top">
+            
+            <div><img src="/img/black-lab-glass.ico" alt="">  { MISTI Internship with The LTC }</div>
+          </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                
+                  <!-- Blog, Post, Tag pages-->
+                  
+                    
+                      <li>
+                        <a class="page-scroll" href="/index.html#about"> About </a>
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        <a class="page-scroll" href="/blog/index.html"> Blog </a>
+                      </li>
+                    
+                  
+                    
+                      <li>
+                        <a class="page-scroll" href="/index.html#contact"> Contact </a>
+                      </li>
+                    
+                  
+
+                
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+  <section id="Using QGIS2web to make a Leaflet Map" class="container content-section text-center">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+
+        <h1><strong>Using QGIS2web to make a Leaflet Map</strong></h1>
+      	<h4><strong>24 Jul 2015</strong>
+<!--          <small> .  . <a href="/2015/07/24/bQGIS2web.html#disqus_thread">Comments</a>--><p/>
+          
+            <a href="/tags/QGIS.html">#QGIS</a>
+          
+            <a href="/tags/leaflet.html">#leaflet</a>
+          
+            <a href="/tags/census.html">#census</a>
+          
+          </small>
+        </h4>
+
+      	<p>My first leaflet map using the <a href="https://github.com/tomchadwin/qgis2web">qgis2web</a> QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons <a href="https://github.com/tomchadwin/qgis2web/issues/95">could not display</a>.</p>
+
+<h2 id="exploring-census-data-for-rio-de-janeiro">Exploring census data for Rio de Janeiro.</h2>
+<ol>
+  <li>I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station. </li>
+  <li>I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.</li>
+  <li>I summed up the columns for literate persons from age 18 to 65 in postgresql to get the total working age population for each polygon.</li>
+  <li>In order to get an “average age” I multiplied each age column from 1 to 100 by the number of people in that age column. The following sed command was useful
+[insert command here]</li>
+  <li>I then summed these two variables and unioned the shapes with: 
+<code>sql
+SELECT a.id, a.nome, a.tipo_de_si,
+   sum( x_area/original_area *working_age_pop),
+   ST_Union(a.geom) as geom
+into rio_stations_stats
+   from alfab_rio_stations_1000 a
+group by a.id, a.nome, a.tipo_de_si;
+</code></li>
+  <li>I colour-coded each line according to their official colours.</li>
+  <li>And then used the plugin to create the map below.</li>
+</ol>
+
+<p>Click <a href="/mapping/transit_working_age/index.html">here</a> for a full page map.</p>
+
+<iframe src="/mapping/transit_working_age/index.html" height="600" width="800"></iframe>
+
+<h2 id="thoughts">Thoughts</h2>
+<p>The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.
+The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery.</p>
+
+<h2 id="wishes">Wishes</h2>
+<p>It would be nice if the plugin:
+1. Could let you edit the variable names in the popups.
+2. Didn’t display the basemap radio button.
+3. Respected layer order. If you turn a layer off and then on, it automatically displays on top.</p>
+
+<p>I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population. </p>
+
+
+      	<div>
+
+  <div style="float:left; padding: 0 5px; vertical-align:top">
+    <div class="fb-share-button" data-href="http://radumas.github.io/coppe-ltc/2015/07/24/bQGIS2web.html" data-layout="button_count"></div>
+  </div>
+
+
+
+  <div style="float:left; padding: 0 5px; vertical-align:top">
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://radumas.github.io/coppe-ltc/2015/07/24/bQGIS2web.html" data-text="Using QGIS2web to make a Leaflet Map #QGIS #leaflet #census "></a>
+</div>
+
+
+
+  <div style="float:left; padding: 0 5px; vertical-align:top">
+    <script type="text/javascript">reddit_newwindow='1'</script>
+    <script type="text/javascript">reddit_title='Using QGIS2web to make a Leaflet Map'</script>
+    <script type="text/javascript">reddit_url='http://radumas.github.io/coppe-ltc//2015/07/24/bQGIS2web.html'</script>
+    <script type="text/javascript" src="//www.redditstatic.com/button/button1.js"></script>
+  </div>
+
+</div>
+
+
+        
+
+
+      </div>
+    </div>
+  </section>
+
+  <section id="Using QGIS2web to make a Leaflet Map" class="container content-section text-center">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2">
+	<ul class="list-inline social-buttons">
+  
+    <li><a href="https://github.com/radumas" target="_blank"><i class="fa fa-github fa-fw"></i></a></li>
+  
+    <li><a href="https://linkedin.com/in/DumasRaphael" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a></li>
+  
+    <li><a href="https://twitter.com/dumasraphael" target="_blank"><i class="fa fa-twitter fa-fw"></i></a></li>
+  
+</ul>
+
+      </div>
+    </div>
+  </section>
+
+     <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy;  2015</p>
+        </div>
+    </footer>
+
+    <p><br /><br /><br /><br /><br /><br /></p>
+
+
+
+  <!-- jQuery -->
+<script src="/js/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/grayscale.js"></script>
+
+
+
+
+
+  <!-- Share buttons -->
+
+  
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  
+
+  
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  
+
+  <!-- Disqus -->
+
+  
+
+
+
+
+
+  <!-- Comments counter -->
+
+  <script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname = 'false'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function () {
+  var s = document.createElement('script'); s.async = true;
+  s.type = 'text/javascript';
+  s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+  </script>
+
+
+
+  </body>
+</html>
