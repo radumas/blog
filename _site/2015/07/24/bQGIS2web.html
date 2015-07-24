@@ -111,14 +111,14 @@
   <li>I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.</li>
   <li>I summed up the columns for literate persons from age 18 to 65 in postgresql to get the total working age population for each polygon.</li>
   <li>In order to get an “average age” I multiplied each age column from 1 to 100 by the number of people in that age column. The following sed command was useful
-[insert command here]</li>
-  <li>I then summed these two variables and unioned the shapes with: 
+   [insert command here]</li>
+  <li>I then summed these two variables and unioned the shapes with:<br />
 <code>sql
 SELECT a.id, a.nome, a.tipo_de_si,
-   sum( x_area/original_area *working_age_pop),
-   ST_Union(a.geom) as geom
+  sum( x_area/original_area *working_age_pop),
+  ST_Union(a.geom) as geom
 into rio_stations_stats
-   from alfab_rio_stations_1000 a
+  from alfab_rio_stations_1000 a
 group by a.id, a.nome, a.tipo_de_si;
 </code></li>
   <li>I colour-coded each line according to their official colours.</li>
@@ -134,7 +134,7 @@ group by a.id, a.nome, a.tipo_de_si;
 The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery.</p>
 
 <h2 id="wishes">Wishes</h2>
-<p>It would be nice if the plugin:
+<p>It would be nice if the plugin:<br />
 1. Could let you edit the variable names in the popups.
 2. Didn’t display the basemap radio button.
 3. Respected layer order. If you turn a layer off and then on, it automatically displays on top.</p>
