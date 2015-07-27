@@ -1,19 +1,11 @@
 [
   
   {
-    "title"    : "Using QGIS2web to make a Leaflet Map",
+    "title"    : "QGIS to Leaflet with QGIS2web",
     "category" : "",
     "tags"     : "QGIS, leaflet, census",
-    "url"      : "/mapping/2015/07/27/bQGIS2web/",
+    "url"      : "/mapping/2015/07/27/QGIS2web/",
     "date"     : "2015-07-27 11:00:00 -0300"
-    } ,
-    
-  {
-    "title"    : "Setting Up Jekyll Theme",
-    "category" : "",
-    "tags"     : "jekyll",
-    "url"      : "/2015/07/24/aSetting-up-Jekyll/",
-    "date"     : "2015-07-24 00:00:00 -0300"
     } 
     
   ]

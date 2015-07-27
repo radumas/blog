@@ -4,8 +4,8 @@
     <head>
 <meta charset="" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Using QGIS2web to make a Leaflet Map</title>
-<meta name="description" content="">
+<title>QGIS to Leaflet with QGIS2web</title>
+<meta name="description" content="Displaying projects, thoughts, etc. while working for the Laboratório de Transportes de Cargas at COPPE, the graduate engineering research school within the Federal University of Rio de Janeiro (UFRJ)">
 
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
 <link rel="stylesheet" href="/css/highlightjs.piperita.css">
+<link rel="stylesheet" type="text/css"href="/css/vid.css">
 
 <!-- Favicons generated at http://realfavicongenerator.net/ -->
 <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
@@ -79,7 +80,7 @@
       </div>
       
 
-      <h1 class="header" itemprop="name">Using QGIS2web to make a Leaflet Map</h1>
+      <h1 class="header" itemprop="name">QGIS to Leaflet with QGIS2web</h1>
 
       <div class="author">
         <small><i>
@@ -109,14 +110,12 @@
 
 <h4>Exploring census data for Rio de Janeiro.</h4>
 
-<ol>
-<li>I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station. </li>
-<li>I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.</li>
-<li>I summed up the columns for literate persons from age 18 to 65 in postgresql to get the total working age population for each polygon.</li>
-<li>In order to get an &quot;average age&quot; I multiplied each age column from 1 to 100 by the number of people in that age column. The following sed command was useful
-[insert command here]</li>
-<li>I then summed these two variables and unioned the shapes with:<br></li>
-</ol>
+<p>I made the map below using the following steps:<br>
+1. I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station.<br>
+2. I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.<br>
+3. I summed up the columns for literate persons from age 18 to 65 in postgresql to get the total working age population for each polygon.<br>
+4. In order to get an &quot;average age&quot; I multiplied each age column from 1 to 100 by the number of people in that age column. The following sed command was useful <code>sed -r &#39;s_([0-9]+)_\1 * &amp; \+_&#39; &lt;age_columns.txt &gt;age_multiply.txt</code> to repeat the number of the column (the age) after a multiplication symbol.<br>
+5. I then summed these two variables and unioned the shapes with:  </p>
 
 <div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">SELECT</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">tipo_de_si</span><span class="p">,</span>  
     <span class="k">SUM</span><span class="p">(</span> <span class="n">x_area</span><span class="o">/</span><span class="n">original_area</span> <span class="o">*</span><span class="n">working_age_pop</span><span class="p">),</span>  
@@ -125,14 +124,13 @@
 <span class="k">FROM</span> <span class="n">alfab_rio_stations_1000</span> <span class="n">a</span>  
     <span class="k">group</span> <span class="k">by</span> <span class="n">a</span><span class="p">.</span><span class="n">id</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">nome</span><span class="p">,</span> <span class="n">a</span><span class="p">.</span><span class="n">tipo_de_si</span><span class="p">;</span></code></pre></div>
 
-<ol>
-<li>I colour-coded each line according to their official colours.</li>
-<li>And then used the plugin to create the map below.</li>
-</ol>
+<p>Finally:<br>
+6. I colour-coded each line according to their official colours.<br>
+7. And then used the plugin to create the map below.</p>
 
 <p>Click <a href="/mapping/transit_working_age/index.html">here</a> for a full page map.</p>
 
-<iframe src="/mapping/transit_working_age/index.html" height="600" width="800"></iframe>
+<iframe src="/mapping/transit_working_age/index.html" height="600" width="900" frameborder="0" allowfullscreen>&nbsp; </iframe>
 
 <h4>Thoughts</h4>
 
@@ -144,9 +142,13 @@ The difference in average age was rather remarkable. With much older average age
 <p>It would be nice if the plugin:<br>
 1. Could let you edit the variable names in the popups.<br>
 2. Didn&#39;t display the basemap radio button.<br>
-3. Respected layer order. If you turn a layer off and then on, it automatically displays on top.  </p>
+3. Respected layer order. If you turn a layer off and then on, it automatically displays on top. </p>
 
-<p>I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population. </p>
+<p>Further things for me to play with:<br>
+1. Displaying the legend in two columns<br>
+2. Disabling scroll zoom <a href="http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map">without clicking on the map</a><br>
+3. Restricting zoom levels<br>
+4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  </p>
 </span>
 
         
@@ -167,24 +169,8 @@ The difference in average age was rather remarkable. With much older average age
 
       <div class="content-panel related clearfix">
         
-        <div class="related-header">
-          <a href="/2015/07/24/aSetting-up-Jekyll/">Read More</a>
-        </div>
-          <div class="title">
-            <a href="/2015/07/24/aSetting-up-Jekyll/">Setting Up Jekyll Theme</a>
-          </div>
-          <div class="excerpt">
-            I got this theme from Panos Sakkos by adding it as a submodule. Note that the https url is required git submodule add https://github.com/PanosSakkos/personal-jekyll-theme.git Which clones the repository into the...
-            <a href="/2015/07/24/aSetting-up-Jekyll/">Continue Reading</a>
-          </div>
-        
         <hr />
         <div class="previous previous-next">
-          
-          <p>
-            <a href="/2015/07/24/aSetting-up-Jekyll/">Setting Up Jekyll Theme</a>
-          </p>
-          <p class="date">Published July 24, 2015</p>
           
         </div>
         <div class="next previous-next">
@@ -205,10 +191,10 @@ The difference in average age was rather remarkable. With much older average age
 
     <div class="footer clearfix">
   <div class="col-md-6">
-    Made with <i class="fa fa-heart"></i> by <a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a>
+    Made by <a href="https://twitter.com/DumasRaphael">Raphael Dumas</a>
   </div>
   <div class="col-md-6">
-    &lt;/&gt; on <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+    Carte-Noire theme by <a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a> <i class="fa fa-code-fork"></i> on <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
   </div>
 </div>
 

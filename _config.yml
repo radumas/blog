@@ -2,10 +2,11 @@
 
 title: "MISTI Internship with The LTC"
 url: "https://radumas.github.io/coppe-ltc/"
-description: ""
-keywords: "transportation"
-favicon: "/img/favicon.ico"
-black-favicon: "/img/black-lab-glass.ico"
+baseurl: ""
+description: "Displaying projects, thoughts, etc. while working for the Laboratório de Transportes de Cargas at COPPE, the graduate engineering research school within the Federal University of Rio de Janeiro (UFRJ)"
+keywords: "transportation, research, ghg, climate change, accessibility, rio de janeiro, coppe, ufrj, brasil"
+favicon: "/favicons/favicon.ico"
+#black-favicon: "/img/black-lab-glass.ico"
 google_analytics: false
 #disqus_account: false
 post_limit: 5
@@ -22,7 +23,7 @@ stackoverflow_link: http://gis.stackexchange.com/users/36886/raphael
 
 # Footer
 footer_left: "Made by <a href=\"https://twitter.com/DumasRaphael\">Raphael Dumas</a>"
-footer_right: "Carte-Noire theme by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a>" <i class="fa fa-code-fork"></i> on <a href=\"https://github.com/jacobtomlinson/carte-noire\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
+footer_right: "Carte-Noire theme by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a> <i class=\"fa fa-code-fork\"></i> on <a href=\"https://github.com/jacobtomlinson/carte-noire\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings
 markdown: redcarpet
