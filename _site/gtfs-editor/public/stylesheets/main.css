@@ -1,0 +1,25 @@
+body {
+  padding-top: 50px;
+}
+
+#tools-nav  {
+  margin-bottom: 5px;
+}
+
+.message {
+  position: fixed;
+  top: 1em;
+  left: 25%;
+  right: 25%;
+  z-index: 10000;
+}
+
+.scrollable-menu {
+  height: auto;
+  max-height: 400px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* only for screen readers; not included in bootstrap 2.3.2 */
+.sr-only { position: absolute; left: 100000px }
