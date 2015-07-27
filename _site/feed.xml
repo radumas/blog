@@ -5,8 +5,8 @@
     <description>Displaying projects, thoughts, etc. while working for the Laboratório de Transportes de Cargas at COPPE, the graduate engineering research school within the Federal University of Rio de Janeiro (UFRJ)</description>
     <link>https://radumas.github.io/coppe-ltc//coppe-ltc/</link>
     <atom:link href="https://radumas.github.io/coppe-ltc//coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 27 Jul 2015 16:19:08 -0300</pubDate>
-    <lastBuildDate>Mon, 27 Jul 2015 16:19:08 -0300</lastBuildDate>
+    <pubDate>Mon, 27 Jul 2015 16:28:48 -0300</pubDate>
+    <lastBuildDate>Mon, 27 Jul 2015 16:28:48 -0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -33,9 +33,9 @@
 6. I colour-coded each line according to their official colours.&lt;br&gt;
 7. And then used the plugin to create the map below.&lt;/p&gt;
 
-&lt;p&gt;Click &lt;a href=&quot;mapping/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map.&lt;/p&gt;
+&lt;p&gt;Click &lt;a href=&quot;/coppe-ltc/mapping/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map.&lt;/p&gt;
 
-&lt;iframe src=&quot;mapping/transit_working_age/index.html&quot; height=&quot;600&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&amp;nbsp; &lt;/iframe&gt;
+&lt;iframe src=&quot;/coppe-ltc/mapping/transit_working_age/index.html&quot; height=&quot;600&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&amp;nbsp; &lt;/iframe&gt;
 
 &lt;h4&gt;Thoughts&lt;/h4&gt;
 
