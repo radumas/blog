@@ -1,7 +1,7 @@
 # Site settings
 
-url: "http://radumas.github.io/coppe-ltc"
 title: "MISTI Internship with The LTC"
+url: "https://radumas.github.io/coppe-ltc/"
 description: ""
 keywords: "transportation"
 favicon: "/img/favicon.ico"
