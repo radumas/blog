@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MISTI Internship with The LTC</title>
-    <description>Displaying projects, thoughts, etc. while working for the Laboratório de Transportes de Cargas at COPPE, the graduate engineering research school within the Federal University of Rio de Janeiro (UFRJ)</description>
-    <link>https://radumas.github.io/coppe-ltc//coppe-ltc/</link>
-    <atom:link href="https://radumas.github.io/coppe-ltc//coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 27 Jul 2015 16:28:48 -0300</pubDate>
-    <lastBuildDate>Mon, 27 Jul 2015 16:28:48 -0300</lastBuildDate>
+    <description></description>
+    <link>https://radumas.github.io/coppe-ltc/coppe-ltc/</link>
+    <atom:link href="https://radumas.github.io/coppe-ltc/coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 28 Jul 2015 11:46:53 -0300</pubDate>
+    <lastBuildDate>Tue, 28 Jul 2015 11:46:53 -0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -56,8 +56,8 @@ The difference in average age was rather remarkable. With much older average age
 4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;/p&gt;
 </description>
         <pubDate>Mon, 27 Jul 2015 11:00:00 -0300</pubDate>
-        <link>https://radumas.github.io/coppe-ltc//coppe-ltc/mapping/2015/07/27/QGIS2web/</link>
-        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc//coppe-ltc/mapping/2015/07/27/QGIS2web/</guid>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/27/QGIS2web/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/27/QGIS2web/</guid>
         
         <category>QGIS</category>
         

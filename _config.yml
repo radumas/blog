@@ -2,11 +2,11 @@
 
 title: "MISTI Internship with The LTC"
 url: "https://radumas.github.io/coppe-ltc"
-baseurl: "coppe-ltc"
-description: "Displaying projects, thoughts, etc. while working for the Laboratório de Transportes de Cargas at COPPE, the graduate engineering research school within the Federal University of Rio de Janeiro (UFRJ)"
+baseurl: "/coppe-ltc"
+title_description: "Displaying projects, thoughts, etc. while working for the Laboratorio de Transportes de Cargas at COPPE, the graduate engineering research school within the Federal University of Rio de Janeiro (UFRJ)"
+title_image: "https://radumas.github.io/coppe-ltc/img/Bus_in_Rio_de_Janeiro.jpg"
 keywords: "transportation, research, ghg, climate change, accessibility, rio de janeiro, coppe, ufrj, brasil"
 favicon: "/favicons/favicon.ico"
-#black-favicon: "/img/black-lab-glass.ico"
 google_analytics: false
 #disqus_account: false
 post_limit: 5
@@ -17,7 +17,6 @@ github_username:  radumas
 linkedin_link: https://linkedin.com/in/DumasRaphael
 #google_plus_link: http://carte-noire.jacobtomlinson.co.uk/
 stackoverflow_link: http://gis.stackexchange.com/users/36886/raphael
-
 
 #404-img: "/img/labtocat.png"
 
