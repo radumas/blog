@@ -94,21 +94,21 @@
             
             
           </span>
-          on <span itemprop="datePublished" content="2014-08-28">July 27, 2015</span>
+          on <span itemprop="datePublished" content="2014-08-28">July 28, 2015</span>
           under mapping
         </i></small>
       </div>
 
       <div class="read-time">
         <small>
-          2 minute read
+          3 minute read
         </small>
       </div>
 
       <div class="content-panel content">
         <span itemprop="articleBody"><p>My first leaflet map using the <a href="https://github.com/tomchadwin/qgis2web">qgis2web</a> QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons <a href="https://github.com/tomchadwin/qgis2web/issues/95">could not display</a>.</p>
 
-<h4>Exploring census data for Rio de Janeiro.</h4>
+<h2>Exploring census data for Rio de Janeiro.</h2>
 
 <p>I made the map below using the following steps:<br>
 1. I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station.<br>
@@ -126,29 +126,39 @@
 
 <p>Finally:<br>
 6. I colour-coded each line according to their official colours.<br>
-7. And then used the plugin to create the map below.</p>
+7. And then used the plugin to create the map below, exporting the map to its own folder.
+8. The map displayed when testing jekyll locally, but the data wouldn&#39;t load on gh-pages, so I had to do a small bit of editing. I had to move the contents of the <code>data/</code> folder to the root folder of the map (where the map&#39;s <code>index.html</code> is located). And then edit the source paths in <code>index.html</code> to remove &quot;data&quot;<br>
+<img src="/coppe-ltc/img/2015-07-24/map_change.png" alt="screenshot1"><br>
+9. I then embedded the map into this post using an iframe</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">&quot;/coppe-ltc/maps/transit_working_age/index.html&quot;</span> <span class="na">height=</span><span class="s">&quot;600&quot;</span> <span class="na">width=</span><span class="s">&quot;900&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span> <span class="na">allowfullscreen</span><span class="nt">&gt;</span><span class="ni">&amp;nbsp;</span> <span class="nt">&lt;/iframe&gt;</span></code></pre></div>
 
 <p>Click <a href="/coppe-ltc/maps/transit_working_age/index.html">here</a> for a full page map.</p>
 
 <iframe src="/coppe-ltc/maps/transit_working_age/index.html" height="600" width="900" frameborder="0" allowfullscreen>&nbsp; </iframe>
 
-<h4>Thoughts</h4>
+<h2>Thoughts</h2>
 
 <p>The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.
 The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery.</p>
 
-<h4>Wishes</h4>
+<h2>Wishes</h2>
+
+<h3>QGIS2web plugin</h3>
 
 <p>It would be nice if the plugin:<br>
 1. Could let you edit the variable names in the popups.<br>
 2. Didn&#39;t display the basemap radio button.<br>
 3. Respected layer order. If you turn a layer off and then on, it automatically displays on top. </p>
 
-<p>Further things for me to play with:<br>
+<h3>Things to play with</h3>
+
+<p>Some further things I would like to work on with this map:<br>
 1. Displaying the legend in two columns<br>
 2. Disabling scroll zoom <a href="http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map">without clicking on the map</a><br>
 3. Restricting zoom levels<br>
-4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  </p>
+4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.<br>
+5. You&#39;ll notice the iframe isn&#39;t responsive: it has a fixed width even if you change the size of the window (or view this on a phone). I&#39;m still trying to figure out how to solve that <a href="http://stackoverflow.com/questions/31660273/markdown-jekyll-insert-an-iframe-that-fills-the-container">issue</a>.</p>
 </span>
 
         
@@ -177,8 +187,7 @@ The difference in average age was rather remarkable. With much older average age
             <a href="/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/">Jekyll Setup</a>
           </div>
           <div class="excerpt">
-            There is one rather important thing missing from the otherwise excellent jekyll gh-pages tutorial on [github](https://help.github.com/articles/using-jekyll-with-pages/).
-
+            There is one rather important thing missing from the otherwise excellent jekyll gh-pages tutorial on github.
 
             <a href="/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/">Continue Reading</a>
           </div>
@@ -186,13 +195,13 @@ The difference in average age was rather remarkable. With much older average age
         <hr />
         <div class="previous previous-next">
           
-        </div>
-        <div class="next previous-next">
-          
           <p>
             <a href="/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/">Jekyll Setup</a>
           </p>
           <p class="date">Published July 28, 2015</p>
+          
+        </div>
+        <div class="next previous-next">
           
         </div>
       </div>

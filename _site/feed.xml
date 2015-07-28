@@ -5,9 +5,80 @@
     <description></description>
     <link>https://radumas.github.io/coppe-ltc/coppe-ltc/</link>
     <atom:link href="https://radumas.github.io/coppe-ltc/coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 28 Jul 2015 13:56:05 -0300</pubDate>
-    <lastBuildDate>Tue, 28 Jul 2015 13:56:05 -0300</lastBuildDate>
+    <pubDate>Tue, 28 Jul 2015 16:06:46 -0300</pubDate>
+    <lastBuildDate>Tue, 28 Jul 2015 16:06:46 -0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>QGIS to Leaflet with QGIS2web</title>
+        <description>&lt;p&gt;My first leaflet map using the &lt;a href=&quot;https://github.com/tomchadwin/qgis2web&quot;&gt;qgis2web&lt;/a&gt; QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons &lt;a href=&quot;https://github.com/tomchadwin/qgis2web/issues/95&quot;&gt;could not display&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Exploring census data for Rio de Janeiro.&lt;/h2&gt;
+
+&lt;p&gt;I made the map below using the following steps:&lt;br&gt;
+1. I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station.&lt;br&gt;
+2. I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.&lt;br&gt;
+3. I summed up the columns for literate persons from age 18 to 65 in postgresql to get the total working age population for each polygon.&lt;br&gt;
+4. In order to get an &amp;quot;average age&amp;quot; I multiplied each age column from 1 to 100 by the number of people in that age column. The following sed command was useful &lt;code&gt;sed -r &amp;#39;s_([0-9]+)_\1 * &amp;amp; \+_&amp;#39; &amp;lt;age_columns.txt &amp;gt;age_multiply.txt&lt;/code&gt; to repeat the number of the column (the age) after a multiplication symbol.&lt;br&gt;
+5. I then summed these two variables and unioned the shapes with:  &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipo_de_si&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  
+    &lt;span class=&quot;k&quot;&gt;SUM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x_area&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;original_area&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;working_age_pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  
+    &lt;span class=&quot;n&quot;&gt;ST_Union&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;geom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;geom&lt;/span&gt;  
+    &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rio_stations_stats&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alfab_rio_stations_1000&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;  
+    &lt;span class=&quot;k&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipo_de_si&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally:&lt;br&gt;
+6. I colour-coded each line according to their official colours.&lt;br&gt;
+7. And then used the plugin to create the map below, exporting the map to its own folder.
+8. The map displayed when testing jekyll locally, but the data wouldn&amp;#39;t load on gh-pages, so I had to do a small bit of editing. I had to move the contents of the &lt;code&gt;data/&lt;/code&gt; folder to the root folder of the map (where the map&amp;#39;s &lt;code&gt;index.html&lt;/code&gt; is located). And then edit the source paths in &lt;code&gt;index.html&lt;/code&gt; to remove &amp;quot;data&amp;quot;&lt;br&gt;
+&lt;img src=&quot;/coppe-ltc/img/2015-07-24/map_change.png&quot; alt=&quot;screenshot1&quot;&gt;&lt;br&gt;
+9. I then embedded the map into this post using an iframe&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/coppe-ltc/maps/transit_working_age/index.html&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;600&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;900&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;frameborder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;allowfullscreen&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;nbsp;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Click &lt;a href=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map.&lt;/p&gt;
+
+&lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot; height=&quot;600&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&amp;nbsp; &lt;/iframe&gt;
+
+&lt;h2&gt;Thoughts&lt;/h2&gt;
+
+&lt;p&gt;The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.
+The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery.&lt;/p&gt;
+
+&lt;h2&gt;Wishes&lt;/h2&gt;
+
+&lt;h3&gt;QGIS2web plugin&lt;/h3&gt;
+
+&lt;p&gt;It would be nice if the plugin:&lt;br&gt;
+1. Could let you edit the variable names in the popups.&lt;br&gt;
+2. Didn&amp;#39;t display the basemap radio button.&lt;br&gt;
+3. Respected layer order. If you turn a layer off and then on, it automatically displays on top. &lt;/p&gt;
+
+&lt;h3&gt;Things to play with&lt;/h3&gt;
+
+&lt;p&gt;Some further things I would like to work on with this map:&lt;br&gt;
+1. Displaying the legend in two columns&lt;br&gt;
+2. Disabling scroll zoom &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;without clicking on the map&lt;/a&gt;&lt;br&gt;
+3. Restricting zoom levels&lt;br&gt;
+4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.&lt;br&gt;
+5. You&amp;#39;ll notice the iframe isn&amp;#39;t responsive: it has a fixed width even if you change the size of the window (or view this on a phone). I&amp;#39;m still trying to figure out how to solve that &lt;a href=&quot;http://stackoverflow.com/questions/31660273/markdown-jekyll-insert-an-iframe-that-fills-the-container&quot;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 28 Jul 2015 13:06:00 -0300</pubDate>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/28/QGIS2web/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/28/QGIS2web/</guid>
+        
+        <category>QGIS</category>
+        
+        <category>leaflet</category>
+        
+        <category>census</category>
+        
+        
+        <category>mapping</category>
+        
+      </item>
     
       <item>
         <title>Jekyll Setup</title>
@@ -27,67 +98,6 @@
         
         
         <category>jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>QGIS to Leaflet with QGIS2web</title>
-        <description>&lt;p&gt;My first leaflet map using the &lt;a href=&quot;https://github.com/tomchadwin/qgis2web&quot;&gt;qgis2web&lt;/a&gt; QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons &lt;a href=&quot;https://github.com/tomchadwin/qgis2web/issues/95&quot;&gt;could not display&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4&gt;Exploring census data for Rio de Janeiro.&lt;/h4&gt;
-
-&lt;p&gt;I made the map below using the following steps:&lt;br&gt;
-1. I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station.&lt;br&gt;
-2. I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.&lt;br&gt;
-3. I summed up the columns for literate persons from age 18 to 65 in postgresql to get the total working age population for each polygon.&lt;br&gt;
-4. In order to get an &amp;quot;average age&amp;quot; I multiplied each age column from 1 to 100 by the number of people in that age column. The following sed command was useful &lt;code&gt;sed -r &amp;#39;s_([0-9]+)_\1 * &amp;amp; \+_&amp;#39; &amp;lt;age_columns.txt &amp;gt;age_multiply.txt&lt;/code&gt; to repeat the number of the column (the age) after a multiplication symbol.&lt;br&gt;
-5. I then summed these two variables and unioned the shapes with:  &lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipo_de_si&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  
-    &lt;span class=&quot;k&quot;&gt;SUM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x_area&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;original_area&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;working_age_pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  
-    &lt;span class=&quot;n&quot;&gt;ST_Union&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;geom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;geom&lt;/span&gt;  
-    &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rio_stations_stats&lt;/span&gt;  
-&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alfab_rio_stations_1000&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;  
-    &lt;span class=&quot;k&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipo_de_si&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Finally:&lt;br&gt;
-6. I colour-coded each line according to their official colours.&lt;br&gt;
-7. And then used the plugin to create the map below.&lt;/p&gt;
-
-&lt;p&gt;Click &lt;a href=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map.&lt;/p&gt;
-
-&lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot; height=&quot;600&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&amp;nbsp; &lt;/iframe&gt;
-
-&lt;h4&gt;Thoughts&lt;/h4&gt;
-
-&lt;p&gt;The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.
-The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery.&lt;/p&gt;
-
-&lt;h4&gt;Wishes&lt;/h4&gt;
-
-&lt;p&gt;It would be nice if the plugin:&lt;br&gt;
-1. Could let you edit the variable names in the popups.&lt;br&gt;
-2. Didn&amp;#39;t display the basemap radio button.&lt;br&gt;
-3. Respected layer order. If you turn a layer off and then on, it automatically displays on top. &lt;/p&gt;
-
-&lt;p&gt;Further things for me to play with:&lt;br&gt;
-1. Displaying the legend in two columns&lt;br&gt;
-2. Disabling scroll zoom &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;without clicking on the map&lt;/a&gt;&lt;br&gt;
-3. Restricting zoom levels&lt;br&gt;
-4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;/p&gt;
-</description>
-        <pubDate>Mon, 27 Jul 2015 11:00:00 -0300</pubDate>
-        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/27/QGIS2web/</link>
-        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/27/QGIS2web/</guid>
-        
-        <category>QGIS</category>
-        
-        <category>leaflet</category>
-        
-        <category>census</category>
-        
-        
-        <category>mapping</category>
         
       </item>
     
