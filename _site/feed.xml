@@ -5,9 +5,30 @@
     <description></description>
     <link>https://radumas.github.io/coppe-ltc/coppe-ltc/</link>
     <atom:link href="https://radumas.github.io/coppe-ltc/coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 28 Jul 2015 11:46:53 -0300</pubDate>
-    <lastBuildDate>Tue, 28 Jul 2015 11:46:53 -0300</lastBuildDate>
+    <pubDate>Tue, 28 Jul 2015 12:28:06 -0300</pubDate>
+    <lastBuildDate>Tue, 28 Jul 2015 12:28:06 -0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Jekyll Setup</title>
+        <description>&lt;p&gt;There is one rather important thing missing from the otherwise excellent jekyll gh-pages tutorial on &lt;a href=&quot;https://help.github.com/articles/using-jekyll-with-pages/&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You could &lt;strong&gt;almost&lt;/strong&gt; fork any jekyll gh-pages theme and it would run out of the box, but for two things:&lt;br&gt;
+1. You have to push an initial commit to the gh-pages branch in order to get github to build the page.&lt;br&gt;
+2. For a project page, (as opposed to a user page), if you want the css stylings to appear (a big part of the appeal of jekyll) &lt;a href=&quot;http://jekyllrb.com/docs/github-pages/#project-page-url-structure&quot;&gt;you have to edit&lt;/a&gt; the &lt;code&gt;baseurl&lt;/code&gt; variable in &lt;code&gt;_config.yml&lt;/code&gt; to be the project&amp;#39;s name, ex: &lt;code&gt;baseurl: &amp;quot;/projectname&amp;quot;&lt;/code&gt;. Note the leading &lt;code&gt;/&lt;/code&gt; but no trailing one.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 28 Jul 2015 11:00:00 -0300</pubDate>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>css</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
     
       <item>
         <title>QGIS to Leaflet with QGIS2web</title>
