@@ -5,8 +5,8 @@
     <description></description>
     <link>https://radumas.github.io/coppe-ltc/coppe-ltc/</link>
     <atom:link href="https://radumas.github.io/coppe-ltc/coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 29 Jul 2015 14:14:21 -0300</pubDate>
-    <lastBuildDate>Wed, 29 Jul 2015 14:14:21 -0300</lastBuildDate>
+    <pubDate>Wed, 29 Jul 2015 16:33:35 -0300</pubDate>
+    <lastBuildDate>Wed, 29 Jul 2015 16:33:35 -0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -14,6 +14,19 @@
         <description>&lt;p&gt;My first leaflet map using the &lt;a href=&quot;https://github.com/tomchadwin/qgis2web&quot;&gt;qgis2web&lt;/a&gt; QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons &lt;a href=&quot;https://github.com/tomchadwin/qgis2web/issues/95&quot;&gt;could not display&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h2 id=&quot;exploring-census-data-for-rio-de-janeiro&quot;&gt;Exploring census data for Rio de Janeiro.&lt;/h2&gt;
+&lt;p&gt;The map below was made using census data on the ages of the literate population (ages 5-80), and the population age (ages 1-100). The work flow to create this map is described &lt;a href=&quot;#workflow&quot;&gt;below&lt;/a&gt;.  &lt;/p&gt;
+
+&lt;div class=&quot;leaflet-map&quot;&gt;
+    &lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Click &lt;a href=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map. &lt;/p&gt;
+
+&lt;h2 id=&quot;thoughts&quot;&gt;Thoughts&lt;/h2&gt;
+&lt;p&gt;The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.  &lt;br /&gt;
+The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery. The difference is particularly striking when looking at Line 1 of the Metro versus Line 2. Many (American) tourists wonder why Line 1 doesn’t extend further into Ipanema and Leblon, parts of the city of particular importance to tourists. But anecdotal evidence from the few times I’ve taken the metro in rush points to far more people taking Line 2 from the North West of the city into the center for work. &lt;/p&gt;
+
+&lt;h2 id=&quot;workflow&quot;&gt;Workflow:&lt;/h2&gt;
 &lt;p&gt;I made the map below using the following steps:  &lt;br /&gt;
 1. I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station.  &lt;br /&gt;
 2. I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.  &lt;br /&gt;
@@ -33,21 +46,11 @@
 7. And then used the plugin to create the map below, exporting the map to its own folder.&lt;br /&gt;
 8. The map displayed when testing jekyll locally, but the data wouldn’t load on gh-pages, so I had to do a small bit of editing. I had to move the contents of the &lt;code&gt;data/&lt;/code&gt; folder to the root folder of the map (where the map’s &lt;code&gt;index.html&lt;/code&gt; is located). And then edit the source paths in &lt;code&gt;index.html&lt;/code&gt; to remove “data”  &lt;br /&gt;
 &lt;img src=&quot;/coppe-ltc/img/2015-07-24/map_change.png&quot; alt=&quot;screenshot1&quot; /&gt;  &lt;br /&gt;
-9. I then embedded the map into this post using an iframe  &lt;/p&gt;
+9. I then embedded the map into this post using an iframe. In order to get the iframe to be “responsive” (change size depending on the size of the window) &lt;a href=&quot;http://stackoverflow.com/questions/31660273/markdown-jekyll-insert-an-iframe-that-fills-the-container&quot;&gt;I had to add some code&lt;/a&gt; to the css &lt;a href=&quot;https://github.com/radumas/coppe-ltc/blob/f8bfc63002f0be5eea3ce301d0dd87e15bfdb07a/css/style.scss#L633&quot;&gt;stylesheet&lt;/a&gt; and then wrapped the &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; tags with a &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;. Unfortunately, mysteriously, this broke some markdown formatting &lt;strong&gt;outside&lt;/strong&gt; the &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; tags, so I switched markdown parser to &lt;code&gt;kramdown&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/coppe-ltc/maps/transit_working_age/index.html&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;600&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;900&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;frameborder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;allowfullscreen&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;nbsp;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;!--
-&lt;div class = &quot;leaflet-map&quot;&gt;
-    &lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&amp;nbsp; &lt;/iframe&gt;
-&lt;/div&gt;
---&gt;
-
-&lt;p&gt;Click &lt;a href=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map. &lt;/p&gt;
-
-&lt;h2 id=&quot;thoughts&quot;&gt;Thoughts&lt;/h2&gt;
-&lt;p&gt;The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.&lt;br /&gt;
-The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;leaflet-map&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/coppe-ltc/maps/transit_working_age/index.html&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;600&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;900&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;frameborder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;allowfullscreen&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;nbsp;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;wishes&quot;&gt;Wishes&lt;/h2&gt;
 
@@ -62,8 +65,7 @@ The difference in average age was rather remarkable. With much older average age
 1. Displaying the legend in two columns  &lt;br /&gt;
 2. Disabling scroll zoom &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;without clicking on the map&lt;/a&gt;  &lt;br /&gt;
 3. Restricting zoom levels  &lt;br /&gt;
-4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;br /&gt;
-5. You’ll notice the iframe isn’t responsive: it has a fixed width even if you change the size of the window (or view this on a phone). I’m still trying to figure out how to solve that &lt;a href=&quot;http://stackoverflow.com/questions/31660273/markdown-jekyll-insert-an-iframe-that-fills-the-container&quot;&gt;issue&lt;/a&gt;.&lt;/p&gt;
+4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;/p&gt;
 </description>
         <pubDate>Tue, 28 Jul 2015 13:06:00 -0300</pubDate>
         <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/28/QGIS2web/</link>
