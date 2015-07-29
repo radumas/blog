@@ -329,7 +329,9 @@ ul {
       padding-left: 15px;
       padding-right: 15px;
       padding-top: 10px;
-      padding-bottom: 10px; }
+      padding-bottom: 10px;
+      /*Added by radumas to display map content in iframes */
+      /*Added by radumas to display map content in iframes */ }
       @media (min-width: 768px) {
         .single .article .content {
           font-size: 24px;
@@ -408,6 +410,17 @@ ul {
               padding-right: 10px;
               margin-bottom: 40px;
               font-size: 15px; } }
+      .single .article .content .leaflet-map {
+        position: relative;
+        padding-bottom: 75%;
+        height: 0;
+        overflow: hidden; }
+      .single .article .content .leaflet-map iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; }
       .single .article .content p code, .single .article .content ul code, .single .article .content ol code {
         font-family: 'Anonymous Pro';
         font-size: 15px;

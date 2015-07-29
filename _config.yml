@@ -25,9 +25,14 @@ footer_left: "Made by <a href=\"https://twitter.com/DumasRaphael\">Raphael Dumas
 footer_right: "Carte-Noire theme by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a> <i class=\"fa fa-code-fork\"></i> on <a href=\"https://github.com/jacobtomlinson/carte-noire\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"
 
 # Build settings
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+#markdown: redcarpet
+#redcarpet:
+#  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
+markdown: kramdown
+kramdown: 
+    input: GFM
+#highlighter: rouge
+
 permalink: pretty
 # Exclusion list from the generated _site
 exclude: ["LICENSE", "readme.md", "vendor"]

@@ -626,7 +626,28 @@ ul {
 						font-size: 15px;
 					}
 				}
+                
+               
 			}
+            
+             /*Added by radumas to display map content in iframes */
+                
+                .leaflet-map {
+                    position: relative;
+                    padding-bottom: 75%; 
+                    height: 0;
+                    overflow: hidden;
+                }
+                .leaflet-map iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                /*Added by radumas to display map content in iframes */
+
 
 			p, ul, ol {
 
