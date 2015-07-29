@@ -1,3 +1,15 @@
+---
+layout: post
+section-type: post
+title: "Setting up Open Trip Planner on a Droplet"
+date: 2015-07-28 16:06:00
+published: false
+categories: Tutorials
+author: Raphael Dumas
+tags: [ 'digital ocean', 'server', 'otp']
+thumbnail: map-marker  
+---
+
 
 Had to manually install `open-jdk-8-jdk` 
 

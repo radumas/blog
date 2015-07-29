@@ -1,3 +1,16 @@
+---
+layout: post
+section-type: post
+title: "Setting Up Conveyal's GTFS-Editor on a Ubuntu 14.04 Laptop"
+date: 2015-07-28 16:06:00
+published: false
+categories: Tutorials
+author: Raphael Dumas
+tags: [ 'digital ocean', 'server']
+thumbnail: map-marker  
+---
+
+
 #Setting Up Conveyal's GTFS-Editor on a Ubuntu 14.04 Laptop
 [Conveyal's](https://www.conveyal.com) [gtfs-editor](https://github.com/conveyal/gtfs-editor/) is a web based editor for a GTFS schedule. I added it to the coppe-ltc git project as a submodule using, after creating a bit of a mess by simply cloning.
 ```

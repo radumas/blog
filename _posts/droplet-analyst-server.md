@@ -1,4 +1,15 @@
-#Setting Up Conveyal's Analyst-Server on a Ubuntu 14.04 Droplet
+---
+layout: post
+section-type: post
+title: "Setting Up Conveyal's Analyst-Server on a Ubuntu 14.04 Droplet"
+date: 2015-07-28 16:06:00
+published: false
+categories: Tutorials
+author: Raphael Dumas
+tags: [ 'digital ocean', 'server']
+thumbnail: map-marker  
+---
+
 [Conveyal's](https://www.conveyal.com) [Analyst Server](https://github.com/conveyal/analyst-server/) is:
 
 > Analyst Server is a graphical user interface-driven, web-based tool for accessibility analysis of transportation networks. Its current focus is on
