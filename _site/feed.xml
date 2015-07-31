@@ -5,9 +5,77 @@
     <description></description>
     <link>https://radumas.github.io/coppe-ltc/coppe-ltc/</link>
     <atom:link href="https://radumas.github.io/coppe-ltc/coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 29 Jul 2015 16:45:17 -0300</pubDate>
-    <lastBuildDate>Wed, 29 Jul 2015 16:45:17 -0300</lastBuildDate>
+    <pubDate>Fri, 31 Jul 2015 16:32:06 -0300</pubDate>
+    <lastBuildDate>Fri, 31 Jul 2015 16:32:06 -0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Updating a Leaflet map Made with QGIS2web</title>
+        <description>&lt;p&gt;In a &lt;a href=&quot;/mapping/2015/07/31/Modifying-a-webmap/&quot;&gt;previous post&lt;/a&gt; I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Some further things I would like to work on with this map:  &lt;br /&gt;
+1. Displaying the legend in two columns  &lt;br /&gt;
+2. Disabling scroll zoom &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;without clicking on the map&lt;/a&gt;  &lt;br /&gt;
+3. Restricting zoom levels  &lt;br /&gt;
+4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;disabling-scroll-zoom&quot;&gt;Disabling Scroll Zoom&lt;/h1&gt;
+
+&lt;p&gt;Previously, if scrolling down in the middle of the page, you would get the behaviour in the map below:&lt;/p&gt;
+
+&lt;div class=&quot;leaflet-map&quot;&gt;
+    &lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This can be disabled, as per this &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;gis.stackexchange post&lt;/a&gt; by replacing the definition of the map variable:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;zoomControl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;maxZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fitBounds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;23.0310490725&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;43.7439095692&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;22.4740929065&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;42.9533150116&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;with:  &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;zoomControl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;maxZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scrollWheelZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fitBounds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;23.0310490725&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;43.7439095692&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;22.4740929065&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;42.9533150116&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;focus&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scrollWheelZoom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tada! You now have to click within the map to activate scroll wheel zooming.  &lt;/p&gt;
+
+&lt;div class=&quot;leaflet-map&quot;&gt;
+    &lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index2.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;restricting-zoom-level-to-layer-extent&quot;&gt;Restricting Zoom Level to Layer Extent&lt;/h1&gt;
+
+&lt;p&gt;To prevent the map from being zoomed out beyond the extents of the layer, I added the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minZoom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getZoom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;editing-the-legend&quot;&gt;Editing the Legend&lt;/h1&gt;
+
+&lt;p&gt;The legend appears to be contained within the &lt;code&gt;L.control.layers()&lt;/code&gt; function. In order to remove the basemaps radio button, I passed it an empty variable:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;control&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;overlayMaps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The order of the layers not being respected when turned on and off from the legend is a frustrating issue, one that still doesn’t seem to be &lt;a href=&quot;https://github.com/tomchadwin/qgis2web/issues/96&quot;&gt;necessarily resolved&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 31 Jul 2015 13:00:00 -0300</pubDate>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/31/Modifying-a-webmap/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/31/Modifying-a-webmap/</guid>
+        
+        <category>QGIS</category>
+        
+        <category>leaflet</category>
+        
+        <category>QGIS2web</category>
+        
+        
+        <category>mapping</category>
+        
+      </item>
     
       <item>
         <title>QGIS to Leaflet with QGIS2web</title>
