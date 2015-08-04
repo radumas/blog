@@ -42,11 +42,11 @@
 			<div class="slides">
 				<section data-markdown>
 					<script type="text/template">
-                        #MISTI Internship at LTC  
+                        ##MISTI Internship at LTC  
                         <br />  
-                        Open-source tools to analyze mobility scenarios for Ilha do Fundão  
+                        Using open-source tools to analyze mobility scenarios for Ilha do Fundão  
                         <br />
-                        #####2015-07-08  
+                        #####2015-08-04  
                         <br />
                         ###Created by [Raphael Dumas](https://twitter.com/DumasRaphael)
                         <br />
@@ -85,7 +85,11 @@
 					<script type="text/template">
                         ##History
                         <br />
-                        * 
+                        * LTC: Laboratorio de Transporte de Carga
+                        * With funding from Fundo Verde investigating using Fundão as a living laboratory to reduce GHG
+                        emissions from commuters
+                        * Have completed OD survey of commuters and estimated emissions
+                        * Investigating public transit solutions to reduce emissions
                     </script>
                 </section>
                 
@@ -105,7 +109,6 @@
                             <script type="text/template">
                                 ##Open Trip Planner: Basic Implementation for Boston
                                 ![Instance Screenshot](img/otp_screenshot.png)
-                                [link](http://107.170.35.214:8080/)
                             </script>
                     </section>
             
@@ -114,7 +117,6 @@
                                 ###Open Trip Planner Analyst Server
                                 [link](https://github.com/conveyal/analyst-server/)
                                 ![Analyst Splash](img/analyst_splash.png)
-                                [My instance](http://107.170.35.214:9000/tutorial)
                             </script>
                     </section>
                     
@@ -122,9 +124,10 @@
                             <script type="text/template">
                                 ###Open Trip Planner Analyst Server  
                                 <br />
-                                Analyst Server builds on OTP's routing algorithm to perform all-to-all travel time estimates in order to calculate
-                                accessibility (the number of "opportunities" available within a specified travel time). The web interface allows 
-                                analysis of different scenarios and comparisons. 
+                                Analyst Server builds on OTP's routing algorithm to perform all-to-all travel time
+                                estimates in order to calculate accessibility (the number of "opportunities" available
+                                within a specified travel time). The web interface allows analysis of different scenarios
+                                and comparisons. 
                             </script>
                     </section>
                     
@@ -165,8 +168,7 @@
                         ##Possible Analyses  
                         <br />  
                         1. Travel Time Comparisons
-                        2. Public Facing Scenario Simulation
-                        3. Accessibility Analysis  
+                        2. Accessibility Analysis  
                         </script>
                     </section>
                     
@@ -182,20 +184,10 @@
                             accomplish this with the basic OTP package.
                         </script>
                     </section>
-                    
+                                        
                     <section data-markdown>
                         <script type="text/template">
-                            ###2. Presenting Scenarios to the Public
-                            <br />
-                            Create new GTFS schedules for different proposed public transit projects, and serve these on a public-facing website so 
-                            that commuters can see how their commutes might be improved.  
-                            Could also potentially solicit solutions and have people vote up preferred solutions to be presented.
-                        </script>
-                    </section>
-                    
-                    <section data-markdown>
-                        <script type="text/template">
-                            ###3. Accessibility analysis  
+                            ###2. Accessibility analysis  
                             <br />
                                * How many students/employees can access the Ilha in x mins?
                                * How many potential students/employees can...?
@@ -209,12 +201,11 @@
 					   <script type="text/template">
                             ##Data Requirements  
                             <br />
-                            1. GTFS Schedules for Bus, Metro and Boat
-                            2. Street Network (can get from OSM)
-                            3. Demographic Data by Geography for Rio (.shp file)
-                              * Aggregate Employee/student locations
-                              * \#Residents by education/income
-                            4. Fundão OD at fine resolution
+                            - [ ] GTFS Schedules for Bus, Metro and Boat
+                            - [x] Street Network (can get from OSM)
+                            - [x] Demographic Data by Geography for Rio (.shp file)
+                              - [x] Aggregate Employee/student locations
+                              - [x] \#Residents by education/income
                         </script>
                     </section>
                     
@@ -230,25 +221,12 @@
                         </script>
                     </section>
                     
-                </section>
-                <section id="techreqs" data-markdown>
-					<script type="text/template">
-                        ##Computing Requirements  
-                        <br />
-                        OTP & OTPA are currently running on a Digital Ocean server with `Ubuntu 14.04` and 2 Cores, 2GB RAM, and 30GB SSD.  
-                        ($20/month)  
-                        OTPA likely requires more RAM (8 GB recommended), though we could maybe get away with using a lot of swap. 
-                    </script>
-                </section>
+                </section>                
                 
-                
-                <section id="limitations" data-markdown>
-					<script type="text/template">
-                        ##Limitations  
-                        <br />  
-                        * Driving directions don't take traffic into account (but could)
-                        * Examples above required substantial coding on top of the basic platform
-                    </script>
+                <section id="map" >
+                    <iframe width="1366" height="540" src="../maps/transit_working_age/index3.html">                            &nbsp; </iframe>
+                    <a target="_blank" href="../maps/transit_working_age/index3.html">Full Screen</a>
+                    
                 </section>
                 
                 <section id="questions" data-markdown>
