@@ -4,3 +4,6 @@
 [submodule "maps/leaflet-control-orderlayers"]
 	path = maps/leaflet-control-orderlayers
 	url = https://github.com/elesdoar/leaflet-control-orderlayers.git
+[submodule "presentations"]
+	path = presentations
+	url = https://github.com/hakimel/reveal.js.git

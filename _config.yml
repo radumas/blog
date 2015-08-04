@@ -35,4 +35,4 @@ kramdown:
 
 permalink: pretty
 # Exclusion list from the generated _site
-exclude: ["LICENSE", "readme.md", "vendor"]
+exclude: ["LICENSE", "readme.md", "vendor", "README.*"]

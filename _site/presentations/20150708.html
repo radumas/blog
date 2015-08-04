@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>OpenTripPlanner: Analyzing Transit Scenarios for LTC</title>
+
+		<meta name="description" content="Open-source tools to analyze mobility scenarios for Ilha do Fundao">
+		<meta name="author" content="Raphael Dumas">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+					<script type="text/template">
+                        #OpenTripPlanner  
+                        <br />  
+                        Open-source tools to analyze mobility scenarios for Ilha do Fundão  
+                        <br />
+                        #####2015-07-08  
+                        <br />
+                        ###Created by [Raphael Dumas](https://twitter.com/DumasRaphael)
+                        <br />
+                        Follow along at [radumas.github.io/coppe-ltc/presentations/20150708/](https://radumas.github.io/coppe-ltc/presentations/20150708/)
+                    </script>
+				</section>
+                
+                <section id="aboutme" data-markdown>
+					<script type="text/template">
+                        ##About Raphael
+                        <br />
+                        * Canadian
+                        * B. Eng Civil <t><t> _McGill 2012_
+                        * M.S. Transportation & M. City Planning <t> _MIT 2015_
+                        * Master's Thesis: _Analyzing Transit Equity Using Automatically Collected Data_
+                          * 1 month of automatically inferred OD data from the MBTA
+                          * Using demographics of PT commuters by race analyzed travel times between a *Black* population and a *White* one.
+                          * Proposed and briefly analyzed potential interventions to mitigate disparities in travel time
+                    </script>
+                </section>
+
+                
+                <section id="outline" data-markdown>
+					<script type="text/template">
+                        ##Outline  
+                        <br />
+                        * [OpenTripPlanner](#otp)
+                        * [Examples](#examples)
+                        * [Possible Analyses](#possibleanalyses)
+                        * [Data Requirements](#datareqs)
+                    </script>
+                </section>
+                
+                <section id="otp"> 
+                    <section id="otp_description" data-markdown>
+                            <script type="text/template">
+                                ##Open Trip Planner  
+                                <br />
+                                [Open Trip Planner](http://www.opentripplanner.org/) is an open-source routing and analysis tool designed to use open 
+                                data (GTFS, OpenStreetMap, Census) initially developed in 2009 for Portland, Oregon. It is now funded by the [Software 
+                                Freedom Conservancy](http://sfconservancy.org/) and maintained by [Conveyal](http://conveyal.com/), a transportation 
+                                consulting firm based in Washington, D.C. 
+                            </script>
+                    </section>
+                    
+                    <section id="otp_instance" data-markdown>
+                            <script type="text/template">
+                                ##Open Trip Planner: Basic Implementation for Boston
+                                ![Instance Screenshot](img/otp_screenshot.png)
+                                [link](http://107.170.35.214:8080/)
+                            </script>
+                    </section>
+            
+                    <section id="otp_analyst_server" data-markdown>
+                            <script type="text/template">
+                                ###Open Trip Planner Analyst Server
+                                [link](https://github.com/conveyal/analyst-server/)
+                                ![Analyst Splash](img/analyst_splash.png)
+                                [My instance](http://107.170.35.214:9000/tutorial)
+                            </script>
+                    </section>
+                    
+                    <section id="otp_analyst_server2" data-markdown>
+                            <script type="text/template">
+                                ###Open Trip Planner Analyst Server  
+                                <br />
+                                Analyst Server builds on OTP's routing algorithm to perform all-to-all travel time estimates in order to calculate
+                                accessibility (the number of "opportunities" available within a specified travel time). The web interface allows 
+                                analysis of different scenarios and comparisons. 
+                            </script>
+                    </section>
+                    
+				</section>
+                
+                <section id="examples">
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##Examples  
+                            <br />
+                            
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##Examples  
+                            <br />
+                            <br />
+                            [Marseille](http://62.210.125.178/marseille/)
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##Examples  
+                            <br />
+                            <br />
+                            [New York's Regional Plan Association](http://fragile-success.rpa.org/maps/jobs.html)
+                        </script>
+                    </section>
+                    
+                </section>
+                
+                <section id="possibleanalyses">
+                    <section data-markdown>
+                        <script type="text/template">
+                        ##Possible Analyses  
+                        <br />  
+                        1. Travel Time Comparisons
+                        2. Public Facing Scenario Simulation
+                        3. Accessibility Analysis  
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+					   <script type="text/template">
+                            ###1. Travel Time Comparisons
+                            <br />
+                            1. For every OD pair, calculate public transit travel time using current travel time.
+                            2. For each proposed scenario, recalculate travel times.  
+                            3. Aggregate travel time savings.
+                            <br />
+                            There are [instructions](https://github.com/opentripplanner/otp-batch-analysis/blob/master/OTPMethodology.pdf) to
+                            accomplish this with the basic OTP package.
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+                        <script type="text/template">
+                            ###2. Presenting Scenarios to the Public
+                            <br />
+                            Create new GTFS schedules for different proposed public transit projects, and serve these on a public-facing website so 
+                            that commuters can see how their commutes might be improved.  
+                            Could also potentially solicit solutions and have people vote up preferred solutions to be presented.
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+                        <script type="text/template">
+                            ###3. Accessibility analysis  
+                            <br />
+                               * How many students/employees can access the Ilha in x mins?
+                               * How many potential students/employees can...?
+                        </script>
+                    </section>
+                    
+                </section>
+                
+                <section id="datareqs">
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##Data Requirements  
+                            <br />
+                            1. GTFS Schedules for Bus, Metro and Boat
+                            2. Street Network (can get from OSM)
+                            3. Demographic Data by Geography for Rio (.shp file)
+                              * Aggregate Employee/student locations
+                              * \#Residents by education/income
+                            4. Fundão OD at fine resolution
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##3. Demographic Data by Geography for Rio (.shp file)
+                              * Aggregate Employee/student locations
+                              * \#Residents by education level(high school, university, masters, etc.)
+                              * \#Residents by income
+                              * \#Households
+                              * \#Registered cars, \#cars/household
+                            
+                        </script>
+                    </section>
+                    
+                </section>
+                <section id="techreqs" data-markdown>
+					<script type="text/template">
+                        ##Computing Requirements  
+                        <br />
+                        OTP & OTPA are currently running on a Digital Ocean server with `Ubuntu 14.04` and 2 Cores, 2GB RAM, and 30GB SSD.  
+                        ($20/month)  
+                        OTPA likely requires more RAM (8 GB recommended), though we could maybe get away with using a lot of swap. 
+                    </script>
+                </section>
+                
+                
+                <section id="limitations" data-markdown>
+					<script type="text/template">
+                        ##Limitations  
+                        <br />  
+                        * Driving directions don't take traffic into account (but could)
+                        * Examples above required substantial coding on top of the basic platform
+                    </script>
+                </section>
+                
+                <section id="questions" data-markdown>
+					<script type="text/template">
+                    #Perguntas  
+                    #?
+                    </script>
+                </section>
+				
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+                slideNumber: true,
+                previewLinks: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

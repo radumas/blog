@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+<!--
 <div class="post">
 
   <header class="post-header">
@@ -11,4 +12,15 @@ layout: default
   {{ content }}
   </article>
 
+</div>
+-->
+
+<div class="container-fluid index">
+  <div class="row index all-posts">
+      <h2 class="header" itemprop="headline">{{ page.title }}</h2>
+      
+    <div class="col-md-12 content-panel articles">
+        {{ content }}
+      </div>
+    </div>
 </div>
