@@ -5,13 +5,13 @@
     <description></description>
     <link>https://radumas.github.io/coppe-ltc/coppe-ltc/</link>
     <atom:link href="https://radumas.github.io/coppe-ltc/coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 04 Aug 2015 16:02:38 -0300</pubDate>
-    <lastBuildDate>Tue, 04 Aug 2015 16:02:38 -0300</lastBuildDate>
+    <pubDate>Wed, 05 Aug 2015 17:36:50 -0300</pubDate>
+    <lastBuildDate>Wed, 05 Aug 2015 17:36:50 -0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
         <title>Updating a Leaflet map Made with QGIS2web</title>
-        <description>&lt;p&gt;In a &lt;a href=&quot;/mapping/2015/07/31/Modifying-a-webmap/&quot;&gt;previous post&lt;/a&gt; I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. &lt;/p&gt;
+        <description>&lt;p&gt;In a &lt;a href=&quot;/coppe-ltc/mapping/2015/07/24/qgisweb/&quot;&gt;previous post&lt;/a&gt; I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. &lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Some further things I would like to work on with this map:  &lt;br /&gt;
@@ -78,6 +78,27 @@
       </item>
     
       <item>
+        <title>Jekyll Setup</title>
+        <description>&lt;p&gt;There is one rather important thing missing from the otherwise excellent jekyll gh-pages tutorial on &lt;a href=&quot;https://help.github.com/articles/using-jekyll-with-pages/&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You could &lt;strong&gt;almost&lt;/strong&gt; fork any jekyll gh-pages theme and it would run out of the box, but for two things:  &lt;br /&gt;
+1. You have to push an initial commit to the gh-pages branch in order to get github to build the page.  &lt;br /&gt;
+2. For a project page, (as opposed to a user page), if you want the css stylings to appear (a big part of the appeal of jekyll) &lt;a href=&quot;http://jekyllrb.com/docs/github-pages/#project-page-url-structure&quot;&gt;you have to edit&lt;/a&gt; the &lt;code&gt;baseurl&lt;/code&gt; variable in &lt;code&gt;_config.yml&lt;/code&gt; to be the project’s name, ex: &lt;code&gt;baseurl: &quot;/projectname&quot;&lt;/code&gt;. Note the leading &lt;code&gt;/&lt;/code&gt; but no trailing one.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 28 Jul 2015 11:00:00 -0300</pubDate>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>css</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
         <title>QGIS to Leaflet with QGIS2web</title>
         <description>&lt;p&gt;My first leaflet map using the &lt;a href=&quot;https://github.com/tomchadwin/qgis2web&quot;&gt;qgis2web&lt;/a&gt; QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons &lt;a href=&quot;https://github.com/tomchadwin/qgis2web/issues/95&quot;&gt;could not display&lt;/a&gt;.&lt;/p&gt;
 
@@ -135,9 +156,9 @@ The difference in average age was rather remarkable. With much older average age
 3. Restricting zoom levels  &lt;br /&gt;
 4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;/p&gt;
 </description>
-        <pubDate>Tue, 28 Jul 2015 13:06:00 -0300</pubDate>
-        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/28/QGIS2web/</link>
-        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/28/QGIS2web/</guid>
+        <pubDate>Fri, 24 Jul 2015 00:00:00 -0300</pubDate>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/24/qgisweb/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/24/qgisweb/</guid>
         
         <category>QGIS</category>
         
@@ -147,27 +168,6 @@ The difference in average age was rather remarkable. With much older average age
         
         
         <category>mapping</category>
-        
-      </item>
-    
-      <item>
-        <title>Jekyll Setup</title>
-        <description>&lt;p&gt;There is one rather important thing missing from the otherwise excellent jekyll gh-pages tutorial on &lt;a href=&quot;https://help.github.com/articles/using-jekyll-with-pages/&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;You could &lt;strong&gt;almost&lt;/strong&gt; fork any jekyll gh-pages theme and it would run out of the box, but for two things:  &lt;br /&gt;
-1. You have to push an initial commit to the gh-pages branch in order to get github to build the page.  &lt;br /&gt;
-2. For a project page, (as opposed to a user page), if you want the css stylings to appear (a big part of the appeal of jekyll) &lt;a href=&quot;http://jekyllrb.com/docs/github-pages/#project-page-url-structure&quot;&gt;you have to edit&lt;/a&gt; the &lt;code&gt;baseurl&lt;/code&gt; variable in &lt;code&gt;_config.yml&lt;/code&gt; to be the project’s name, ex: &lt;code&gt;baseurl: &quot;/projectname&quot;&lt;/code&gt;. Note the leading &lt;code&gt;/&lt;/code&gt; but no trailing one.&lt;/p&gt;
-</description>
-        <pubDate>Tue, 28 Jul 2015 11:00:00 -0300</pubDate>
-        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/</link>
-        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/</guid>
-        
-        <category>jekyll</category>
-        
-        <category>css</category>
-        
-        
-        <category>jekyll</category>
         
       </item>
     

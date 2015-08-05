@@ -20,6 +20,12 @@ stackoverflow_link: http://gis.stackexchange.com/users/36886/raphael
 
 #404-img: "/img/labtocat.png"
 
+collections:
+    presentations:
+        output: true
+        
+
+
 # Footer
 footer_left: "Made by <a href=\"https://twitter.com/DumasRaphael\">Raphael Dumas</a>"
 footer_right: "Carte-Noire theme by <a href=\"https://twitter.com/_JacobTomlinson\">Jacob Tomlinson</a> <i class=\"fa fa-code-fork\"></i> on <a href=\"https://github.com/jacobtomlinson/carte-noire\">Github</a> &nbsp;<i class=\"fa fa-github-alt\"></i>"

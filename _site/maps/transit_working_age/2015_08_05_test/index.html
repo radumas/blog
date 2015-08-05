@@ -4,26 +4,55 @@
         <title>Working-Age Population Around Rapid Transit </title>
     
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="css/leaflet.css" />
-        <link rel="stylesheet" href="css/MarkerCluster.css" />
-        <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
-        <link rel="stylesheet" type="text/css" href="css/qgis2web.css">
-        <link rel="stylesheet" href="css/label.css" />
+        <link rel="stylesheet" href="/coppe-ltc/maps/transit_working_age/css/leaflet.css" />
+        <link rel="stylesheet" href="/coppe-ltc/maps/transit_working_age/css/MarkerCluster.css" />
+        <link rel="stylesheet" href="/coppe-ltc/maps/transit_working_age/css/MarkerCluster.Default.css" />
+        <link rel="stylesheet" type="text/css" href="/coppe-ltc/maps/transit_working_age/css/qgis2web.css">
+        <link rel="stylesheet" href="/coppe-ltc/maps/transit_working_age/css/label.css" />
         <link rel="stylesheet" href="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.css" />    
-        <script src="js/leaflet.js"></script>
-        <script src="js/leaflet-hash.js"></script>
-        <script src="js/label.js"></script>
-        <script src="js/Autolinker.min.js"></script>
+        <script src="/coppe-ltc/maps/transit_working_age/js/leaflet.js"></script>
+        <script src="/coppe-ltc/maps/transit_working_age/js/leaflet-hash.js"></script>
+        <script src="/coppe-ltc/maps/transit_working_age/js/label.js"></script>
+        <script src="/coppe-ltc/maps/transit_working_age/js/Autolinker.min.js"></script>
         <script src="http://k4r573n.github.io/leaflet-control-osm-geocoder/Control.OSMGeocoder.js"></script>
-        <script src="js/leaflet.markercluster.js"></script>
+        <script src="/coppe-ltc/maps/transit_working_age/js/leaflet.markercluster.js"></script>
+        <link rel="profile" href="http://gmpg.org/xfn/11" />
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" media="all" href="/coppe-ltc/css/style.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="/coppe-ltc/css/jquery.mmenu.all.css" />
+        <link rel="stylesheet" href="/coppe-ltc/css/highlightjs.piperita.css">
+        <link rel="stylesheet" type="text/css"href="/coppe-ltc/css/vid.css">
 <!--        <script src="/maps/leaflet-control-orderlayers/"-->
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     </head>
     <body>
+        <nav id="my-menu">
+  <div>
+    <p>MISTI Internship with The LTC</p>
+    <ul class="pages">
+      <li><a href="/coppe-ltc/"><i class="fa fa-home fa-fw"></i> Home</a></li>
+      <li><a href="/coppe-ltc/posts/"><i class="fa fa-archive fa-fw"></i> All Posts</a></li>
+      <li><a href="/coppe-ltc/search/"><i class="fa fa-search fa-fw"></i> Search</a></li>
+      <li><a href="/coppe-ltc/presentations/"><i class="fa fa-area-chart fa-fw"></i> Presentations</a></li>
+      <li><a href="/coppe-ltc/about"><i class="fa fa-info fa-fw"></i> About</a></li>
+    </ul>
+    <p class="links">
+      <a href="http://www.twitter.com/dumasraphael" target="_new"><i class="fa fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/DumasRaphael" target="_new"><i class="fa fa-linkedin"></i></a>
+      
+      <a href="https://github.com/radumas" target="_new"><i class="fa fa-github-alt"></i></a>
+      <a href="http://gis.stackexchange.com/users/36886/raphael" target="_new"><i class="fa fa-stack-overflow"></i></a>
+      <a href="/coppe-ltc/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+    </p>
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
         <div id="map"></div>
-        <script src="json_WorkingAgePopulation1865.js"></script>
-        <script src="json_AverageAge.js"></script>
-        <script src="json_TransitLines.js"></script>
+        <script src="/coppe-ltc/maps/transit_working_age/json_WorkingAgePopulation1865.js"></script>
+        <script src="/coppe-ltc/maps/transit_working_age/json_AverageAge.js"></script>
+        <script src="/coppe-ltc/maps/transit_working_age/json_TransitLines.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1, scrollWheelZoom: false
@@ -426,12 +455,12 @@
             'Stamen Toner': basemap
         };
         var overlayMaps = {
-            'Working Age Population (18-65)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_020000.png" />  0 - 20,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_2000040000.png" />  20,000 - 40,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_4000060000.png" />  40,000 - 60,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_6000080000.png" />  60,000 - 80,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_80000100000.png" />  80,000 - 100,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_100000120000.png" />  100,000 - 120,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_120000140000.png" />  120,000 - 140,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_140000160000.png" />  140,000 - 160,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_160000180000.png" />  160,000 - 180,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/WorkingAgePopulation1865_180000200000.png" />  180,000 - 200,000 <br />': json_WorkingAgePopulation1865JSON,'Average Age<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_26002800.png" />  26.00 - 28.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_28003000.png" />  28.00 - 30.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_30003200.png" />  30.00 - 32.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_32003400.png" />  32.00 - 34.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_34003600.png" />  34.00 - 36.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_36003800.png" />  36.00 - 38.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_38004000.png" />  38.00 - 40.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_40004200.png" />  40.00 - 42.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_42004400.png" />  42.00 - 44.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/AverageAge_44004600.png" />  44.00 - 46.00 <br />': json_AverageAgeJSON,'Transit Lines<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_METRLINHA1.png" /> METR_LINHA_1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_METRLINHA2.png" /> METR_LINHA_2<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALBELFORDROXO.png" /> RAMAL_BELFORD_ROXO<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALDEODORO.png" /> RAMAL_DEODORO<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALGUAPIMIRIM.png" /> RAMAL_GUAPIMIRIM<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALINHOMIRIM.png" /> RAMAL_INHOMIRIM<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALITAGUA.png" /> RAMAL_ITAGUA<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALJAPERI.png" /> RAMAL_JAPERI<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALPARACAMBI.png" /> RAMAL_PARACAMBI<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALSANTACRUZ.png" /> RAMAL_SANTA_CRUZ<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_RAMALSARACURUNA.png" /> RAMAL_SARACURUNA<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_TELEFERICOALEMAO.png" /> TELEFERICO_ALEMAO<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_TRANSCARIOCAEXP.png" /> TRANSCARIOCA_EXP<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_TRANSCARIOCAPAR.png" /> TRANSCARIOCA_PAR<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_TRANSOESTECG.png" /> TRANSOESTE_CG<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_TRANSOESTESC.png" /> TRANSOESTE_SC<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="legend/TransitLines_.png" /> <br />': json_TransitLinesJSON
+            'Working Age Population (18-65)<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_020000.png" />  0 - 20,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_2000040000.png" />  20,000 - 40,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_4000060000.png" />  40,000 - 60,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_6000080000.png" />  60,000 - 80,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_80000100000.png" />  80,000 - 100,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_100000120000.png" />  100,000 - 120,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_120000140000.png" />  120,000 - 140,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_140000160000.png" />  140,000 - 160,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_160000180000.png" />  160,000 - 180,000 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/WorkingAgePopulation1865_180000200000.png" />  180,000 - 200,000 <br />': json_WorkingAgePopulation1865JSON,'Average Age<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_26002800.png" />  26.00 - 28.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_28003000.png" />  28.00 - 30.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_30003200.png" />  30.00 - 32.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_32003400.png" />  32.00 - 34.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_34003600.png" />  34.00 - 36.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_36003800.png" />  36.00 - 38.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_38004000.png" />  38.00 - 40.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_40004200.png" />  40.00 - 42.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_42004400.png" />  42.00 - 44.00 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/AverageAge_44004600.png" />  44.00 - 46.00 <br />': json_AverageAgeJSON,'Transit Lines<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_METRLINHA1.png" /> METR_LINHA_1<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_METRLINHA2.png" /> METR_LINHA_2<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALBELFORDROXO.png" /> RAMAL_BELFORD_ROXO<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALDEODORO.png" /> RAMAL_DEODORO<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALGUAPIMIRIM.png" /> RAMAL_GUAPIMIRIM<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALINHOMIRIM.png" /> RAMAL_INHOMIRIM<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALITAGUA.png" /> RAMAL_ITAGUA<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALJAPERI.png" /> RAMAL_JAPERI<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALPARACAMBI.png" /> RAMAL_PARACAMBI<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALSANTACRUZ.png" /> RAMAL_SANTA_CRUZ<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_RAMALSARACURUNA.png" /> RAMAL_SARACURUNA<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_TELEFERICOALEMAO.png" /> TELEFERICO_ALEMAO<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_TRANSCARIOCAEXP.png" /> TRANSCARIOCA_EXP<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_TRANSCARIOCAPAR.png" /> TRANSCARIOCA_PAR<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_TRANSOESTECG.png" /> TRANSOESTE_CG<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_TRANSOESTESC.png" /> TRANSOESTE_SC<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/coppe-ltc/maps/transit_working_age/legend/TransitLines_.png" /> <br />': json_TransitLinesJSON
         };
         
-        L.control.layers({},overlayMaps,{autoZIndex:true}).addTo(map);
+        L.control.layers({},overlayMaps,{autoZIndex:false}).addTo(map);
         L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
-        map.on('overlayadd', restackLayers);
+        map.on('addLayer', restackLayers);
 //        map.setMaxBounds(json_TransitLinesJSON.latLngBounds);
        
             

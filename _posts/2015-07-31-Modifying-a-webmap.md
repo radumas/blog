@@ -10,7 +10,7 @@ tags: [ 'QGIS', 'leaflet', 'QGIS2web' ]
 thumbnail: map-marker  
 ---
 
-In a [previous post]({% post_url 2015-07-31-Modifying-a-webmap %}) I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. 
+In a [previous post]({{ site.baseurl }}{% post_url 2015-07-24-qgisweb %}) I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. 
 
  
 > Some further things I would like to work on with this map:  
