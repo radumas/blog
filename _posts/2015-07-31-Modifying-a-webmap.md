@@ -63,4 +63,15 @@ The legend appears to be contained within the `L.control.layers()` function. In 
     L.control.layers({},overlayMaps).addTo(map);
 {% endhighlight %}  
 
-The order of the layers not being respected when turned on and off from the legend is a frustrating issue, one that still doesn't seem to be [necessarily resolved](https://github.com/tomchadwin/qgis2web/issues/96).
+The order of the layers not being respected when turned on and off from the layer control panel is a frustrating issue in leaflet, one that is rumoured to be resolved in a future version of Leaflet. After quite a bit of search, and [trial and error](https://github.com/tomchadwin/qgis2web/issues/96), I came up with a solution that will hopefully be soon incorporated into the QGIS plugin. Modify the `restackLayers` function to the code below, and add the event listener to a layer control `overlayadd` event.
+{% highlight javascript %}
+
+function restackLayers() {
+        for (index = 0; index < layerOrder.length; index++) {
+            layerOrder[index].bringToFront();
+        }
+}
+map.on('overlayadd', restackLayers);
+
+{% endhighlight %}
+
