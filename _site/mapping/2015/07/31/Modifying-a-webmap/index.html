@@ -13,7 +13,6 @@
 <link rel="stylesheet" type="text/css" media="all" href="/coppe-ltc/css/style.css" />
 <link rel="stylesheet" type="text/css" media="all" href="/coppe-ltc/css/jquery.mmenu.all.css" />
 <link rel="stylesheet" href="/coppe-ltc/css/highlightjs.piperita.css">
-<link rel="stylesheet" type="text/css"href="/coppe-ltc/css/vid.css">
 
 <!-- Favicons generated at http://realfavicongenerator.net/ -->
 <link rel="apple-touch-icon" sizes="57x57" href="/coppe-ltc/favicons/apple-touch-icon-57x57.png">
@@ -50,6 +49,7 @@
       <li><a href="/coppe-ltc/posts/"><i class="fa fa-archive fa-fw"></i> All Posts</a></li>
       <li><a href="/coppe-ltc/search/"><i class="fa fa-search fa-fw"></i> Search</a></li>
       <li><a href="/coppe-ltc/presentations/"><i class="fa fa-area-chart fa-fw"></i> Presentations</a></li>
+      <li><a href="/coppe-ltc/about"><i class="fa fa-info fa-fw"></i> About</a></li>
     </ul>
     <p class="links">
       <a href="http://www.twitter.com/dumasraphael" target="_new"><i class="fa fa-twitter"></i></a>
@@ -102,12 +102,12 @@
 
       <div class="read-time">
         <small>
-          2 minute read
+          3 minute read
         </small>
       </div>
 
       <div class="content-panel content">
-        <span itemprop="articleBody"><p>In a <a href="/mapping/2015/07/31/Modifying-a-webmap/">previous post</a> I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. </p>
+        <span itemprop="articleBody"><p>In a <a href="/coppe-ltc/mapping/2015/07/24/qgisweb/">previous post</a> I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. </p>
 
 <blockquote>
   <p>Some further things I would like to work on with this map:  <br />
@@ -156,7 +156,15 @@
 
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">L</span><span class="p">.</span><span class="nx">control</span><span class="p">.</span><span class="nx">layers</span><span class="p">({},</span><span class="nx">overlayMaps</span><span class="p">).</span><span class="nx">addTo</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span></code></pre></div>
 
-<p>The order of the layers not being respected when turned on and off from the legend is a frustrating issue, one that still doesn’t seem to be <a href="https://github.com/tomchadwin/qgis2web/issues/96">necessarily resolved</a>.</p>
+<p>The order of the layers not being respected when turned on and off from the layer control panel is a frustrating issue in leaflet, one that is rumoured to be resolved in a future version of Leaflet. After quite a bit of search, and <a href="https://github.com/tomchadwin/qgis2web/issues/96">trial and error</a>, I came up with a solution that will hopefully be soon incorporated into the QGIS plugin. Modify the <code>restackLayers</code> function to the code below, and add the event listener to a layer control <code>overlayadd</code> event.</p>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">restackLayers</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">index</span> <span class="o">&lt;</span> <span class="nx">layerOrder</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">index</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">layerOrder</span><span class="p">[</span><span class="nx">index</span><span class="p">].</span><span class="nx">bringToFront</span><span class="p">();</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="nx">map</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;overlayadd&#39;</span><span class="p">,</span> <span class="nx">restackLayers</span><span class="p">);</span></code></pre></div>
+
 </span>
 
         
@@ -179,23 +187,25 @@
       <div class="content-panel related clearfix">
         
         <div class="related-header">
-          <a href="/coppe-ltc/mapping/2015/07/28/QGIS2web/">Read More</a>
+          <a href="/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/">Read More</a>
         </div>
           <div class="title">
-            <a href="/coppe-ltc/mapping/2015/07/28/QGIS2web/">QGIS to Leaflet with QGIS2web</a>
+            <a href="/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/">Jekyll Setup</a>
           </div>
           <div class="excerpt">
              
-              My first leaflet map using the qgis2web QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons could not...
+              There is one rather important thing missing from the otherwise excellent jekyll gh-pages tutorial on github.
+
+
              
-            <a href="/coppe-ltc/mapping/2015/07/28/QGIS2web/">Continue Reading</a>
+            <a href="/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/">Continue Reading</a>
           </div>
         
         <hr />
         <div class="previous previous-next">
           
           <p>
-            <a href="/coppe-ltc/mapping/2015/07/28/QGIS2web/">QGIS to Leaflet with QGIS2web</a>
+            <a href="/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/">Jekyll Setup</a>
           </p>
           <p class="date">Published July 28, 2015</p>
           

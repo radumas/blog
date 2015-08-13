@@ -9,19 +9,19 @@
     } ,
     
   {
-    "title"    : "QGIS to Leaflet with QGIS2web",
-    "category" : "",
-    "tags"     : "QGIS, leaflet, census",
-    "url"      : "/coppe-ltc/mapping/2015/07/28/QGIS2web/",
-    "date"     : "2015-07-28 13:06:00 -0300"
-    } ,
-    
-  {
     "title"    : "Jekyll Setup",
     "category" : "",
     "tags"     : "jekyll, css",
     "url"      : "/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/",
     "date"     : "2015-07-28 11:00:00 -0300"
+    } ,
+    
+  {
+    "title"    : "QGIS to Leaflet with QGIS2web",
+    "category" : "",
+    "tags"     : "QGIS, leaflet, census",
+    "url"      : "/coppe-ltc/mapping/2015/07/24/qgisweb/",
+    "date"     : "2015-07-24 00:00:00 -0300"
     } 
     
   ]

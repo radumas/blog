@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MISTI Internship with The LTC</title>
+    <description></description>
+    <link>https://radumas.github.io/coppe-ltc/coppe-ltc/</link>
+    <atom:link href="https://radumas.github.io/coppe-ltc/coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 07 Aug 2015 16:44:46 -0300</pubDate>
+    <lastBuildDate>Fri, 07 Aug 2015 16:44:46 -0300</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>Updating a Leaflet map Made with QGIS2web</title>
+        <description>&lt;p&gt;In a &lt;a href=&quot;/coppe-ltc/mapping/2015/07/24/qgisweb/&quot;&gt;previous post&lt;/a&gt; I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. &lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Some further things I would like to work on with this map:  &lt;br /&gt;
+1. Displaying the legend in two columns  &lt;br /&gt;
+2. Disabling scroll zoom &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;without clicking on the map&lt;/a&gt;  &lt;br /&gt;
+3. Restricting zoom levels  &lt;br /&gt;
+4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h1 id=&quot;disabling-scroll-zoom&quot;&gt;Disabling Scroll Zoom&lt;/h1&gt;
+
+&lt;p&gt;Previously, if scrolling down in the middle of the page, you would get the behaviour in the map below:&lt;/p&gt;
+
+&lt;div class=&quot;leaflet-map&quot;&gt;
+    &lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;This can be disabled, as per this &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;gis.stackexchange post&lt;/a&gt; by replacing the definition of the map variable:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;zoomControl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;maxZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fitBounds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;23.0310490725&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;43.7439095692&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;22.4740929065&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;42.9533150116&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;with:  &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;map&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;zoomControl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;maxZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;28&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;minZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;scrollWheelZoom&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fitBounds&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;23.0310490725&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;43.7439095692&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;22.4740929065&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;42.9533150116&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;once&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;focus&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;scrollWheelZoom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;enable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Tada! You now have to click within the map to activate scroll wheel zooming.  &lt;/p&gt;
+
+&lt;div class=&quot;leaflet-map&quot;&gt;
+    &lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index2.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;restricting-zoom-level-to-layer-extent&quot;&gt;Restricting Zoom Level to Layer Extent&lt;/h1&gt;
+
+&lt;p&gt;To prevent the map from being zoomed out beyond the extents of the layer, I added the following:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;minZoom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getZoom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h1 id=&quot;editing-the-legend&quot;&gt;Editing the Legend&lt;/h1&gt;
+
+&lt;p&gt;The legend appears to be contained within the &lt;code&gt;L.control.layers()&lt;/code&gt; function. In order to remove the basemaps radio button, I passed it an empty variable:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;control&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;layers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({},&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;overlayMaps&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addTo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The order of the layers not being respected when turned on and off from the layer control panel is a frustrating issue in leaflet, one that is rumoured to be resolved in a future version of Leaflet. After quite a bit of search, and &lt;a href=&quot;https://github.com/tomchadwin/qgis2web/issues/96&quot;&gt;trial and error&lt;/a&gt;, I came up with a solution that will hopefully be soon incorporated into the QGIS plugin. Modify the &lt;code&gt;restackLayers&lt;/code&gt; function to the code below, and add the event listener to a layer control &lt;code&gt;overlayadd&lt;/code&gt; event.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;restackLayers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;layerOrder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;layerOrder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bringToFront&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;overlayadd&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;restackLayers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</description>
+        <pubDate>Fri, 31 Jul 2015 13:00:00 -0300</pubDate>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/31/Modifying-a-webmap/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/31/Modifying-a-webmap/</guid>
+        
+        <category>QGIS</category>
+        
+        <category>leaflet</category>
+        
+        <category>QGIS2web</category>
+        
+        
+        <category>mapping</category>
+        
+      </item>
+    
+      <item>
+        <title>Jekyll Setup</title>
+        <description>&lt;p&gt;There is one rather important thing missing from the otherwise excellent jekyll gh-pages tutorial on &lt;a href=&quot;https://help.github.com/articles/using-jekyll-with-pages/&quot;&gt;github&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You could &lt;strong&gt;almost&lt;/strong&gt; fork any jekyll gh-pages theme and it would run out of the box, but for two things:  &lt;br /&gt;
+1. You have to push an initial commit to the gh-pages branch in order to get github to build the page.  &lt;br /&gt;
+2. For a project page, (as opposed to a user page), if you want the css stylings to appear (a big part of the appeal of jekyll) &lt;a href=&quot;http://jekyllrb.com/docs/github-pages/#project-page-url-structure&quot;&gt;you have to edit&lt;/a&gt; the &lt;code&gt;baseurl&lt;/code&gt; variable in &lt;code&gt;_config.yml&lt;/code&gt; to be the project’s name, ex: &lt;code&gt;baseurl: &quot;/projectname&quot;&lt;/code&gt;. Note the leading &lt;code&gt;/&lt;/code&gt; but no trailing one.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 28 Jul 2015 11:00:00 -0300</pubDate>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/</guid>
+        
+        <category>jekyll</category>
+        
+        <category>css</category>
+        
+        
+        <category>jekyll</category>
+        
+      </item>
+    
+      <item>
+        <title>QGIS to Leaflet with QGIS2web</title>
+        <description>&lt;p&gt;My first leaflet map using the &lt;a href=&quot;https://github.com/tomchadwin/qgis2web&quot;&gt;qgis2web&lt;/a&gt; QGIS plugin. It is surprisingly easy to use to make nice Leaflet maps. Though unfortunately my custom rio metro .svg icons &lt;a href=&quot;https://github.com/tomchadwin/qgis2web/issues/95&quot;&gt;could not display&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;exploring-census-data-for-rio-de-janeiro&quot;&gt;Exploring census data for Rio de Janeiro.&lt;/h2&gt;
+&lt;p&gt;The map below was made using census data on the ages of the literate population (ages 5-80), and the population age (ages 1-100). The work flow to create this map is described &lt;a href=&quot;#workflow&quot;&gt;below&lt;/a&gt;.  &lt;/p&gt;
+
+&lt;div class=&quot;leaflet-map&quot;&gt;
+    &lt;iframe src=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Click &lt;a href=&quot;/coppe-ltc/maps/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map. &lt;/p&gt;
+
+&lt;h2 id=&quot;thoughts&quot;&gt;Thoughts&lt;/h2&gt;
+&lt;p&gt;The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.  &lt;br /&gt;
+The difference in average age was rather remarkable. With much older average ages in the core and substantially younger ones in the periphery. The difference is particularly striking when looking at Line 1 of the Metro versus Line 2. Many (American) tourists wonder why Line 1 doesn’t extend further into Ipanema and Leblon, parts of the city of particular importance to tourists. But anecdotal evidence from the few times I’ve taken the metro in rush points to far more people taking Line 2 from the North West of the city into the center for work. &lt;/p&gt;
+
+&lt;h2 id=&quot;workflow&quot;&gt;Workflow:&lt;/h2&gt;
+&lt;p&gt;I made the map below using the following steps:  &lt;br /&gt;
+1. I made 1km buffers around every active BRT, Commuter Rail, Gondola, and Metro station.  &lt;br /&gt;
+2. I intersected these buffers with census geometries, calculating the area of each polygon before and after the intersection.  &lt;br /&gt;
+3. I summed up the columns for literate persons from age 18 to 65 in postgresql to get the total working age population for each polygon.  &lt;br /&gt;
+4. In order to get an “average age” I multiplied each age column from 1 to 100 by the number of people in that age column. The following sed command was useful &lt;code&gt;sed -r &#39;s_([0-9]+)_\1 * &amp;amp; \+_&#39; &amp;lt;age_columns.txt &amp;gt;age_multiply.txt&lt;/code&gt; to repeat the number of the column (the age) after a multiplication symbol.  &lt;br /&gt;
+5. I then summed these two variables and unioned the shapes with:  &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipo_de_si&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  
+    &lt;span class=&quot;k&quot;&gt;SUM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x_area&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;original_area&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;working_age_pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;  
+	&lt;span class=&quot;n&quot;&gt;ST_Union&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;geom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;geom&lt;/span&gt;  
+    &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rio_stations_stats&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alfab_rio_stations_1000&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;  
+    &lt;span class=&quot;k&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;by&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nome&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tipo_de_si&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Finally:  &lt;br /&gt;
+6. I colour-coded each line according to their official colours.  &lt;br /&gt;
+7. And then used the plugin to create the map below, exporting the map to its own folder.&lt;br /&gt;
+8. The map displayed when testing jekyll locally, but the data wouldn’t load on gh-pages, so I had to do a small bit of editing. I had to move the contents of the &lt;code&gt;data/&lt;/code&gt; folder to the root folder of the map (where the map’s &lt;code&gt;index.html&lt;/code&gt; is located). And then edit the source paths in &lt;code&gt;index.html&lt;/code&gt; to remove “data”  &lt;br /&gt;
+&lt;img src=&quot;/coppe-ltc/img/2015-07-24/map_change.png&quot; alt=&quot;screenshot1&quot; /&gt;  &lt;br /&gt;
+9. I then embedded the map into this post using an iframe. In order to get the iframe to be “responsive” (change size depending on the size of the window) &lt;a href=&quot;http://stackoverflow.com/questions/31660273/markdown-jekyll-insert-an-iframe-that-fills-the-container&quot;&gt;I had to add some code&lt;/a&gt; to the css &lt;a href=&quot;https://github.com/radumas/coppe-ltc/blob/f8bfc63002f0be5eea3ce301d0dd87e15bfdb07a/css/style.scss#L633&quot;&gt;stylesheet&lt;/a&gt; and then wrapped the &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; tags with a &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;. Unfortunately, mysteriously, this broke some markdown formatting &lt;strong&gt;outside&lt;/strong&gt; the &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; tags, so I switched markdown parser to &lt;code&gt;kramdown&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class =&lt;/span&gt;&lt;span class=&quot;err&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;leaflet-map&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;iframe&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/coppe-ltc/maps/transit_working_age/index.html&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;600&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;900&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;frameborder=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;allowfullscreen&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;ni&quot;&gt;&amp;amp;nbsp;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/iframe&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;wishes&quot;&gt;Wishes&lt;/h2&gt;
+
+&lt;h3 id=&quot;qgis2web-plugin&quot;&gt;QGIS2web plugin&lt;/h3&gt;
+&lt;p&gt;It would be nice if the plugin:  &lt;br /&gt;
+1. Could let you edit the variable names in the popups.  &lt;br /&gt;
+2. Didn’t display the basemap radio button.  &lt;br /&gt;
+3. Respected layer order. If you turn a layer off and then on, it automatically displays on top. &lt;/p&gt;
+
+&lt;h3 id=&quot;things-to-play-with&quot;&gt;Things to play with&lt;/h3&gt;
+&lt;p&gt;Some further things I would like to work on with this map:  &lt;br /&gt;
+1. Displaying the legend in two columns  &lt;br /&gt;
+2. Disabling scroll zoom &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;without clicking on the map&lt;/a&gt;  &lt;br /&gt;
+3. Restricting zoom levels  &lt;br /&gt;
+4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;/p&gt;
+</description>
+        <pubDate>Fri, 24 Jul 2015 00:00:00 -0300</pubDate>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/24/qgisweb/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/mapping/2015/07/24/qgisweb/</guid>
+        
+        <category>QGIS</category>
+        
+        <category>leaflet</category>
+        
+        <category>census</category>
+        
+        
+        <category>mapping</category>
+        
+      </item>
+    
+  </channel>
+</rss>
