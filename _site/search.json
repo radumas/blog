@@ -1,0 +1,36 @@
+[
+  
+  {
+    "title"    : "Setting Up OpenTraffic on a Ubuntu 14.04 Laptop",
+    "category" : "",
+    "tags"     : "ubuntu 14.04, opentraffic",
+    "url"      : "/coppe-ltc/tutorials/2015/09/16/setting-up-opentraffic/",
+    "date"     : "2015-09-16 00:00:00 -0300"
+    } ,
+    
+  {
+    "title"    : "Updating a Leaflet map Made with QGIS2web",
+    "category" : "",
+    "tags"     : "QGIS, leaflet, QGIS2web",
+    "url"      : "/coppe-ltc/mapping/2015/07/31/Modifying-a-webmap/",
+    "date"     : "2015-07-31 13:00:00 -0300"
+    } ,
+    
+  {
+    "title"    : "Jekyll Setup",
+    "category" : "",
+    "tags"     : "jekyll, css",
+    "url"      : "/coppe-ltc/jekyll/2015/07/28/Jekyll-setup/",
+    "date"     : "2015-07-28 11:00:00 -0300"
+    } ,
+    
+  {
+    "title"    : "QGIS to Leaflet with QGIS2web",
+    "category" : "",
+    "tags"     : "QGIS, leaflet, census",
+    "url"      : "/coppe-ltc/mapping/2015/07/24/qgisweb/",
+    "date"     : "2015-07-24 00:00:00 -0300"
+    } 
+    
+  ]
+

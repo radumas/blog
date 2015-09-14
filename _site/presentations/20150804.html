@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>OpenTripPlanner: Analyzing Transit Scenarios for LTC</title>
+
+		<meta name="description" content="Open-source tools to analyze mobility scenarios for Ilha do Fundao">
+		<meta name="author" content="Raphael Dumas">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+					<script type="text/template">
+                        ##MISTI Internship at LTC  
+                        <br />  
+                        Using open-source tools to analyze mobility scenarios for Ilha do Fundão  
+                        <br />
+                        #####2015-08-04  
+                        <br />
+                        ###Created by [Raphael Dumas](https://twitter.com/DumasRaphael)
+                        <br />
+                        Follow along at [radumas.github.io/coppe-ltc/presentations/20150804/](https://radumas.github.io/coppe-ltc/presentations/20150804/)
+                    </script>
+				</section>
+                
+                <section id="aboutme" data-markdown>
+					<script type="text/template">
+                        ##About Raphael
+                        <br />
+                        * Canadian
+                        * B. Eng Civil <t><t> _McGill 2012_
+                        * M.S. Transportation & M. City Planning <t> _MIT 2015_
+                        * Master's Thesis: _Analyzing Transit Equity Using Automatically Collected Data_
+                          * 1 month of automatically inferred OD data from the MBTA
+                          * Using demographics of PT commuters by race analyzed travel times between a *Black* population and a *White* one.
+                          * Proposed and briefly analyzed potential interventions to mitigate disparities in travel time
+                    </script>
+                </section>
+
+                
+                <section id="outline" data-markdown>
+					<script type="text/template">
+                        ##Outline  
+                        <br />
+                        * [Brief History](#history)
+                        * [OpenTripPlanner](#otp)
+                        * [Examples](#examples)
+                        * [Possible Analyses](#possibleanalyses)
+                        * [Data Requirements](#datareqs)
+                    </script>
+                </section>
+                
+                <section id="history" data-markdown>
+					<script type="text/template">
+                        ##History
+                        <br />
+                        * LTC: Laboratorio de Transporte de Carga
+                        * With funding from Fundo Verde investigating using Fundão as a living laboratory to reduce GHG
+                        emissions from commuters
+                        * Have completed OD survey of commuters and estimated emissions
+                        * Investigating public transit solutions to reduce emissions
+                    </script>
+                </section>
+                
+                <section id="otp"> 
+                    <section id="otp_description" data-markdown>
+                            <script type="text/template">
+                                ##Open Trip Planner  
+                                <br />
+                                [Open Trip Planner](http://www.opentripplanner.org/) is an open-source routing and analysis tool designed to use open 
+                                data (GTFS, OpenStreetMap, Census) initially developed in 2009 for Portland, Oregon. It is now funded by the [Software 
+                                Freedom Conservancy](http://sfconservancy.org/) and maintained by [Conveyal](http://conveyal.com/), a transportation 
+                                consulting firm based in Washington, D.C. 
+                            </script>
+                    </section>
+                    
+                    <section id="otp_instance" data-markdown>
+                            <script type="text/template">
+                                ##Open Trip Planner: Basic Implementation for Boston
+                                ![Instance Screenshot](img/otp_screenshot.png)
+                            </script>
+                    </section>
+            
+                    <section id="otp_analyst_server" data-markdown>
+                            <script type="text/template">
+                                ###Open Trip Planner Analyst Server
+                                [link](https://github.com/conveyal/analyst-server/)
+                                ![Analyst Splash](img/analyst_splash.png)
+                            </script>
+                    </section>
+                    
+                    <section id="otp_analyst_server2" data-markdown>
+                            <script type="text/template">
+                                ###Open Trip Planner Analyst Server  
+                                <br />
+                                Analyst Server builds on OTP's routing algorithm to perform all-to-all travel time
+                                estimates in order to calculate accessibility (the number of "opportunities" available
+                                within a specified travel time). The web interface allows analysis of different scenarios
+                                and comparisons. 
+                            </script>
+                    </section>
+                    
+				</section>
+                
+                <section id="examples">
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##Examples  
+                            <br />
+                            
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##Examples  
+                            <br />
+                            <br />
+                            [Marseille](http://62.210.125.178/marseille/)
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##Examples  
+                            <br />
+                            <br />
+                            [New York's Regional Plan Association](http://fragile-success.rpa.org/maps/jobs.html)
+                        </script>
+                    </section>
+                    
+                </section>
+                
+                <section id="possibleanalyses">
+                    <section data-markdown>
+                        <script type="text/template">
+                        ##Possible Analyses  
+                        <br />  
+                        1. Travel Time Comparisons
+                        2. Accessibility Analysis  
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+					   <script type="text/template">
+                            ###1. Travel Time Comparisons
+                            <br />
+                            1. For every OD pair, calculate public transit travel time using current travel time.
+                            2. For each proposed scenario, recalculate travel times.  
+                            3. Aggregate travel time savings.
+                            <br />
+                            There are [instructions](https://github.com/opentripplanner/otp-batch-analysis/blob/master/OTPMethodology.pdf) to
+                            accomplish this with the basic OTP package.
+                        </script>
+                    </section>
+                                        
+                    <section data-markdown>
+                        <script type="text/template">
+                            ###2. Accessibility analysis  
+                            <br />
+                               * How many students/employees can access the Ilha in x mins?
+                               * How many potential students/employees can...?
+                        </script>
+                    </section>
+                    
+                </section>
+                
+                <section id="datareqs">
+                    <section data-markdown>
+					   <script type="text/template">
+                            ##Data Requirements  
+                            <br />
+                            - [&nbsp;] GTFS Schedules for Bus, Metro and Boat
+                            - [x] Street Network (can get from OSM)
+                            - [x] Demographic Data by Geography for Rio (.shp file)
+                              - [x] Aggregate Employee/student locations
+                              - [x] \#Residents by education/income
+                              
+                        </script>
+                    </section>
+                </section>                
+                
+                <section id="map" >
+                    <iframe width="1366" height="540" src="../maps/transit_working_age/index3.html">                            &nbsp; </iframe>
+                    <a target="_blank" href="../maps/transit_working_age/index3.html">Full Screen</a>
+                    
+                </section>
+                
+                <section id="questions" data-markdown>
+					<script type="text/template">
+                    #Perguntas  
+                    #?
+                    </script>
+                </section>
+				
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+                slideNumber: true,
+                previewLinks: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
+

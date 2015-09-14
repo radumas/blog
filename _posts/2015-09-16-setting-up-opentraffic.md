@@ -5,10 +5,12 @@ title: "Setting Up OpenTraffic on a Ubuntu 14.04 Laptop"
 published: false
 categories: Tutorials
 author: Raphael Dumas
-summary: "OpenTraffic is an open-source engine to generate observed speed statistics on road links from GPS observations of vehicles"
-tags: [ 'ubuntu', 'traffic']
+summary: "Tutorial on using GPS data in OpenTraffic."
+tags: [ 'ubuntu 14.04', 'opentraffic']
 thumbnail: road  
 ---
+
+#Set Up
 
 [OpenTraffic](https://opentraffic.io)
 
@@ -40,12 +42,6 @@ Some notes on implementation
 2. Column order is wrong is csv-loader README. It should be `utc_timestamp,unique_vehicle_id,lon,lat`
 3. The timestamp must be [ISO 8601 with timezone](https://en.wikipedia.org/wiki/ISO_8601) e.g. `2015-09-08 01:55:28+00:00` 
 4. The vehicle id needs to be an integer. Since vehicle IDs in the Rio dataset are 6 character strings with a leading letter and 5 numbers, I converted the first letter to a number using Postgresql's `ascii(string)` [function](http://www.postgresql.org/docs/9.3/static/functions-string.html#FUNCTIONS-STRING-OTHER) which converts a ascii character into an "code point of the character" (an integer). 
+5. There was an error when running the csv-uploader, that the calls to Conveyal's vex server were failing. After some support on twitter, I opened an [issue on github](https://github.com/opentraffic/traffic-engine-app/issues/2). While I was able to resolve the issue with [this workaround](https://github.com/opentraffic/traffic-engine-app/issues/2#issuecomment-139228168), it seemed the situation was is still developing.
 
-error with vex
-{% highlight bash %}
-Received response code 500 from vex server
-Sep 09, 2015 5:31:55 PM com.conveyal.traffic.app.engine.EngineWorker run
-WARNING: Index: 0, Size: 0
-Sep 09, 2015 5:31:55 PM com.conveyal.traffic.osm.OSMDataStore loadOSMTile
-INFO: loading osm from: http://osm.conveyal.com/vex/?n=-22.917922936146038&s=-23.079731762449885&e=-43.41796875&w=-43.59375
-{% endhighlight %}
+##To be continued....
