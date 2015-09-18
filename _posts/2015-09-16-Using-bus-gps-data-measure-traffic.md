@@ -20,9 +20,9 @@ Data on traffic is currently expensive to collect, though with ubiquitous GPS se
 
 With this data one can more accurately model accessibility, the number of potential opportunities an individual can access using either bus or car modes. It will allow apps to better represent travel times for users seeking directions. With more accurate travel time and accessibility estimation more informed decision-making can occur over which transportation investments to make.
 
-# Other posts
+# Further Reading on this Project
 The following other posts will appear in this series (check back for links):  
 1. Explaining how I pulled and archived data from FeTranspor (the local bus conglomerate)
-2. A introductory analysis of the bus gps data
+2. A introductory analysis of the bus GPS data
 3. How I setup OpenTraffic and processed the gps data to work with the platform
 4. Analysis of the resulting traffic speeds and the coverage of the bus GPS data
