@@ -19,21 +19,12 @@ thumbnail: map-marker
 These instructions detail how to set up an instance in a Digital Ocean Droplet running `Ubuntu 14.04`
 
 ##Dependencies
-The software requires [Play](http://www.playframework.com) and a [vanilla extract](https://github.com/conveyal/vanilla-extract.git) server.
+The software requires [maven](https://en.wikipedia.org/wiki/Apache_Maven) to manage dependencies. Unfortunately (and this seems to be a theme), maven 3.1.1+. Toget this I referred to [these instructions](http://askubuntu.com/questions/420281/how-to-update-maven-3-0-4-3-1-1) but using the latest binary:
+{% highlight bash %}
+wget http://mirror.nbtelecom.com.br/apache/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz
 
-###Play
-Download the latest "online" zip with 
-```shell
-wget https://downloads.typesafe.com/typesafe-activator/1.3.5/typesafe-activator-1.3.5-minimal.zip
-7z x typesafe-activator-1.3.5-minimal.zip
-#Verify that the activator script is executable
-cd activator-1.3.5-minimal/
-ls -lha
-export PATH=/path/to/activatorfolder/:$PATH
-```
+Note that the rest of the instructions must use the `3.3.3` version number for this maven build. Not that a restart is required after editing `~/.profile`. Once you log back in check the maven version with `mvn --version`
 
-###~~vanilla extract~~
-**not used**
 
 ##Analyst Server
 Clone the github repo and then edit `conf/application.conf.template`
