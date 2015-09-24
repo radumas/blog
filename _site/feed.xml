@@ -5,55 +5,39 @@
     <description></description>
     <link>https://radumas.github.io/coppe-ltc/coppe-ltc/</link>
     <atom:link href="https://radumas.github.io/coppe-ltc/coppe-ltc/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 14 Sep 2015 18:22:22 -0300</pubDate>
-    <lastBuildDate>Mon, 14 Sep 2015 18:22:22 -0300</lastBuildDate>
+    <pubDate>Thu, 17 Sep 2015 16:28:48 -0300</pubDate>
+    <lastBuildDate>Thu, 17 Sep 2015 16:28:48 -0300</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
-        <title>Setting Up OpenTraffic on a Ubuntu 14.04 Laptop</title>
-        <description>&lt;p&gt;#Set Up&lt;/p&gt;
+        <title>Using Bus GPS Data to Generate Street Speeds with OpenTraffic</title>
+        <description>&lt;p&gt;When you say you work in transportation, it is common in major cities for people to complain to you about the uniquely horrible traffic there. Rio is certainly no exception, and it does have the &lt;a href=&quot;http://urbandemographics.blogspot.com.br/2014/11/the-evolution-of-commute-times-in.html&quot;&gt;longest commute times in Brazil&lt;/a&gt;. What seems unique (to me) here is the semi-predictable reliability of the traffic. Since most public transit riders travel in buses in mixed-traffic as opposed to BRT, Metro, Boat, or Gondola (which, due to gang violence, has its own unique reliability issues), this affects a large proportion of commuters. Unreliability can seriously affect peoples’ lives: if a typical 1hr commute can &lt;em&gt;occasionally&lt;/em&gt; be &lt;strong&gt;2 hours&lt;/strong&gt; (or more), do you buffer your commute time according to the occasional disastrous conditions?&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://opentraffic.io&quot;&gt;OpenTraffic&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Though I heard many stories of this lack reliability in travel speeds on the street network, no one had any data beyond anecdotes and hearsay. Though so-called “indigenous knowledge”, the experiences of locals, can be valuable, I was taught to rely on impersonal data, preferably lots of it. Before arriving here in Rio I had heard of &lt;a href=&quot;https://opentraffic.io&quot;&gt;OpenTraffic.io&lt;/a&gt;. It is an Open-Source (free to use and free to modify the code) platform built by a partnership of Conveyal, the World Bank, Mapbox and Mapzen which aims to collect GPS traces from fleets of vehicles in cities around the world and eventually provide historic traffic speeds in &lt;a href=&quot;http://www.openstreetmap.org&quot;&gt;Open Street Map&lt;/a&gt;, an API, and other formats. &lt;/p&gt;
 
-&lt;p&gt;Install maven&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://opentraffic.io/img/process.png&quot; alt=&quot;&#39;Open Traffic Diagram (C) 2015 opentraffic&#39;&quot; /&gt;&lt;/p&gt;
 
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo apt-get install maven&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Data on traffic is currently expensive to collect, though with ubiquitous GPS sensors the passive collection of massive amounts of vehicle locations is possible. Most of the time this data is proprietary, such as data from the crowd-sourced Waze app, which can be bought from Google, or the data collected by large commercial fleets such as FedEx or UPS for their private uses. But cities can have access to data from fleets of city-owned vehicles, or from city-managed vehicles such as taxis and buses, and these are the kinds of data generators that OpenTraffic is interested in collecting data from. Input a collection of data points consisting of a vehicle id and a timestamped GPS position, and the OpenTraffic engine will produce anonymized information on traffic speeds on city streets.&lt;/p&gt;
 
-&lt;p&gt;Seems the engine is now neatly packaged into a &lt;a href=&quot;https://github.com/opentraffic/traffic-engine-app&quot;&gt;web-app&lt;/a&gt; which you run as a jar from the command-line and then access from a browser. &lt;/p&gt;
+&lt;p&gt;With this data one can more accurately model accessibility, the number of potential opportunities an individual can access using either bus or car modes. It will allow apps to better represent travel times for users seeking directions. With more accurate travel time and accessibility estimation more informed decision-making can occur over which transportation investments to make.&lt;/p&gt;
 
-&lt;p&gt;Building it from source fails with:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;ERROR&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; Failed to execute goal on project traffic-engine-app: Could not resolve dependencies &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; project com.conveyal:traffic-engine-app:jar:0.0.1-SNAPSHOT: Failure to find com.conveyal:traffic-engine:jar:0.1-SNAPSHOT in http://maven.conveyal.com/ was cached in the &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;repository, resolution will not be reattempted &lt;span class=&quot;k&quot;&gt;until&lt;/span&gt; the update interval of conveyal has elapsed or updates are forced -&amp;gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Help 1&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal on project traffic-engine-app: Could not resolve dependencies &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; project com.conveyal:traffic-engine-app:jar:0.0.1-SNAPSHOT: Failure to find com.conveyal:traffic-engine:jar:0.1-SNAPSHOT in http://maven.conveyal.com/ was cached in the &lt;span class=&quot;nb&quot;&gt;local &lt;/span&gt;repository, resolution will not be reattempted &lt;span class=&quot;k&quot;&gt;until&lt;/span&gt; the update interval of conveyal has elapsed or updates are forced&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;The app runs on &lt;code&gt;Java 1.8&lt;/code&gt;, which isn’t officially available via the &lt;code&gt;Ubuntu 14.04&lt;/code&gt; channels, so I had to manually install &lt;code&gt;open-jdk-8-jdk&lt;/code&gt; &lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt-get update
-sudo apt-get install openjdk-8-jdk&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Some notes on implementation &lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;The csv shouldn’t have a header.&lt;/li&gt;
-  &lt;li&gt;Column order is wrong is csv-loader README. It should be &lt;code&gt;utc_timestamp,unique_vehicle_id,lon,lat&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;The timestamp must be &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_8601&quot;&gt;ISO 8601 with timezone&lt;/a&gt; e.g. &lt;code&gt;2015-09-08 01:55:28+00:00&lt;/code&gt; &lt;/li&gt;
-  &lt;li&gt;The vehicle id needs to be an integer. Since vehicle IDs in the Rio dataset are 6 character strings with a leading letter and 5 numbers, I converted the first letter to a number using Postgresql’s &lt;code&gt;ascii(string)&lt;/code&gt; &lt;a href=&quot;http://www.postgresql.org/docs/9.3/static/functions-string.html#FUNCTIONS-STRING-OTHER&quot;&gt;function&lt;/a&gt; which converts a ascii character into an “code point of the character” (an integer). &lt;/li&gt;
-  &lt;li&gt;There was an error when running the csv-uploader, that the calls to Conveyal’s vex server were failing. After some support on twitter, I opened an &lt;a href=&quot;https://github.com/opentraffic/traffic-engine-app/issues/2&quot;&gt;issue on github&lt;/a&gt;. While I was able to resolve the issue with &lt;a href=&quot;https://github.com/opentraffic/traffic-engine-app/issues/2#issuecomment-139228168&quot;&gt;this workaround&lt;/a&gt;, it seemed the situation was is still developing.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;##To be continued….&lt;/p&gt;
+&lt;h1 id=&quot;other-posts&quot;&gt;Other posts&lt;/h1&gt;
+&lt;p&gt;The following other posts will appear in this series (check back for links):  &lt;br /&gt;
+1. Explaining how I pulled and archived data from FeTranspor (the local bus conglomerate)&lt;br /&gt;
+2. A introductory analysis of the bus gps data&lt;br /&gt;
+3. How I setup OpenTraffic and processed the gps data to work with the platform&lt;br /&gt;
+4. Analysis of the resulting traffic speeds and the coverage of the bus GPS data&lt;/p&gt;
 </description>
         <pubDate>Wed, 16 Sep 2015 00:00:00 -0300</pubDate>
-        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/tutorials/2015/09/16/setting-up-opentraffic/</link>
-        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/tutorials/2015/09/16/setting-up-opentraffic/</guid>
+        <link>https://radumas.github.io/coppe-ltc/coppe-ltc/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic/</link>
+        <guid isPermaLink="true">https://radumas.github.io/coppe-ltc/coppe-ltc/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic/</guid>
         
-        <category>ubuntu 14.04</category>
+        <category>traffic</category>
         
         <category>opentraffic</category>
         
         
-        <category>tutorials</category>
+        <category>opentraffic</category>
         
       </item>
     

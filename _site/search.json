@@ -1,10 +1,10 @@
 [
   
   {
-    "title"    : "Setting Up OpenTraffic on a Ubuntu 14.04 Laptop",
+    "title"    : "Using Bus GPS Data to Generate Street Speeds with OpenTraffic",
     "category" : "",
-    "tags"     : "ubuntu 14.04, opentraffic",
-    "url"      : "/coppe-ltc/tutorials/2015/09/16/setting-up-opentraffic/",
+    "tags"     : "traffic, opentraffic",
+    "url"      : "/coppe-ltc/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic/",
     "date"     : "2015-09-16 00:00:00 -0300"
     } ,
     
