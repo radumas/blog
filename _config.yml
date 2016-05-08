@@ -3,8 +3,8 @@
 title: "MISTI Internship with The LTC"
 url: "http://radumas.info/blog"
 baseurl: "/blog"
-title_description: "Displaying projects, thoughts, etc. while working for the Laboratorio de Transportes de Cargas at COPPE, the graduate engineering research school within the Federal University of Rio de Janeiro (UFRJ)"
-title_image: "https://radumas.github.io/coppe-ltc/img/Bus_in_Rio_de_Janeiro.jpg"
+title_description: "Displaying projects, thoughts, tutorials, etc. while working transportation"
+title_image: "http://radumas.info/blog/img/Bus_in_Rio_de_Janeiro.jpg"
 keywords: "transportation, research, ghg, climate change, accessibility, rio de janeiro, coppe, ufrj, brasil"
 favicon: "/favicons/favicon.ico"
 google_analytics: false
