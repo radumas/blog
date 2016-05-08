@@ -27,22 +27,22 @@ layout: default
 
       <div class="author">
         <small><i>
+          {% if page.author %}
           by
           <span itemprop="author">
             {% if site.google_plus_link %}
               <a rel="author" href="{{ site.google_plus_link }}">
             {% endif %}
-            {% if page.author %}
             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
               <span itemprop="name">{{ page.author }}</span>
             </span>
-            {% endif %}
             {% if site.google_plus_link %}
               </a>
             {% endif %}
           </span>
+          {% endif %}
           on <span itemprop="datePublished" content="2014-08-28">{{ page.date | date: "%B %-d, %Y" }}</span>
-          under {% if page.categories %}{% for category in page.categories limit:1 %}{{ category }}{% endfor %}{% endif %}
+          {% if page.categories != empty %} under {% for category in page.categories limit:1 %}{{ category }}{% endfor %}{% endif %}
         </i></small>
       </div>
 
@@ -53,7 +53,36 @@ layout: default
       </div>
 
       <div class="content-panel content">
+
+        {% if page.series %}
+          This post is part of the series '{{ page.series }}':
+          <ol class="series">
+          {% for apost in site.posts reversed %}
+            {% if page.series == apost.series %}
+              <li>
+                {% if page.title == apost.title %}
+                  {% assign nextpost = true %}
+                  {{ apost.title }}
+                {% else %}
+                  {% if nextpost == true %}
+                    {% assign seriesnext = apost %}
+                  {% endif %}
+                  {% assign nextpost = false %}
+                  <a href="{{ apost.url }}">{{ apost.title }}</a>
+                {% endif %}
+              </li>
+            {% endif %}
+          {% endfor %}
+          </ol>
+        {% endif %}
+
         <span itemprop="articleBody">{{ content }}</span>
+
+        {% if page.series %}
+          {% if seriesnext %}
+            <i>Next post in the series:</i> <a href="{{ seriesnext.url }}">{{ seriesnext.title }}</a>
+          {% endif %}
+        {% endif %}
 
         {% if site.addthis_id %}
         <div class="share">
@@ -62,17 +91,33 @@ layout: default
         </div>
         {% endif %}
 
-        <div class="tags"><small>
+        {% if page.tags and page.tags.size > 0 %}
+        <div class="tags">
+          <small>
           <i class="fa fa-tags"></i>
             {{ page.tags | join: ', ' }}
-        </small></div>
+          </small>
+        </div>
+        {% endif %}
 
       </div>
 
+      {% if site.twitter_username and site.disqus_account %}
       <div class="content-panel feedback">
         I <i class="fa fa-heart"></i> feedback.<br />
         Let me know what you think of this article on twitter <a href="http://www.twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a> or leave a comment below!
       </div>
+      {% elsif site.twitter_username %}
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/{{ site.twitter_username }}">@{{ site.twitter_username }}</a>!
+      </div>
+      {% elsif site.disqus_account %}
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article in the comment section below!
+      </div>
+      {% endif %}
 
       {% if site.disqus_account %}
       <div class="content-panel comments">
@@ -83,6 +128,7 @@ layout: default
       </div>
       {% endif %}
 
+      {% if site.related_posts.length > 0 %}
       <div class="content-panel related clearfix">
         {% for post in site.related_posts limit:1 %}
         <div class="related-header">
@@ -118,6 +164,7 @@ layout: default
           {% endif %}
         </div>
       </div>
+      {% endif %}
 
     </div>
 
