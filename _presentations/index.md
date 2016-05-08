@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Presentations
+excerpt: false
 ---
 
 <div class="articles" markdown="1">
