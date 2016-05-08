@@ -13,6 +13,6 @@ thumbnail: cloud-download
 ## curl 
 Including timestamp in filenames from [askubuntu](http://askubuntu.com/questions/94979/save-hourly-file-from-curl-response)
 
-{% highlight bash %}
+```bash 
 curl http://dadosabertos.rio.rj.gov.br/apiTransporte/apresentacao/csv/onibus.cfm -o "data$(date +%F-%H:%M).txt"
-{% endhighlight %}
+```

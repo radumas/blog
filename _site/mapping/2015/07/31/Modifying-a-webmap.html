@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Updating a Leaflet map Made with QGIS2web</title>
+<meta name="description" content="">
+
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" media="all" href="/css/jquery.mmenu.all.css" />
+<link rel="stylesheet" href="/css/highlightjs.piperita.css">
+
+<!-- Favicons generated at http://realfavicongenerator.net/ -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-touch-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon-180x180.png">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-chrome-192x192.png" sizes="192x192">
+<link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/favicons/manifest.json">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+</head>
+
+
+    <body>
+
+    <nav id="my-menu">
+  <div>
+    <p>MISTI Internship with The LTC</p>
+    <ul class="pages">
+      <li><a href="/"><i class="fa fa-home fa-fw"></i> Home</a></li>
+      <li><a href="/posts/"><i class="fa fa-archive fa-fw"></i> All Posts</a></li>
+      <li><a href="/search/"><i class="fa fa-search fa-fw"></i> Search</a></li>
+      <li><a href="/presentations/"><i class="fa fa-area-chart fa-fw"></i> Presentations</a></li>
+      <li><a href="/about"><i class="fa fa-info fa-fw"></i> About</a></li>
+    </ul>
+    <p class="links">
+      <a href="http://www.twitter.com/dumasraphael" target="_new"><i class="fa fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/DumasRaphael" target="_new"><i class="fa fa-linkedin"></i></a>
+      
+      <a href="https://github.com/radumas" target="_new"><i class="fa fa-github-alt"></i></a>
+      <a href="http://gis.stackexchange.com/users/36886/raphael" target="_new"><i class="fa fa-stack-overflow"></i></a>
+      <a href="/feed.xml" target="_new"><i class="fa fa-rss"></i></a>
+    </p>
+  </div>
+</nav>
+<div class="menu-button" href="#menu"><i class="fa fa-bars"></i></div>
+
+
+    <div class="page-content">
+      <div class="wrap">
+      
+  
+  
+
+
+<div class="container-fluid single">
+  <div class="row">
+
+    <div itemscope itemtype="http://schema.org/Article" class="col-md-12 article">
+      
+      <div class="thumb">
+        <i class="fa fa-map-marker fa-4x"></i>
+      </div>
+      
+
+      <h1 class="header" itemprop="name">Updating a Leaflet map Made with QGIS2web</h1>
+
+      <div class="author">
+        <small><i>
+          by
+          <span itemprop="author">
+            
+            
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+              <span itemprop="name">Raphael Dumas</span>
+            </span>
+            
+            
+          </span>
+          on <span itemprop="datePublished" content="2014-08-28">July 31, 2015</span>
+          under mapping
+        </i></small>
+      </div>
+
+      <div class="read-time">
+        <small>
+          2 minute read
+        </small>
+      </div>
+
+      <div class="content-panel content">
+        <span itemprop="articleBody"><p>In a <a href="/mapping/2015/07/24/qgisweb.html">previous post</a> I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. </p>
+
+<blockquote>
+  <p>Some further things I would like to work on with this map:<br />
+1. Displaying the legend in two columns<br />
+2. Disabling scroll zoom <a href="http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map">without clicking on the map</a><br />
+3. Restricting zoom levels<br />
+4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  </p>
+</blockquote>
+
+<h1 id="disabling-scroll-zoom">Disabling Scroll Zoom</h1>
+
+<p>Previously, if scrolling down in the middle of the page, you would get the behaviour in the map below:</p>
+
+<div class="leaflet-map">
+    <iframe src="/maps/transit_working_age/index.html" height="675" width="900" frameborder="0" allowfullscreen="">&nbsp; </iframe>
+</div>
+
+<p>This can be disabled, as per this <a href="http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map">gis.stackexchange post</a> by replacing the definition of the map variable:</p>
+
+<p><code>javascript
+var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-23.0310490725,-43.7439095692],[-22.4740929065,-42.9533150116]]);
+</code></p>
+
+<p>with:<br />
+<code>javascript
+var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1, scrollWheelZoom: false
+        }).fitBounds([[-23.0310490725,-43.7439095692],[-22.4740929065,-42.9533150116]]);
+map.once('focus', function() { map.scrollWheelZoom.enable(); });
+</code></p>
+
+<p>Tada! You now have to click within the map to activate scroll wheel zooming.  </p>
+
+<div class="leaflet-map">
+    <iframe src="/maps/transit_working_age/index2.html" height="675" width="900" frameborder="0" allowfullscreen="">&nbsp; </iframe>
+</div>
+
+<h1 id="restricting-zoom-level-to-layer-extent">Restricting Zoom Level to Layer Extent</h1>
+
+<p>To prevent the map from being zoomed out beyond the extents of the layer, I added the following:
+```javascript
+        map.options.minZoom = map.getZoom();
+`</p>
+
+<h1 id="editing-the-legend">Editing the Legend</h1>
+
+<p>The legend appears to be contained within the <code>L.control.layers()</code> function. In order to remove the basemaps radio button, I passed it an empty variable:
+<code>javascript
+    L.control.layers({},overlayMaps).addTo(map);
+</code>  </p>
+
+<p>The order of the layers not being respected when turned on and off from the layer control panel is a frustrating issue in leaflet, one that is rumoured to be resolved in a future version of Leaflet. After quite a bit of search, and <a href="https://github.com/tomchadwin/qgis2web/issues/96">trial and error</a>, I came up with a solution that will hopefully be soon incorporated into the QGIS plugin. Modify the <code>restackLayers</code> function to the code below, and add the event listener to a layer control <code>overlayadd</code> event.
+```javascript</p>
+
+<p>function restackLayers() {
+        for (index = 0; index &lt; layerOrder.length; index++) {
+            layerOrder[index].bringToFront();
+        }
+}
+map.on(‘overlayadd’, restackLayers);</p>
+
+<p>```</p>
+
+</span>
+
+        
+
+        <div class="tags"><small>
+          <i class="fa fa-tags"></i>
+            QGIS, leaflet, QGIS2web
+        </small></div>
+
+      </div>
+
+      <div class="content-panel feedback">
+        I <i class="fa fa-heart"></i> feedback.<br />
+        Let me know what you think of this article on twitter <a href="http://www.twitter.com/dumasraphael">@dumasraphael</a> 
+<!--          or leave a comment below!-->
+      </div>
+
+      
+
+      <div class="content-panel related clearfix">
+        
+        <div class="related-header">
+          <a href="/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic.html">Read More</a>
+        </div>
+          <div class="title">
+            <a href="/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic.html">Using Bus GPS Data to Generate Street Speeds with OpenTraffic</a>
+          </div>
+          <div class="excerpt">
+             
+              Hearing many people mentioning the difficulty of reliable travel times in Rio without citing data, I decided to see if OpenTraffic could shed some light.
+             
+            <a href="/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic.html">Continue Reading</a>
+          </div>
+        
+        <hr />
+        <div class="previous previous-next">
+          
+          <p>
+            <a href="/jekyll/2015/07/28/Jekyll-setup.html">Jekyll Setup</a>
+          </p>
+          <p class="date">Published July 28, 2015</p>
+          
+        </div>
+        <div class="next previous-next">
+          
+          <p>
+            <a href="/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic.html">Using Bus GPS Data to Generate Street Speeds with OpenTraffic</a>
+          </p>
+          <p class="date">Published September 16, 2015</p>
+          
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+      </div>
+    </div>
+
+    <div class="footer clearfix">
+  <div class="col-md-6">
+    Made by <a href="https://twitter.com/DumasRaphael">Raphael Dumas</a>
+  </div>
+  <div class="col-md-6">
+    Carte-Noire theme by <a href="https://twitter.com/_JacobTomlinson">Jacob Tomlinson</a> <i class="fa fa-code-fork"></i> on <a href="https://github.com/jacobtomlinson/carte-noire">Github</a> &nbsp;<i class="fa fa-github-alt"></i>
+  </div>
+</div>
+
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="/js/jquery.mmenu.min.all.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script type="text/javascript">
+   $(document).ready(function() {
+      $("#my-menu").mmenu().on( "closed.mm", function() {
+            $(".menu-button").show();
+         });
+      $(".menu-button").click(function() {
+        $(".menu-button").hide();
+        $("#my-menu").trigger("open.mm");
+      });
+   });
+</script>
+
+
+
+
+    </body>
+</html>

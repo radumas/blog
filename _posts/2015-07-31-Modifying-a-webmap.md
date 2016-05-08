@@ -29,19 +29,19 @@ Previously, if scrolling down in the middle of the page, you would get the behav
 
 This can be disabled, as per this [gis.stackexchange post](http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map) by replacing the definition of the map variable:
 
-{% highlight javascript %}
+```javascript
 var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
         }).fitBounds([[-23.0310490725,-43.7439095692],[-22.4740929065,-42.9533150116]]);
-{% endhighlight %}
+```
 
 with:  
-{% highlight javascript %}
+```javascript
 var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1, scrollWheelZoom: false
         }).fitBounds([[-23.0310490725,-43.7439095692],[-22.4740929065,-42.9533150116]]);
 map.once('focus', function() { map.scrollWheelZoom.enable(); });
-{% endhighlight %}  
+```
 
 Tada! You now have to click within the map to activate scroll wheel zooming.  
 
@@ -52,19 +52,19 @@ Tada! You now have to click within the map to activate scroll wheel zooming.
 # Restricting Zoom Level to Layer Extent
 
 To prevent the map from being zoomed out beyond the extents of the layer, I added the following:
-{% highlight javascript %}
+```javascript
         map.options.minZoom = map.getZoom();
-{% endhighlight %}
+`
 
 # Editing the Legend
 
 The legend appears to be contained within the `L.control.layers()` function. In order to remove the basemaps radio button, I passed it an empty variable:
-{% highlight javascript %}
+```javascript
     L.control.layers({},overlayMaps).addTo(map);
-{% endhighlight %}  
+```  
 
 The order of the layers not being respected when turned on and off from the layer control panel is a frustrating issue in leaflet, one that is rumoured to be resolved in a future version of Leaflet. After quite a bit of search, and [trial and error](https://github.com/tomchadwin/qgis2web/issues/96), I came up with a solution that will hopefully be soon incorporated into the QGIS plugin. Modify the `restackLayers` function to the code below, and add the event listener to a layer control `overlayadd` event.
-{% highlight javascript %}
+```javascript
 
 function restackLayers() {
         for (index = 0; index < layerOrder.length; index++) {
@@ -73,5 +73,5 @@ function restackLayers() {
 }
 map.on('overlayadd', restackLayers);
 
-{% endhighlight %}
+```
 
