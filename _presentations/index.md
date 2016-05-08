@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Presentations
-excerpt: false
+excerpt_separator: ""
 ---
 
 <div class="articles" markdown="1">
