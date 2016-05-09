@@ -23,8 +23,8 @@ stackoverflow_link: http://gis.stackexchange.com/users/36886/raphael
 collections:
     presentations:
         output: true
-        
-
+    category:
+        output: true
 
 # Footer
 footer_left: "Made by <a href=\"https://twitter.com/DumasRaphael\">Raphael Dumas</a>"
