@@ -4,7 +4,7 @@ section-type: post
 title: "Jekyll Setup"
 summaries: "Some non-obvious things when setting up Jekyll in gh-pages"
 date: 2015-07-28 14:00:00
-categories: jekyll
+categories: coppe-ltc
 author: Raphael Dumas
 tags: [ 'jekyll', 'css' ]
 thumbnail: jekyll  

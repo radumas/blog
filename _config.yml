@@ -1,11 +1,11 @@
 # Site settings
 
-title: "MISTI Internship with The LTC"
+title: "RAD Transportation"
 url: "http://radumas.info/blog"
 baseurl: "/blog"
-title_description: "Displaying projects, thoughts, tutorials, etc. while working transportation"
+title_description: "Displaying projects, opinions, tutorials, etc. while working on transportation"
 title_image: "http://radumas.info/blog/img/Bus_in_Rio_de_Janeiro.jpg"
-keywords: "transportation, research, ghg, climate change, accessibility, rio de janeiro, coppe, ufrj, brasil"
+keywords: "transportation, research, ghg, climate change, accessibility, tutorials, transit, data analysis"
 favicon: "/favicons/favicon.ico"
 google_analytics: false
 #disqus_account: false
@@ -23,8 +23,8 @@ stackoverflow_link: http://gis.stackexchange.com/users/36886/raphael
 collections:
     presentations:
         output: true
-        
-
+    category:
+        output: true
 
 # Footer
 footer_left: "Made by <a href=\"https://twitter.com/DumasRaphael\">Raphael Dumas</a>"
@@ -41,4 +41,4 @@ markdown: kramdown
 
 #permalink: pretty
 # Exclusion list from the generated _site
-exclude: ["LICENSE", "readme.md", "vendor", "README.*", "gtfs-editor"]
+exclude: ["LICENSE", "_presentations/readme.md", "_category/readme.md", "vendor", "README.*", "otp", "_gps"]

@@ -4,7 +4,7 @@ section-type: post
 title: "Updating a Leaflet map Made with QGIS2web"
 summary: "Editing the code for a map created with the qgis2web plugin in order to improve the visuals."
 date: 2015-07-31 16:00:00
-categories: Mapping
+categories: ['coppe-ltc', 'mapping']
 author: Raphael Dumas
 tags: [ 'QGIS', 'leaflet', 'QGIS2web' ]
 thumbnail: map-marker  

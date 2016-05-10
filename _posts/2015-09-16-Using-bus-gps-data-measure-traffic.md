@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: "Using Bus GPS Data to Generate Street Speeds with OpenTraffic"
 published: true
-categories: opentraffic
+categories: coppe-ltc
 author: Raphael Dumas
 summary: "Hearing many people mentioning the difficulty of reliable travel times in Rio without citing data, I decided to see if OpenTraffic could shed some light."
 tags: [ 'traffic', 'opentraffic']
