@@ -1,6 +1,3 @@
-[submodule "gtfs-editor"]
-	path = gtfs-editor
-	url = https://github.com/conveyal/gtfs-editor.git
 [submodule "maps/leaflet-control-orderlayers"]
 	path = maps/leaflet-control-orderlayers
 	url = https://github.com/elesdoar/leaflet-control-orderlayers.git
