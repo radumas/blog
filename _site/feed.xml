@@ -1,13 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MISTI Internship with The LTC</title>
+    <title>RAD Transportation</title>
     <description></description>
-    <link>http://radumas.info/blog/</link>
-    <atom:link href="http://radumas.info/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 08 May 2016 15:21:35 -0400</pubDate>
-    <lastBuildDate>Sun, 08 May 2016 15:21:35 -0400</lastBuildDate>
+    <link>http://radumas.info/blog/blog/</link>
+    <atom:link href="http://radumas.info/blog/blog/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 12 May 2016 17:03:16 -0400</pubDate>
+    <lastBuildDate>Thu, 12 May 2016 17:03:16 -0400</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>This one simple line of code could make your map mobile-responsive</title>
+        <description>&lt;h2 id=&quot;desktop-launch&quot;&gt;Desktop Launch&lt;/h2&gt;
+
+&lt;p&gt;I launched the &lt;a href=&quot;/bcu/2016/02/22/Draw-where-you-want-better-bike-infra.html&quot;&gt;Bikeways for Everybody map&lt;/a&gt; in February with the design having been primarily aimed at a desktop browser. I rather erroneously thought that, through the magic of javascript, all of the plugins I used would look nice when I loaded the map on my phone.&lt;br /&gt;
+&lt;img src=&quot;/blog/img/2016-05-12/nexus_screenshot.png&quot; alt=&quot;&#39;Example screenshot on Nexus&#39;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I was wrong.  &lt;/p&gt;
+
+&lt;p&gt;So I focussed on responding to feedback on the desktop experience while attending Code for Boston hacknights hoping to meet someone who was an expert in designing websites/maps for mobile. However, as I used it, biked around, and thought of different constituencies to promote the map to, I realized how valuable mobile would be. &lt;/p&gt;
+
+&lt;h2 id=&quot;a-pixel-is-not-actually-a-pixel&quot;&gt;A Pixel is not Actually a Pixel&lt;/h2&gt;
+
+&lt;p&gt;It was only this past Tuesday that I finally got the chance to look at this problem. I had gotten pointed to &lt;a href=&quot;http://www.quirksmode.org/blog/archives/2010/04/a_pixel_is_not.html&quot;&gt;A Pixel is not a Pixel&lt;/a&gt; a number of times, but had been confused by the fact that my phone’s screen has a better resolution than my laptop’s. I kept hearing a suggestion to use a &lt;code&gt;&amp;lt;meta name=&quot;viewport&quot; ...&amp;gt;&lt;/code&gt; tag, but didn’t want to push a change to the map to test it on my phone. What’s confusing about that article is that handheld device browsers apparently state a &lt;code&gt;device-width&lt;/code&gt; in pixels that aren’t real pixels. So a &lt;code&gt;1080p&lt;/code&gt; display might actually be &lt;code&gt;320 px&lt;/code&gt; wide. &lt;/p&gt;
+
+&lt;h2 id=&quot;how-did-i-eventually-figure-this-out&quot;&gt;How did I eventually figure this out?&lt;/h2&gt;
+
+&lt;p&gt;Well I started styling the icons in the top left in &lt;code&gt;em&lt;/code&gt;s, which represents the pixels in an &lt;code&gt;m&lt;/code&gt; character in the browser’s font and started testing the look on my phone. I couldn’t manage to pan around or zoom in on the map though on my phone, so I looked into what I could do to enable that and &lt;a href=&quot;http://stackoverflow.com/a/21245567/4047679&quot;&gt;found this on stackexchange&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This however does work for me:
+&lt;code&gt;
+&amp;lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; /&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;There was that &lt;code&gt;&amp;lt;meta name=&quot;viewport&quot; ...&amp;gt;&lt;/code&gt; tag again. So I decided to test that out. Fortunately I had separated out the Bikeways project into two live sites: one on my personal github page, and the other on an account I created for Bike Union, so that in the future someone could modify the Union’s instance of Bikeways without &lt;em&gt;necessarily&lt;/em&gt; needing me. Anyways, I inserted that one line of code into the &lt;code&gt;header&lt;/code&gt; on the test site and… Things Just Worked™  (mostly).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/blog/img/2016-05-12/nexus_mobile_screenshot.jpeg&quot; alt=&quot;&#39;Things Working&#39;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I’m now on to learning how to improve the UX on mobile. For example, the handy tooltips don’t appear anymore on mouse hover, because there’s no mouse. If you want to help in this phase of coding, check out &lt;a href=&quot;https://github.com/radumas/bikeways4everybody/milestones/High%20DPI-responsive&quot;&gt;these issues&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;lessons-learned&quot;&gt;Lessons learned:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;If a solution is one line of code, Just Do It™&lt;/li&gt;
+  &lt;li&gt;Having two separate live sites, one real, one for testing, helped make the above point easier&lt;/li&gt;
+  &lt;li&gt;A pixel is apparently not a pixel on mobile&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;some-further-resources&quot;&gt;Some Further Resources&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://leafletjs.com/examples/mobile.html&quot;&gt;This leaflet tutorial&lt;/a&gt; to make a map for mobile. &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 12 May 2016 18:00:00 -0400</pubDate>
+        <link>http://radumas.info/blog/blog/bcu/tutorial/2016/05/12/This-one-simple-line-of-code-could-make-your-map-mobile-responsive.html</link>
+        <guid isPermaLink="true">http://radumas.info/blog/blog/bcu/tutorial/2016/05/12/This-one-simple-line-of-code-could-make-your-map-mobile-responsive.html</guid>
+        
+        <category>bikeways4everybody</category>
+        
+        <category>leaflet</category>
+        
+        <category>mobile-responsive</category>
+        
+        
+        <category>bcu</category>
+        
+        <category>tutorial</category>
+        
+      </item>
+    
+      <item>
+        <title>Draw Where you Want Better Bike Infrastructure</title>
+        <description>&lt;p&gt;&lt;em&gt;&lt;strong&gt;Note&lt;/strong&gt; this post was originally published on &lt;a href=&quot;https://www.linkedin.com/pulse/where-do-you-want-better-biking-infrastructure-boston-raphael-dumas?trk=prof-post&quot;&gt;LinkedIn&lt;/a&gt; and is here as a &lt;a href=&quot;http://tvtropes.org/pmwiki/pmwiki.php/Main/Retcon&quot;&gt;retcon&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;As part of my internship with the &lt;a href=&quot;http://bostoncyclistsunion.org/&quot;&gt;Boston Cyclists Union&lt;/a&gt;, I developed an &lt;a href=&quot;http://boston-cyclists-union.github.io/bikeways4everybody&quot;&gt;online crowdsourcing map&lt;/a&gt; where people who bike and folks who would like to bike can view existing infrastructure and draw in where they would like to see improvements. The front-end is &lt;a href=&quot;http://leafletjs.com/&quot;&gt;Leaflet&lt;/a&gt; &amp;amp; Javascript with &lt;a href=&quot;https://www.mapbox.com/developers/api/directions/&quot;&gt;Mapbox Directions&lt;/a&gt; for route drawing and hosted on Github. The backend is &lt;a href=&quot;http://cartodb.com/&quot;&gt;CartoDB&lt;/a&gt; which is an awesome augmentation of PostGIS/PostgreSQL that gives you a lot for free.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/radumas/bikeways4everybody/gh-pages/img/draw_route.gif&quot; alt=&quot;&#39;Route drawing gif&#39;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Since the map was published on the BCU’s blog last Wednesday, we’ve received 350 submissions from 77 distinct individuals.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet tw-align-center&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;What 108 submitted points for better &lt;a href=&quot;https://twitter.com/hashtag/biking?src=hash&quot;&gt;#biking&lt;/a&gt; infrastructure look like w &lt;a href=&quot;https://twitter.com/cartoDB&quot;&gt;@cartoDB&lt;/a&gt; &lt;a href=&quot;https://twitter.com/hashtag/torquejs?src=hash&quot;&gt;#torquejs&lt;/a&gt; &lt;a href=&quot;https://t.co/xdqdof3kvk&quot;&gt;https://t.co/xdqdof3kvk&lt;/a&gt; &lt;a href=&quot;https://t.co/5iVXpANKy9&quot;&gt;pic.twitter.com/5iVXpANKy9&lt;/a&gt;&lt;/p&gt;&amp;mdash; Raphael Dumas (@DumasRaphael) &lt;a href=&quot;https://twitter.com/DumasRaphael/status/700786206867480576&quot;&gt;February 19, 2016&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;//platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;As we get more data, I’ll be analyzing submissions using CartoDB’s PostGIS tools to find which routes have the most submissions.&lt;/p&gt;
+
+&lt;p&gt;Want to participate? You can draw your own routes in here.&lt;/p&gt;
+
+&lt;p&gt;Want to bring this tool to your area? &lt;a href=&quot;http://radumas.info/#contact&quot;&gt;Get in touch with me&lt;/a&gt;. The code is open-source on &lt;a href=&quot;https://github.com/radumas/bikeways4everybody&quot;&gt;github&lt;/a&gt; and everything is freely hosted.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 22 Feb 2016 17:00:00 -0500</pubDate>
+        <link>http://radumas.info/blog/blog/bcu/2016/02/22/Draw-where-you-want-better-bike-infra.html</link>
+        <guid isPermaLink="true">http://radumas.info/blog/blog/bcu/2016/02/22/Draw-where-you-want-better-bike-infra.html</guid>
+        
+        <category>bikeways4everybody</category>
+        
+        <category>crowdsourcing</category>
+        
+        <category>webmap</category>
+        
+        <category>leaflet</category>
+        
+        <category>cartodb</category>
+        
+        
+        <category>bcu</category>
+        
+      </item>
     
       <item>
         <title>Using Bus GPS Data to Generate Street Speeds with OpenTraffic</title>
@@ -29,21 +128,21 @@
 4. Analysis of the resulting traffic speeds and the coverage of the bus GPS data&lt;/p&gt;
 </description>
         <pubDate>Wed, 16 Sep 2015 00:00:00 -0400</pubDate>
-        <link>http://radumas.info/blog/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic.html</link>
-        <guid isPermaLink="true">http://radumas.info/blog/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic.html</guid>
+        <link>http://radumas.info/blog/blog/coppe-ltc/2015/09/16/Using-bus-gps-data-measure-traffic.html</link>
+        <guid isPermaLink="true">http://radumas.info/blog/blog/coppe-ltc/2015/09/16/Using-bus-gps-data-measure-traffic.html</guid>
         
         <category>traffic</category>
         
         <category>opentraffic</category>
         
         
-        <category>opentraffic</category>
+        <category>coppe-ltc</category>
         
       </item>
     
       <item>
         <title>Updating a Leaflet map Made with QGIS2web</title>
-        <description>&lt;p&gt;In a &lt;a href=&quot;/mapping/2015/07/24/qgisweb.html&quot;&gt;previous post&lt;/a&gt; I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. &lt;/p&gt;
+        <description>&lt;p&gt;In a &lt;a href=&quot;/blog/coppe-ltc/mapping/2015/07/24/qgisweb.html&quot;&gt;previous post&lt;/a&gt; I created a Leaflet webmap using QGIS and the qgis2web plugin. I had a list of modifications that I wanted to perform on the map after creating the code using that plugin. &lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;Some further things I would like to work on with this map:&lt;br /&gt;
@@ -58,7 +157,7 @@
 &lt;p&gt;Previously, if scrolling down in the middle of the page, you would get the behaviour in the map below:&lt;/p&gt;
 
 &lt;div class=&quot;leaflet-map&quot;&gt;
-    &lt;iframe src=&quot;/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+    &lt;iframe src=&quot;/blog/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
 &lt;/div&gt;
 
 &lt;p&gt;This can be disabled, as per this &lt;a href=&quot;http://gis.stackexchange.com/questions/111887/leaflet-mouse-wheel-zoom-only-after-click-on-map&quot;&gt;gis.stackexchange post&lt;/a&gt; by replacing the definition of the map variable:&lt;/p&gt;
@@ -80,7 +179,7 @@ map.once(&#39;focus&#39;, function() { map.scrollWheelZoom.enable(); });
 &lt;p&gt;Tada! You now have to click within the map to activate scroll wheel zooming.  &lt;/p&gt;
 
 &lt;div class=&quot;leaflet-map&quot;&gt;
-    &lt;iframe src=&quot;/maps/transit_working_age/index2.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+    &lt;iframe src=&quot;/blog/maps/transit_working_age/index2.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
 &lt;/div&gt;
 
 &lt;h1 id=&quot;restricting-zoom-level-to-layer-extent&quot;&gt;Restricting Zoom Level to Layer Extent&lt;/h1&gt;
@@ -111,8 +210,8 @@ map.on(‘overlayadd’, restackLayers);&lt;/p&gt;
 
 </description>
         <pubDate>Fri, 31 Jul 2015 12:00:00 -0400</pubDate>
-        <link>http://radumas.info/blog/mapping/2015/07/31/Modifying-a-webmap.html</link>
-        <guid isPermaLink="true">http://radumas.info/blog/mapping/2015/07/31/Modifying-a-webmap.html</guid>
+        <link>http://radumas.info/blog/blog/coppe-ltc/mapping/2015/07/31/Modifying-a-webmap.html</link>
+        <guid isPermaLink="true">http://radumas.info/blog/blog/coppe-ltc/mapping/2015/07/31/Modifying-a-webmap.html</guid>
         
         <category>QGIS</category>
         
@@ -120,6 +219,8 @@ map.on(‘overlayadd’, restackLayers);&lt;/p&gt;
         
         <category>QGIS2web</category>
         
+        
+        <category>coppe-ltc</category>
         
         <category>mapping</category>
         
@@ -134,15 +235,15 @@ map.on(‘overlayadd’, restackLayers);&lt;/p&gt;
 2. For a project page, (as opposed to a user page), if you want the css stylings to appear (a big part of the appeal of jekyll) &lt;a href=&quot;http://jekyllrb.com/docs/github-pages/#project-page-url-structure&quot;&gt;you have to edit&lt;/a&gt; the &lt;code&gt;baseurl&lt;/code&gt; variable in &lt;code&gt;_config.yml&lt;/code&gt; to be the project’s name, ex: &lt;code&gt;baseurl: &quot;/projectname&quot;&lt;/code&gt;. Note the leading &lt;code&gt;/&lt;/code&gt; but no trailing one.&lt;/p&gt;
 </description>
         <pubDate>Tue, 28 Jul 2015 10:00:00 -0400</pubDate>
-        <link>http://radumas.info/blog/jekyll/2015/07/28/Jekyll-setup.html</link>
-        <guid isPermaLink="true">http://radumas.info/blog/jekyll/2015/07/28/Jekyll-setup.html</guid>
+        <link>http://radumas.info/blog/blog/coppe-ltc/2015/07/28/Jekyll-setup.html</link>
+        <guid isPermaLink="true">http://radumas.info/blog/blog/coppe-ltc/2015/07/28/Jekyll-setup.html</guid>
         
         <category>jekyll</category>
         
         <category>css</category>
         
         
-        <category>jekyll</category>
+        <category>coppe-ltc</category>
         
       </item>
     
@@ -154,10 +255,10 @@ map.on(‘overlayadd’, restackLayers);&lt;/p&gt;
 &lt;p&gt;The map below was made using census data on the ages of the literate population (ages 5-80), and the population age (ages 1-100). The work flow to create this map is described &lt;a href=&quot;#workflow&quot;&gt;below&lt;/a&gt;.  &lt;/p&gt;
 
 &lt;div class=&quot;leaflet-map&quot;&gt;
-    &lt;iframe src=&quot;/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
+    &lt;iframe src=&quot;/blog/maps/transit_working_age/index.html&quot; height=&quot;675&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&amp;nbsp; &lt;/iframe&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Click &lt;a href=&quot;/maps/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map. &lt;/p&gt;
+&lt;p&gt;Click &lt;a href=&quot;/blog/maps/transit_working_age/index.html&quot;&gt;here&lt;/a&gt; for a full page map. &lt;/p&gt;
 
 &lt;h2 id=&quot;thoughts&quot;&gt;Thoughts&lt;/h2&gt;
 &lt;p&gt;The metro serves the denser areas (obviously), though the favela of Complexo Alemao, served by the gondola, is very high density.&lt;br /&gt;
@@ -182,12 +283,12 @@ The difference in average age was rather remarkable. With much older average age
 6. I colour-coded each line according to their official colours.&lt;br /&gt;
 7. And then used the plugin to create the map below, exporting the map to its own folder.
 8. The map displayed when testing jekyll locally, but the data wouldn’t load on gh-pages, so I had to do a small bit of editing. I had to move the contents of the &lt;code&gt;data/&lt;/code&gt; folder to the root folder of the map (where the map’s &lt;code&gt;index.html&lt;/code&gt; is located). And then edit the source paths in &lt;code&gt;index.html&lt;/code&gt; to remove “data”&lt;br /&gt;
-&lt;img src=&quot;/img/2015-07-24/map_change.png&quot; alt=&quot;screenshot1&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/blog/img/2015-07-24/map_change.png&quot; alt=&quot;screenshot1&quot; /&gt;&lt;br /&gt;
 9. I then embedded the map into this post using an iframe. In order to get the iframe to be “responsive” (change size depending on the size of the window) &lt;a href=&quot;http://stackoverflow.com/questions/31660273/markdown-jekyll-insert-an-iframe-that-fills-the-container&quot;&gt;I had to add some code&lt;/a&gt; to the css &lt;a href=&quot;https://github.com/radumas/coppe-ltc/blob/f8bfc63002f0be5eea3ce301d0dd87e15bfdb07a/css/style.scss#L633&quot;&gt;stylesheet&lt;/a&gt; and then wrapped the &lt;code&gt;&amp;lt;iframe&amp;gt;&lt;/code&gt; tags with a &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;. Unfortunately, mysteriously, this broke some markdown formatting &lt;strong&gt;outside&lt;/strong&gt; the &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; tags, so I switched markdown parser to &lt;code&gt;kramdown&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;html  
     &amp;lt;div class = &quot;leaflet-map&quot;&amp;gt;
-    &amp;lt;iframe src=&quot;/maps/transit_working_age/index.html&quot; height=&quot;600&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen&amp;gt;&amp;amp;nbsp; &amp;lt;/iframe&amp;gt;
+    &amp;lt;iframe src=&quot;/blog/maps/transit_working_age/index.html&quot; height=&quot;600&quot; width=&quot;900&quot; frameborder=&quot;0&quot; allowfullscreen&amp;gt;&amp;amp;nbsp; &amp;lt;/iframe&amp;gt;
     &amp;lt;/div&amp;gt;    
 &lt;/code&gt;&lt;/p&gt;
 
@@ -207,8 +308,8 @@ The difference in average age was rather remarkable. With much older average age
 4. I want to figure out how to display a table of the data as well, and then maybe do some linking and brushing to highlight, for example, the stations with the oldest average population.  &lt;/p&gt;
 </description>
         <pubDate>Fri, 24 Jul 2015 00:00:00 -0400</pubDate>
-        <link>http://radumas.info/blog/mapping/2015/07/24/qgisweb.html</link>
-        <guid isPermaLink="true">http://radumas.info/blog/mapping/2015/07/24/qgisweb.html</guid>
+        <link>http://radumas.info/blog/blog/coppe-ltc/mapping/2015/07/24/qgisweb.html</link>
+        <guid isPermaLink="true">http://radumas.info/blog/blog/coppe-ltc/mapping/2015/07/24/qgisweb.html</guid>
         
         <category>QGIS</category>
         
@@ -216,6 +317,8 @@ The difference in average age was rather remarkable. With much older average age
         
         <category>census</category>
         
+        
+        <category>coppe-ltc</category>
         
         <category>mapping</category>
         

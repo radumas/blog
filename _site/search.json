@@ -1,10 +1,26 @@
 [
   
   {
+    "title"    : "This one simple line of code could make your map mobile-responsive",
+    "category" : "",
+    "tags"     : "bikeways4everybody, leaflet, mobile-responsive",
+    "url"      : "/blog/bcu/tutorial/2016/05/12/This-one-simple-line-of-code-could-make-your-map-mobile-responsive.html",
+    "date"     : "2016-05-12 18:00:00 -0400"
+    } ,
+    
+  {
+    "title"    : "Draw Where you Want Better Bike Infrastructure",
+    "category" : "",
+    "tags"     : "bikeways4everybody, crowdsourcing, webmap, leaflet, cartodb",
+    "url"      : "/blog/bcu/2016/02/22/Draw-where-you-want-better-bike-infra.html",
+    "date"     : "2016-02-22 17:00:00 -0500"
+    } ,
+    
+  {
     "title"    : "Using Bus GPS Data to Generate Street Speeds with OpenTraffic",
     "category" : "",
     "tags"     : "traffic, opentraffic",
-    "url"      : "/opentraffic/2015/09/16/Using-bus-gps-data-measure-traffic.html",
+    "url"      : "/blog/coppe-ltc/2015/09/16/Using-bus-gps-data-measure-traffic.html",
     "date"     : "2015-09-16 00:00:00 -0400"
     } ,
     
@@ -12,7 +28,7 @@
     "title"    : "Updating a Leaflet map Made with QGIS2web",
     "category" : "",
     "tags"     : "QGIS, leaflet, QGIS2web",
-    "url"      : "/mapping/2015/07/31/Modifying-a-webmap.html",
+    "url"      : "/blog/coppe-ltc/mapping/2015/07/31/Modifying-a-webmap.html",
     "date"     : "2015-07-31 12:00:00 -0400"
     } ,
     
@@ -20,7 +36,7 @@
     "title"    : "Jekyll Setup",
     "category" : "",
     "tags"     : "jekyll, css",
-    "url"      : "/jekyll/2015/07/28/Jekyll-setup.html",
+    "url"      : "/blog/coppe-ltc/2015/07/28/Jekyll-setup.html",
     "date"     : "2015-07-28 10:00:00 -0400"
     } ,
     
@@ -28,7 +44,7 @@
     "title"    : "QGIS to Leaflet with QGIS2web",
     "category" : "",
     "tags"     : "QGIS, leaflet, census",
-    "url"      : "/mapping/2015/07/24/qgisweb.html",
+    "url"      : "/blog/coppe-ltc/mapping/2015/07/24/qgisweb.html",
     "date"     : "2015-07-24 00:00:00 -0400"
     } 
     

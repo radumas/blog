@@ -3,13 +3,15 @@ layout: post
 section-type: post
 title: "This one simple line of code could make your map mobile-responsive"
 published: true
-date: 2016-05-12 17:00:00 -0600
+date: 2016-05-12 17:00:00 -0500
 categories: ['BCU','Tutorial']
 author: Raphael Dumas
 summary: "I spent a while trying to understand how to program to make a webpage mobile-responsive, turns out the solution was easier than I thought"
 tags: [ 'bikeways4everybody', 'leaflet','mobile-responsive']
 thumbnail: mobile  
 ---
+
+*Because making Bikeways mobile responsive ended up being easier than I thought, I decided to write a post so that someone else might (maybe) save themselves a lot of searching.*
 
 ## Desktop Launch
 
