@@ -30,8 +30,9 @@ It was only this past Tuesday that I finally got the chance to look at this prob
 
 Well I started styling the icons in the top left in `em`s, which represents the pixels in an `m` character in the browser's font and started testing the look on my phone. I couldn't manage to pan around or zoom in on the map though on my phone, so I looked into what I could do to enable that and [found this on stackexchange](http://stackoverflow.com/a/21245567/4047679):
 
->This however does work for me:
+
 ```
+//This however does work for me:
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 ```
 
