@@ -32,7 +32,7 @@ Well I started styling the icons in the top left in `em`s, which represents the 
 
 
 ```
-This however does work for me:
+//This however does work for me:
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 ```
 
