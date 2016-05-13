@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: "This one simple line of code could make your map mobile-responsive"
 published: true
-date: 2016-05-12 17:00:00 -0500
+date: 2016-05-12 16:55:00 -0500
 categories: ['BCU','Tutorial']
 author: Raphael Dumas
 summary: "I spent a while trying to understand how to program to make a webpage mobile-responsive, turns out the solution was easier than I thought"
