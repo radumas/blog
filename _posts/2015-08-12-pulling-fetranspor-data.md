@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: "Pulling Realtime Bus Positions from FeTranspor"
 published: false
-categories: Tutorials
+categories: Tutorial
 author: Raphael Dumas
 tags: [ 'data', 'bus']
 thumbnail: cloud-download

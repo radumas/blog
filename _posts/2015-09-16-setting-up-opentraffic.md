@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: "Setting Up OpenTraffic on a Ubuntu 14.04 Laptop"
 published: false
-categories: Tutorials
+categories: Tutorial
 author: Raphael Dumas
 summary: "Tutorial on using GPS data in OpenTraffic."
 tags: [ 'ubuntu 14.04', 'opentraffic']

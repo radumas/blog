@@ -9,7 +9,7 @@ excerpt_separator: ""
 {% unless category.title == 'Categories' %}
 ## {{category.title}}
 {: style="text-align:center;" }
-{{ category.output }}
+{{ category.content }}
 
 {% for post in site.posts %}
 	{% if post.categories contains category.cat %}
