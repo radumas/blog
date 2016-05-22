@@ -592,8 +592,8 @@ ul {
 			    margin: 5px auto 5px auto;
 			}
 
-			.highlight {
-				width: 100%;
+ 			figure.highlight, div.highlighter-rouge { 
+                width: 100%;
 				margin-left: -15px;
 				padding-right: 45px;
 				box-sizing: content-box;
