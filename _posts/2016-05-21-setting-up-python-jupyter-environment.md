@@ -7,7 +7,7 @@ date: 2016-05-21 16:55:00 -0500
 categories: ['python-data-science','tutorial']
 author: Raphael Dumas
 summary: "Python 3 installation + Jupyter notebook for Ubuntu 16.04 "
-tags: [ 'bikeways4everybody', 'leaflet','mobile-responsive']
+tags: [ 'python']
 thumbnail: download  
 ---
 
