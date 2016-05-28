@@ -1,7 +1,7 @@
 ---
 layout: post
 section-type: post
-title: "ML Assignment 1: Do teens have sex in Random Forests?"
+title: "ML Assignment 2: Do teens have sex in Random Forests?"
 published: true
 date: 2016-05-27 22:00:00 -0500
 categories: ['python-data-science','tutorial']
