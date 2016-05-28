@@ -13,7 +13,7 @@ excerpt_separator: ""
 
 {% for post in site.posts %}
 	{% if post.categories contains category.cat %}
-&nbsp; &#8226; &nbsp; [{{ post.title }}]({{ post.url }})
+&nbsp; &#8226; &nbsp; [{{ post.title }}]({{ site.baseurl }}{{ post.url }})
 <small class="hidden-xs">{{ post.date | date: "%B %-d, %Y" }}</small>  
 {% endif %}
 {% endfor %}

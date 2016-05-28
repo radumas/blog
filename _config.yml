@@ -35,9 +35,10 @@ footer_right: "Carte-Noire theme by <a href=\"https://twitter.com/_JacobTomlinso
 #redcarpet:
 #  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript"]
 markdown: kramdown
-#highlighter: rouge
-#kramdown: 
-#    input: GFM
+kramdown: 
+    input: GFM
+    syntax_highlighter: rouge
+
 
 #permalink: pretty
 # Exclusion list from the generated _site
