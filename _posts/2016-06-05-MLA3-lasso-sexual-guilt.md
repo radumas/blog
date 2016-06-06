@@ -13,7 +13,7 @@ thumbnail: venus-mars
 
 ## Assignment 3
 
-Continuing to work with the Add Health dataset from the previous two assignments, I decided to examine what factors would predict the degree to which someone would agree with "If you had sexual intercourse, afterward, you would feel guilty". Lasso regression was performed to determine which of the 19 quantitative or binary predictors would be important. 
+In this assignment I continued to work with the Add Health dataset from the previous two assignments ([one]({% post_url 2016-05-22-MLA1-What-makes-teens-have-sex %}), and [two]({% post_url 2016-05-27-MLA2-do-teens-have-sex-in-random-forests% })). I had previously examined which factors were good predictors of a teen having had sex, and the degree to which  someone would agree with "If you had sexual intercourse, afterward, you would feel guilty" was the most important predictor. Since LASSO is a form of linear regression, I had to now shift my attention to a quantitative predicted variable, so I decided to examine what factors would predict the degree to which someone agreed with the sexual guilt statement. Lasso regression was performed to determine which of the 19 quantitative or binary predictors would be important. 
 
 The data were randomly split into a 70% training set (N=1696) and a 30% test set (N=727). The least angle regression algorithm with k=10 fold cross validation was used to estimate the lasso regression model in the training set, and the model was validated using the test set. The change in the cross validation average (mean) squared error at each step was used to identify the best subset of predictor variables. 
 
