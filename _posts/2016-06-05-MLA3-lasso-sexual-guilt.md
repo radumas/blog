@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: "ML Assignment 3: LASSO-ing the Sexual Guilt Pixie"
 published: true
-date: 2016-06-05 22:00:00 -0500
+date: 2016-06-05 20:00:00 -0500
 categories: ['python-data-science','tutorial']
 author: Raphael Duma2
 summary: "My 3nd assignment in Wesleyan's Machine Learning course: lasso regression"
