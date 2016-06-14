@@ -119,18 +119,12 @@ plt.title('Selecting k with the Elbow Method')
 ```
 
 
-
-
-    <matplotlib.text.Text at 0x7f8450172748>
-
-
-
-
 ![png](https://raw.githubusercontent.com/radumas/wesleyan-machine-learning/master/machine-learning/week4/mla4-Cluster-the-guilty_files/mla4-Cluster-the-guilty_7_1.png)
 
 
 The plot above appears quite smooth, so will select k=4 as the "ideal" number of clusters. 
-Now running **Canonical Discriminant Analysis** which reduces number of variables to linear combinations of clustering variables in order to plot them on a two-dimensional axis. 
+Now running **Canonical Discriminant Analysis** which reduces number of variables to linear combinations of clustering variables in order to plot them on a two-dimensional axis.  
+
 ## Interpreting the 4 Cluster Solution
 
 
@@ -165,7 +159,7 @@ plt.show()
 ![png](https://raw.githubusercontent.com/radumas/wesleyan-machine-learning/master/machine-learning/week4/mla4-Cluster-the-guilty_files/mla4-Cluster-the-guilty_9_0.png)
 
 
-The three exterior clusters appear somewhat distinct, however the center cluster (1, in red) muddles into the other, so will rerun the above with only 3 clusters.
+The three exterior clusters appear somewhat distinct, however the center cluster (1, in red) muddles into the others, so will rerun the above with only 3 clusters.
 
 
 ```python
@@ -183,7 +177,6 @@ plt.title('Scatterplot of Canonical Variables for 3 Clusters')
 plt.show()
 ```
 
-
 ![png](https://raw.githubusercontent.com/radumas/wesleyan-machine-learning/master/machine-learning/week4/mla4-Cluster-the-guilty_files/mla4-Cluster-the-guilty_11_0.png)
 
 
@@ -194,21 +187,6 @@ Now adding the clusters to the training dataframe. Much easier to understand tha
 ```python
 clus_train.loc[:,'cluster'] = model3.labels_
 ```
-
-    /home/rad/python3-courses/lib/python3.5/site-packages/pandas/core/indexing.py:288: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-      self.obj[key] = _infer_fill_value(value)
-    /home/rad/python3-courses/lib/python3.5/site-packages/pandas/core/indexing.py:549: SettingWithCopyWarning: 
-    A value is trying to be set on a copy of a slice from a DataFrame.
-    Try using .loc[row_indexer,col_indexer] = value instead
-    
-    See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-      self.obj[item_labels[indexer[info_axis]]] = value
-
-
 
 ```python
 # cluster frequencies
@@ -221,12 +199,8 @@ clus_train.cluster.value_counts()
 |    0|    512
 |    1|    715
 |    2|    462
-    Name: cluster, dtype: int64
-
-
 
 FINALLY calculate clustering variable means by cluster
-
 
 ```python
 clustergrp = clus_train.groupby('cluster').mean()
@@ -236,7 +210,8 @@ with pd.option_context('display.max_columns', 999):
     print(clustergrp.T)
 ```
 
-Clustering variable means by cluster
+Clustering variable means by cluster  
+
 |cluster  |       0|         1|         2|
 |----------------------------------------|
 |H1MO1 |-0.196175  |0.325884| -0.232385|

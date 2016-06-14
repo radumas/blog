@@ -17,7 +17,7 @@ In this assignment I continued to work with the Add Health dataset from the prev
 
 The data were randomly split into a 70% training set (N=1696) and a 30% test set (N=727). The least angle regression algorithm with k=10 fold cross validation was used to estimate the lasso regression model in the training set, and the model was validated using the test set. The change in the cross validation average (mean) squared error at each step was used to identify the best subset of predictor variables. 
 
-!['MSE']({{ site.baseurl }}img/2016-06-05/mse.png)
+!['MSE']({{ site.baseurl }}/img/2016-06-05/mse.png)
 
 Of the 19 variables tested, 16 were retained in the selected model. The top 5 most important coefficients appear in the table below. Now this doesn't determine whether any of these variables are correlated with religious strength. But it does show that guilt comes from a loss of respect from peers, upsetting the mother, and the social stigma around accidental pregnancy. 
 
