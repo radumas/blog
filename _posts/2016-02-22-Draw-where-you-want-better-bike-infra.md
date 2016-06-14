@@ -4,7 +4,7 @@ section-type: post
 title: "Draw Where you Want Better Bike Infrastructure"
 published: true
 date: 2016-02-22 16:00:00 -0600
-categories: BCU
+categories: 'bcu'
 author: Raphael Dumas
 summary: "The Boston Cyclists Union wanted to solicit input where people wanted better biking infrastructe, so I made a crowdsourcing map."
 tags: [ 'bikeways4everybody', 'crowdsourcing', 'webmap','leaflet','cartodb']
