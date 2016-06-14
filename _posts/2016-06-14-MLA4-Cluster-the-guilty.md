@@ -161,6 +161,8 @@ plt.show()
 
 The three exterior clusters appear somewhat distinct, however the center cluster (1, in red) muddles into the others, so will rerun the above with only 3 clusters.
 
+## Interpreting the 3 Cluster Solution
+
 
 ```python
 model3=KMeans(n_clusters=3)
@@ -199,6 +201,8 @@ clus_train.cluster.value_counts()
 |    0|    512
 |    1|    715
 |    2|    462
+
+## Examining Variable Means by Cluster
 
 FINALLY calculate clustering variable means by cluster
 
