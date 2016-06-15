@@ -3,7 +3,7 @@ layout: post
 section-type: post
 title: "How to Use Heroku to Automate Updating of Your CartoDB Tables"
 published: true
-date: 2016-06-14 21:00:00 -0500
+date: 2016-06-14 20:00:00 -0500
 categories: ['bcu','tutorial']
 author: Raphael Dumas
 summary: "I spent a while trying to understand how to program to make a webpage mobile-responsive, turns out the solution was easier than I thought"
