@@ -30,8 +30,11 @@ I'm going to recommend setting up a virtual environment in which to install pyth
 [Set up virtual environment](https://askubuntu.com/questions/244641/how-to-set-up-and-use-a-virtual-python-environment-in-ubuntu)
 
 {% highlight bash %}
-sudo pip3 install virtualenv  
-sudo pip3 install virtualenvwrapper  
+sudo apt-get install virtualenv  
+pip3 install --user virtualenvwrapper  
+{% endhighlight %}
+
+{% highlight bash %}
 mkdir python3-courses  
 virtualenv python3-courses/  
 {% endhighlight %}
