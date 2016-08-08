@@ -24,7 +24,7 @@ Go to `Start > Services`. Scroll down to `postgresql-x64-9.5` and right-click `S
 
 I copied the data with File Explorer from `C:\Program Files\PostgreSQL\9.5\data\` to `E:\pg_db\data`
 
-## 3. ~~Modify postgresql.conf ~~ (probably not necessary if you move everything to the new location)
+## 3. ~~Modify postgresql.conf~~ (_**probably** not necessary if you move everything to the new location_)
 
 I edited the following lines
 
