@@ -12,7 +12,7 @@ thumbnail: database
 ---
 
 # Migrating the data cluster from C:\ to E:\
-*I'm new to working with large data in Windows, and ran into some unexpected difficulty when the PostgreSQL database ran out of space on my server's C drive. Here's how to move your PostgreSQL data directory*
+*I'm new to working with large data in Windows, and ran into some unexpected difficulty when the PostgreSQL database ran out of space on my server's C drive. It might also be a good idea to isolate your postgres database from a location other than the `C:\Program Files\` folder for permissions/security/data integrity reasons (I had a reference for this but I lost it). Here's how to move your PostgreSQL data directory*
 
 Basing myself on [this dba.stackex answer](http://dba.stackexchange.com/a/28927) and this [wiki post](https://wiki.postgresql.org/wiki/Change_the_default_PGDATA_directory_on_Windows)
 
