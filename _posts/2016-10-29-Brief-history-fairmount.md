@@ -22,10 +22,7 @@ I was particularly struck when reading this headline because, as I detailed [in 
 But first I'd like to provide a little context for this story. 
 
 >“This is a centerpiece in our communities,’’ said Mela Bush, an activist with Greater Four Corners Action Coalition, which pushed and got funding for rail service in that section of Dorchester. “It’s been a civil rights battle from day one.”  
-*[
-MBTA to open two new stations on Fairmount Line
-](https://www.bostonglobe.com/metro/2013/05/16/mbta-open-two-new-stations-fairmount-commuter-rail-line/QJWCQsb6oka5aXqCScaGJJ/story.html) - Boston Globe
-*
+*[MBTA to open two new stations on Fairmount Line](https://www.bostonglobe.com/metro/2013/05/16/mbta-open-two-new-stations-fairmount-commuter-rail-line/QJWCQsb6oka5aXqCScaGJJ/story.html) - Boston Globe*
 
 ## Orange Line Relocation
 
@@ -58,17 +55,18 @@ Part of the environmental mitigation negotiated by the [Conservation Law Foundat
 A study conducted by now Secretary of Transportation, Stephanie Pollack (along with Liz Williams and Chase Billingham), used response data from the American Community Survey to estimate commute times by race and mode, an abridged summary is in the table below:
 
 
-<table><tr><td>**Race**</td><td colspan="3">**Black**</td><td colspan="3">**White**</td></tr>
-<tr><td>**Mode**</td><td>**Bus**</td><td>**Rail**</td><td>**All Trips**</td><td>**Bus**</td><td>**Rail**</td><td>**All Trips**</td></tr>
-<tr><td>**Journey Time (min)**</td><td>47.1</td><td>44.2</td><td>**45.9**</td><td>38.7</td><td>40.8</td><td>**40.1**</td></tr>
+<table><tr><td><b>Race</b></td><td colspan="3"><b>Black</b></td><td colspan="3"><b>White</b></td></tr>
+<tr><td><b>Mode</b></td><td><b>Bus</b></td><td><b>Rail</b></td><td><b>All Trips</b></td><td><b>Bus</b></td><td><b>Rail</b></td><td><b>All Trips</b></td></tr>
+<tr><td><b>Journey Time (min)</b></td><td>47.1</td><td>44.2</td><td><b>45.9</b></td><td>38.7</td><td>40.8</td><td><b>40.1</b></td></tr>
 </table>
 
 Pollack had the following to say about the study in [this news article](http://archive.boston.com/news/local/massachusetts/2012/11/24/wide-racial-gap-exists-speed-boston-area-commutes/oW7hHJ0IFWluX6eQI15QPL/story.html)  
 
 >“If we care about equity in our transportation system, we have to pay attention to the bus system, which serves so many low-income and people of color,” Pollack said. “We have to do better. We want a system where nobody’s commute is longer because of the color of their skin,” she said. “What would it take to create that system?”
 
-Then Secretary of Transportation, Rich Davey, had this to say in response to the study:
->The state is also spending tens of millions of dollars to add stations to a commuter rail route known as the Fairmount Line that has run for years through Dorchester and Mattapan with few stops. But it lacks the money to run trains on weekends or with the frequency of subways and trolleys, undercutting the line’s usefulness. That could change if lawmakers approve sustainable funding, Davey said. Longer-term and at greater expense, planners are intrigued by self-propelled cars known as “diesel multiple units” that provide transit-style service on shorter commuter rail routes in Europe and Asia, without the lengthy locomotive-and-coach sets found here.
+Then Secretary of Transportation, Rich Davey, had this to say in response to the study:  
+
+>The state is also spending tens of millions of dollars to add stations to a commuter rail route known as the Fairmount Line that has run for years through Dorchester and Mattapan with few stops. But it lacks the money to run trains on weekends or with the frequency of subways and trolleys, undercutting the line’s usefulness. That could change if lawmakers approve sustainable funding, Davey said. Longer-term and at greater expense, planners are intrigued by self-propelled cars known as “diesel multiple units” (DMUs) that provide transit-style service on shorter commuter rail routes in Europe and Asia, without the lengthy locomotive-and-coach sets found here.
 
 You can find the study [here](https://trid.trb.org/view.aspx?id=1289630) (paywalled).
 
@@ -78,9 +76,9 @@ My [thesis](http://www.radumas.info/thesis/) research at MIT's Transit Lab invol
 
 I'll spare you the [technical details](http://www.radumas.info/thesis/Processing-Inferred-OD) but briefly: I inferred for every transit user who appeared to  be regularly commuting an area where they *probably* lived and then compared that to the demographics of public transit commuters in that area. I could not determine any individual commuter's race, but will instead talk about commuters from areas with *predominantly* Black transit commuters (66%) and *predominantly* White commuters (83%). The proportions aren't equal because more White people live in areas with higher concentrations of White people than Black people live in areas with higher concentrations of Black people ([choosing thresholds was complicated](http://www.radumas.info/thesis/Result-Analysis#how-varying-the-threshold-changes-the-sample-demographics)). For these two areas, the average observed **transit** (excluding walking to and from transit) travel times are below. The **all trips** column has a higher value since it includes trips with both modes which, by definition, have 2 stages and are therefore typically longer. 
 
-<table><tr><td>**Predominant Neighbourhood Race**</td><td colspan="3">**Black**</td><td colspan="3">**White**</td></tr>
-<tr><td>**Mode**</td><td>**Bus only**</td><td>**Rail only**</td><td>**All Trips**</td><td>**Bus only**</td><td>**Rail only**</td><td>**All Trips**</td></tr>
-<tr><td>**Transit Journey Time (min)**</td><td>26.8</td><td>27.3</td><td>**32.6**</td><td>25.5</td><td>25.4</td><td>**29.5**</td></tr>
+<table><tr><td><b>Predominant Neighbourhood Race</b></td><td colspan="3"><b>Black</b></td><td colspan="3"><b>White</b></td></tr>
+<tr><td><b>Mode</b></td><td><b>Bus only</b></td><td><b>Rail only</b></td><td><b>All Trips</b></td><td><b>Bus only</b></td><td><b>Rail only</b></td><td><b>All Trips</b></td></tr>
+<tr><td><b>Transit Journey Time (min)</b></td><td>26.8</td><td>27.3</td><td><b>32.6</b></td><td>25.5</td><td>25.4</td><td><b>29.5</b></td></tr>
 </table>
 
 Why the reason for this difference in travel time? On average, commuters from predominantly Black areas travel shorter distances, on slower modes (slower bus vs bus, bus vs rail), while having to transfer more times than commuters from predominantly White areas. You can read more details, with tons of charts, [here](http://www.radumas.info/thesis/Result-Analysis#comparing-performance-metrics-by-demographic-samples).
