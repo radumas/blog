@@ -11,7 +11,7 @@ tags: [ 'titlevi', 'equity', 'thesis','fairmount','transit']
 thumbnail: subway
 ---
 
-So the Fairmount Line in Boston was in the news again this week with word that Representative Michael Capuano was asking the DOJ & FTA to look into whether [Keolis](https://www.bostonglobe.com/queryResult/search?q=Keolis)' train cancellations on the Fairmount Line were in violation of Title VI. I wanted to provide some history, context, and data to a decades-long struggle for better service in the predominantly Black and minority neighbourhoods along the Fairmount Corridor.
+So the Fairmount Line in Boston was in the news again last week with word that Representative Michael Capuano was asking the DOJ & FTA to look into whether [Keolis](https://www.bostonglobe.com/queryResult/search?q=Keolis)' train cancellations on the Fairmount Line were in violation of Title VI. I wanted to provide some history, and data-driven context to a decades-long struggle for better service in the predominantly Black and minority neighbourhoods along the Fairmount Corridor.
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">US Rep. Michael Capuano asks DOJ and FTA to review whether Fairmount Line cancellations violated civil rights laws: <a href="https://t.co/jkiahye7vf">https://t.co/jkiahye7vf</a></p>&mdash; Nicole Dungca (@ndungca) <a href="https://twitter.com/ndungca/status/790672455534862340">October 24, 2016</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
