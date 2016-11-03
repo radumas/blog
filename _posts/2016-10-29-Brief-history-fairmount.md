@@ -17,12 +17,11 @@ So the Fairmount Line in Boston was in the news again this week with word that R
 
 As I wrote about in [my thesis](http://www.radumas.info/thesis/History-US-Transpo-Equity#title-vi-of-the-civil-rights-act) (but not yet in a blog post), Title VI of the Civil Rights act prevents transit agencies from disproportionately affecting visible minorities. If Keolis were disproportionately cancelling trains on the Fairmount Line (which passes through the predominantly minority neighbourhoods of Roxbury, Dorchester, and Mattapan) versus other Commuter Rail (which I will guess are predominantly White) then Keolis would be in violation of this regulation.
 
-I was particularly struck when reading this headline because, as I detailed [in my thesis](www.radumas.info/thesis/Result-Analysis#rapid-transit-frequencies-on-the-fairmount), and I'll get to [at the end of this post](#fast-frequent-service-with-fair-fares-on-fairmount), fast, frequent servive with fair fares on the Fairmount Line is the #1 intervention to improve transit travel (and commuting) for Black and African Americans.
+I was particularly struck when reading this headline because, as I detailed [in my thesis](www.radumas.info/thesis/Result-Analysis#rapid-transit-frequencies-on-the-fairmount), and I'll get to [at the end of this post](#fast-frequent-service-with-fair-fares-on-fairmount), fast, frequent service with fair fares on the Fairmount Line is the #1 intervention to improve transit travel (and commuting) for Black and African Americans commuters riding the MBTA.
 
-But first I'd like to provide a little context for this story. 
+>This is not simply angst over late or canceled trains. Historically, residents of the affected neighborhoods – populated largely by people of color – have been an afterthought in conversations revolving around economic development, specifically access to job centers in the city. For decades this disenfranchisement meant that people who could see the skyline soaring above the city’s financial heart did not have the means to get to jobs Downtown and in the Financial District in a timely manner, and found themselves effectively disqualified by virtue of lack of transportation. 
 
->“This is a centerpiece in our communities,’’ said Mela Bush, an activist with Greater Four Corners Action Coalition, which pushed and got funding for rail service in that section of Dorchester. “It’s been a civil rights battle from day one.”  
-*[MBTA to open two new stations on Fairmount Line](https://www.bostonglobe.com/metro/2013/05/16/mbta-open-two-new-stations-fairmount-commuter-rail-line/QJWCQsb6oka5aXqCScaGJJ/story.html) - Boston Globe*
+As Becky Koepnick from the [Boston Foundation writes](http://www.tbf.org/blog/2016/october/keep-the-fairmount-line-on-track) in the quote above, this is more than just about cancelled trains, Keolis's actions are yet another setback in a history spanning three decades and more for better transit service along the Fairmount Corridor.
 
 ## Orange Line Relocation
 
@@ -93,6 +92,13 @@ Armed with this knowledge and my large trip dataset I tried to devise different 
 * Fairmount running times decrease by 16% due to decreased dwell time and faster acceleration versus current equipment despite the current scheduled running times on the branch are already the 25 minutes predicted from the introduction of a previous study of the introduction DMUs.
 
 The results of this analysis shows by having 8.6% of trips (~17,000 trips in the morning) saving around 7 - 23 minutes per trips (depending on number of stages, origin, destination), the overall travel time difference could improve by as much as 35%. Note that this analysis only considered trips by certain categories instead of using a routing engine nor did it assume improving the bus network to better serve the Fairmount Indigo Line. 
+
+| Trip Type | Average Time Saved (min) | Number of Morning Trips that Might Switch to Fairmount (% of all Black Trips) | Impact on Travel Time Differential |
+|-----------|--------------------------|------------------------------------------------|------------------------------------|
+| Origin and Destination within walking distance of Fairmount Line                                                    | 13.4  | 4900 (2.5%) | 10%  |
+| Home location within walking distance of Fairmount Line Destination requiring a transfer at South Station           | 12.4  | 7900 (4.0%) | 16%  |
+| Origin on a bus route intersecting with the Fairmount Line Destination requiring a transfer at South Station        | 12.2  | 2600 (1.3%) | 5.2% |
+| Origin on a bus route intersecting with the Fairmount Line Destination within walking distance of Fairmount Line    | 12.1  | 1600 (0.8%) | 3.2% |
 
 Nevertheless, it is evident that fast, frequent service on the Fairmount line could benefit mainly (predominantly Black) commuters by quite a bit. So it is depressing to see that not only is the purchase of the necessary equipment cancelled, but the reliability of the line is ruined by regular cancellations by its private operator.
 
