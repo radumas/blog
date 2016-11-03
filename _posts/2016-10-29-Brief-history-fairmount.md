@@ -3,7 +3,8 @@ layout: post
 section-type: post
 title: "A Brief History of the Fairmount Line in Boston"
 published: true
-date: 2016-10-30 22:00:00 -0500
+permalink: /posts/2016/10/30/Brief-history-fairmount.html
+date: 2016-10-30 18:00:00 -0500
 category: posts
 author: Raphael Dumas
 summary: "Since the Fairmount Line was again in the news for potential Title VI violations"
