@@ -27,7 +27,7 @@ As Becky Koepnick from the [Boston Foundation writes](http://www.tbf.org/blog/20
 
 ## Orange Line Relocation
 
-The Orange Line used to elevated along Washington Street, and ran through Dudley Square until Forest Hills. [In the 1980s the elevated line was torn down](https://en.wikipedia.org/wiki/Orange_Line_%28MBTA%29#Closure_of_Washington_Street_Elevated) and  put into a trench next to mainline railroad tracks along the SouthWest Corridor, cleared for an I95 project that never happened. 
+The Orange Line used to run elevated along Washington Street through Dudley Square until Forest Hills. [In the 1980s the elevated line was torn down](https://en.wikipedia.org/wiki/Orange_Line_%28MBTA%29#Closure_of_Washington_Street_Elevated) and put into a trench next to mainline railroad tracks along the SouthWest Corridor which had been cleared for a highway project (I-95) that never happened. 
 
 !['Dudley Square Bus Map'](http://www.mbta.com/uploadedimages/services/subway/Dudley%20Neighborhood%20Map%20tn.png)
 
