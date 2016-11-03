@@ -94,7 +94,7 @@ Armed with this knowledge and my large trip dataset I tried to devise different 
 
 The results of this analysis shows by having 8.6% of trips (~17,000 trips in the morning) saving around 7 - 23 minutes per trips (depending on number of stages, origin, destination), the overall travel time difference could improve by as much as 35%. Note that this analysis only considered trips by certain categories instead of using a routing engine nor did it assume improving the bus network to better serve the Fairmount Indigo Line. 
 
-| Trip Type | Average Time Saved (min) | Number of Morning Trips that Might Switch to Fairmount (% of all Black Trips) | Impact on Travel Time Differential |
+| Trip Type | Average Time Saved (min) | Monthly Commutes that Might Switch to Fairmount (% of all Black Trips) | Impact on Travel Time Differential |
 |-----------|--------------------------|------------------------------------------------|------------------------------------|
 | Origin and Destination within walking distance of Fairmount Line                                                    | 13.4  | 4900 (2.5%) | 10%  |
 | Home location within walking distance of Fairmount Line Destination requiring a transfer at South Station           | 12.4  | 7900 (4.0%) | 16%  |
