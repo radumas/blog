@@ -56,7 +56,7 @@ Part of the environmental mitigation negotiated by the [Conservation Law Foundat
 A study conducted by now Secretary of Transportation, Stephanie Pollack (along with Liz Williams and Chase Billingham), used response data from the American Community Survey to estimate commute times by race and mode, an abridged summary is in the table below:
 
 
-<table><tr><td><b>Race</b></td><td colspan="3"><b>Black</b></td><td colspan="3"><b>White</b></td></tr>
+<table><tr><td><b>Race</b></td><td colspan="3" style="text-align: center"><b>Black</b></td><td colspan="3" style="text-align: center"><b>White</b></td></tr>
 <tr><td><b>Mode</b></td><td><b>Bus</b></td><td><b>Rail</b></td><td><b>All Trips</b></td><td><b>Bus</b></td><td><b>Rail</b></td><td><b>All Trips</b></td></tr>
 <tr><td><b>Journey Time (min)</b></td><td>47.1</td><td>44.2</td><td><b>45.9</b></td><td>38.7</td><td>40.8</td><td><b>40.1</b></td></tr>
 </table>
@@ -77,7 +77,7 @@ My [thesis](http://www.radumas.info/thesis/) research at MIT's Transit Lab invol
 
 I'll spare you the [technical details](http://www.radumas.info/thesis/Processing-Inferred-OD) but briefly: I inferred for every transit user who appeared to  be regularly commuting an area where they *probably* lived and then compared that to the demographics of public transit commuters in that area. I could not determine any individual commuter's race, but will instead talk about commuters from areas with *predominantly* Black transit commuters (66%) and *predominantly* White commuters (83%). The proportions aren't equal because more White people live in areas with higher concentrations of White people than Black people live in areas with higher concentrations of Black people ([choosing thresholds was complicated](http://www.radumas.info/thesis/Result-Analysis#how-varying-the-threshold-changes-the-sample-demographics)). For these two areas, the average observed **transit** (excluding walking to and from transit) travel times are below. The **all trips** column has a higher value since it includes trips with both modes which, by definition, have 2 stages and are therefore typically longer. 
 
-<table><tr><td><b>Predominant Neighbourhood Race</b></td><td colspan="3"><b>Black</b></td><td colspan="3"><b>White</b></td></tr>
+<table><tr><td><b>Race</b></td><td colspan="3" style="text-align: center"><b>Black</b></td><td colspan="3" style="text-align: center"><b>White</b></td></tr>
 <tr><td><b>Mode</b></td><td><b>Bus only</b></td><td><b>Rail only</b></td><td><b>All Trips</b></td><td><b>Bus only</b></td><td><b>Rail only</b></td><td><b>All Trips</b></td></tr>
 <tr><td><b>Transit Journey Time (min)</b></td><td>26.8</td><td>27.3</td><td><b>32.6</b></td><td>25.5</td><td>25.4</td><td><b>29.5</b></td></tr>
 </table>
@@ -97,10 +97,10 @@ The results of this analysis shows by having 8.6% of trips (~17,000 trips in the
 
 | Trip Type | Average Time Saved (min) | Monthly Commutes that Might Switch to Fairmount (% of all Black Trips) | Impact on Travel Time Differential |
 |-----------|--------------------------|------------------------------------------------|------------------------------------|
-| Origin and Destination within walking distance of Fairmount Line                                                    | 13.4  | 4900 (2.5%) | 10%  |
-| Home location within walking distance of Fairmount Line Destination requiring a transfer at South Station           | 12.4  | 7900 (4.0%) | 16%  |
-| Origin on a bus route intersecting with the Fairmount Line Destination requiring a transfer at South Station        | 12.2  | 2600 (1.3%) | 5.2% |
-| Origin on a bus route intersecting with the Fairmount Line Destination within walking distance of Fairmount Line    | 12.1  | 1600 (0.8%) | 3.2% |
+| <small>Origin and Destination within walking distance of Fairmount Line</small>                                     | 13.4  | 4900 (2.5%) | 10%  |
+| <small>Home location within walking distance of Fairmount Line Destination requiring a transfer at South Station</small>   | 12.4  | 7900 (4.0%) | 16%  |
+| <small>Origin on a bus route intersecting with the Fairmount Line Destination requiring a transfer at South Station</small>| 12.2  | 2600 (1.3%) | 5.2% |
+| <small>Origin on a bus route intersecting with the Fairmount Line Destination within walking distance of Fairmount Line</small>| 12.1  | 1600 (0.8%) | 3.2% |
 
 Nevertheless, it is evident that fast, frequent service on the Fairmount line could benefit mainly (predominantly Black) commuters by quite a bit. So it is depressing to see that not only is the purchase of the necessary equipment cancelled, but the reliability of the line is ruined by regular cancellations by its private operator.
 
