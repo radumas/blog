@@ -1,0 +1,279 @@
+---
+layout: none
+desc: "Presentation on Civic Tech and Planning to U of T Planning Students"
+date: 2017-02-08
+---
+
+
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Code for Planning</title>
+
+		<meta name="description" content="How OpenData and Civic Tech can help build the political will for better transportation">
+		<meta name="author" content="Raphael Dumas">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+					<script type="text/template">
+                        ### Code for Planning
+                        <br />  
+                        How OpenData and Civic Tech can help build the political will for better transportation
+                        <br />
+                        #####2017-02-09  
+                        <br />
+                        ###Created by [Raphael Dumas](http://radumas.info)
+                        Follow along at https://radumas.github.io/blog/presentations/20170209/
+                    </script>
+				</section>
+                
+                <section id="aboutme" data-markdown>
+					<script type="text/template">
+                        ##About Raphael
+                        <br />
+                        
+                        * B. Eng Civil <t><t> _McGill 2012_  
+                        * M.S. Transportation & M. City Planning <t> _MIT 2015_  
+                            - Master's Thesis: _Analyzing Transit Equity Using Automatically Collected Data_  
+                        * Data & GIS _Boston Cyclists Union_
+                        * Research Analyst _Transportation Big Data Innovation Team_
+                    </script>
+                </section>
+                
+                <section data-markdown>
+					<script type="text/template">
+                        ##Traditional Gov/Planning Tech
+                        <br />
+                        
+                        * Data collection for planning through surveys is labour/time intensive
+                        <br>
+                        * Classic DAD method of public consultation
+                        <br>
+                        * Government is bad at tech procurement
+                        <br>
+                        * Agencies collecting volumes of data, but minimal capacity to analyze and merge datasets
+                    </script>
+                </section>
+                
+                <section data-markdown>
+					<script type="text/template">
+                        ##Why Civic Tech?
+                        <br />
+                        
+                        * Digital Tech can provide solutions to massively increase outreach/data collection for a fraction of the cost
+                        <br>
+                        * Latent capacity of programmers, data analysts, community groups 
+                        <br>
+                        * Ascending steps of Arnstein's ladder
+                    </script>
+                </section>
+                
+                
+                
+                <section id="bikeways">
+                    
+                    <section data-state="centerText" data-markdown>
+                        <script type="text/template">
+                            #Bikeways for Everybody
+                        </script>
+                    </section>
+
+                    <section id="aboutbcu" data-markdown>
+                        <script type="text/template">
+                            ##Boston Cyclists Union 
+                            <br />
+
+                            * Local advocacy organization fighting for better bicycling infrastructure for all  
+                            <br>
+                            * Organize group rides to promote everyday use of bicycle  
+                            <br>
+                            * Provide free bike repair and mechanic education
+                        </script>
+                    </section>
+
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            We're really good at packing the house
+                            ![](img/20160709/packthehouse.jpg)  
+                            [&copy; LeilaRQuinn](https://twitter.com/leilarquinn/status/743210124525899776)
+                        </script>
+                    </section>
+
+                    <section data-state="centerText" data-markdown>
+                        <script type="text/template">
+                        ###But easy wins have been won. 
+                        ###Need a compelling vision to justify future projects.
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        <img height="540" src="img/20160709/bikewaysforeverybody.png"></img>
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                        ###Could I build a digital map?
+                        <br>
+                         - That users could draw in routes and mark dangerous points  
+                         <br>
+                         - That records their comments on their drawings  
+                         <br>
+                         - And aggregates the input
+                        </script>
+                    </section>
+
+                    <section data-state="centerText"  data-markdown>
+                        <script type="text/template">
+                        #Workflow
+                        </script>
+                    </section>
+                                        
+                    <section data-markdown>
+                        <script type="text/template">
+                        ###Created a basic leaflet-draw to CartoDB map
+                        
+                         <iframe width="1366" height="540" src="http://radumas.info/crowdmap-basic">%nbsp; </iframe>
+                        </script>
+                    </section>
+                    
+                    <section data-markdown>
+                        <script type="text/template">
+                        ###Then added Route-Drawing Functionality
+                        
+                        <iframe width="1366" height="540" src="http://radumas.info/bikeways4everybody">%nbsp; </iframe>
+
+                        </script>
+                    </section>
+                
+                    <section data-markdown>
+                        <script type="text/template">
+                        ###Results
+
+                        <iframe width="1366" height="540" src="https://bcu.carto.com/viz/4aa385ec-f83d-11e5-9dc1-0e3ff518bd15/embed_map">%nbsp; </iframe>
+                        </script>
+                    </section>
+                </section>
+                
+                <section id="civictechTO">
+                    
+                    <section data-state="centerText" data-markdown>
+                        <script type="text/template">
+                            #At CivicTechTO
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ##TTC Subway Tracker
+                            <br />
+                            
+                            * Collect real-time arrival data on subway
+                            <br>
+                            * Generate performance metrics to better communicate reliability (citizen science)
+                            <br>
+                            * Understand sources of unreliability and advocate for improvements
+                            
+                        </script>
+                    </section>
+                
+                    <section data-markdown>
+                        <script type="text/template">
+                            ##Civic Tech TO projects hacking democracy
+                            <br />
+                            
+                            * [BudgetPedia](http://budgetpedia.ca/)
+                               - Making the Toronto Budget understandable
+                            * vKanata
+                               - New way for political discussion online
+                            * [DemocracyKit](http://www.democracykit.org/)
+                               - OpenSourcing running for public office
+                        </script>
+                    </section>
+                
+                    
+                    
+                </section>
+                
+                            
+                
+                <section data-markdown>
+                    <script data-state="centerText" type="text/template">
+                    ##Thanks
+                    <br>
+                    ###[radumas.info](http://radumas.info)
+                    </script>
+                </section>
+                
+            </div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: false,
+                slideNumber: true,
+                previewLinks: true,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+            Reveal.addEventListener( 'centerText', function() {
+                Reveal.configure({center: true});
+            }, false ); 
+		</script>
+
+	</body>
+</html>
