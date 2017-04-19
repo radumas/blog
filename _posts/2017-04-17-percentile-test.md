@@ -29,7 +29,7 @@ data = np.sin(x) + np.random.rand(10, 31) + np.random.randn(10, 1)
 ax = sns.tsplot(data=data, ci=[50, 90], color="m")
 ```
 
-!['Desired output']({{ site.baseurl }}/img/2017-04-18/output_2_0.png)
+!['Desired output']({{ site.baseurl }}/img/2017-04-17/output_2_0.png)
 
 After some thinking, I realised that I should be making the database do more of the work. First, some test data:  
 
@@ -238,5 +238,5 @@ for idx, category in enumerate(data.category.unique()):
 ```
 
 
-!['Successful timeseries percentile plot']({{ site.baseurl }}/img/2017-04-18/output_17_0.png)
+!['Successful timeseries percentile plot']({{ site.baseurl }}/img/2017-04-17/output_17_0.png)
 
