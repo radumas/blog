@@ -1,6 +1,7 @@
 # Site settings
 title: "RAD Transportation"
 url: "http://radumas.info/blog"
+parenturl: "http://radumas.info/"
 baseurl: "/blog"
 title_description: "Displaying projects, opinions, tutorials, etc. while working on transportation"
 title_image: "http://radumas.info/blog/img/Bus_in_Rio_de_Janeiro.jpg"
