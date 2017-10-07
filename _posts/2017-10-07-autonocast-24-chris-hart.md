@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: "Autonocast #24:  NTSB Member Christopher Hart"
-published: false
+published: true
 date: 2017-10-07 12:00:00 -0500
 categories: ['podcast-summary']
 author: Raphael Dumas
