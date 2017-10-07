@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: "Autonocast #23:  Dr. Gill Pratt, Toyota Research Institute"
-published: false
+published: true
 date: 2017-10-07 12:15:00 -0500
 categories: ['podcast-summary']
 author: Raphael Dumas
