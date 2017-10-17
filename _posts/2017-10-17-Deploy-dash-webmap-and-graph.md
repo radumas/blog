@@ -88,8 +88,8 @@ Since the data was hosted in a local database, we need to send it up to the clou
 
 Data can also be stored in a PostgreSQL database (max 10k total rows in the free tier). [Importing data](https://devcenter.heroku.com/articles/heroku-postgres-import-export#import) is a surprising pain. It's untested whether `pg_restore` or `psql \COPY` work, you can use [`heroku pg:backups:restore`](https://devcenter.heroku.com/articles/heroku-postgres-import-export#import-to-heroku-postgres), but your dump file has to be hosted in the cloud somewhere... 
 
-Raphael used the following procedure:
-1. Dump the a restore DDL and insert scripts using `pg_dump -d bigdata -h host.ip -t schema.table -F p -O --inserts > dump.sql`
+I used the following procedure:
+1. Dump the DDL and insert scripts using `pg_dump -d bigdata -h host.ip -t schema.table -F p -O --inserts > dump.sql`
 2. Restore to heroku using `psql postgres://heroku:postgres:5432/URI -f dump.sql`. (These two commands can probably be piped together).
 3. For geographic data use `pgsql2shp -h host.ip bigdata schema.table`, this dumps a `shp` "file" in the working directory.
 4. Upload geographic data by piping `shp2pgsql` to `psql` like `shp2pgsql -D -I -s 4326 -S table.shp schema.table | psql postgres://heroku:postgres:5432/URI`. Because geographic data previously uploaded to the RDS via `shp2pgsql` involves sequences... **Note:** all `int` data was converted to `double precision` and had to be converted back.
@@ -110,6 +110,17 @@ else:
     dbset = CONFIG['DBSETTINGS']
     con = connect(**dbset)
 ```
+
+
+## Adding other necessary files
+
+1. Create a `requirements.txt` file with `pip freeze > requirements.txt`. If you're not using a virtual environment, or if you virtualenv has gotten a little bloated, open this file up and delete every package that isn't listed in the imports of your python file.
+2. Create a `Procfile` and put `web: gunicorn app:server` in it.
+
+## Create a heroku app
+1. Login to heroku and create a new app
+2. Connecting that app to your Github repo is really the least painful technique. Do that if you can. 
+3. If you want to expend more effort. Check out the [Getting Started with Python Instructions](https://devcenter.heroku.com/articles/getting-started-with-python#introduction) 
 
 # Summary of Hiccoughs
 
