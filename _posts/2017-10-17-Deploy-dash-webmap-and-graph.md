@@ -11,7 +11,7 @@ tags: [ 'dash','plotly', 'python','visualization', 'heroku', 'postgresql']
 thumbnail: map  
 ---
 
-This is a follow-up post to [a previous post]({% post_url 2017-08-10-codeday %}) where I started developing a Dash application where a user could select links on a map and that would select the data to display in a plot. That post was more or less written in a day, and I didn't get to linking the map and graph, so this post explains how I developed that, and then how I deployed [the app](https://mighty-savannah-97969.herokuapp.com/) to Heroku. 
+This is a follow-up post to [a previous post](blog/{% post_url 2017-08-10-codeday %}) where I started developing a Dash application where a user could select links on a map and that would select the data to display in a plot. That post was more or less written in a day, and I didn't get to linking the map and graph, so this post explains how I developed that, and then how I deployed [the app](https://mighty-savannah-97969.herokuapp.com/) to Heroku. 
 
 # Linking Map Data to Updating Graph Data
 
@@ -79,10 +79,10 @@ def update_graph(segment):
 
 # Deploying to Heroku
 
-Heroku is a handy Platform as a Service provider, which allows you to run simple-to-complex python web-apps for free on their infrastructure. The [Dash Deployment Guide](https://plot.ly/dash/deployment) includes instructions on passing 
+Heroku is a handy Platform as a Service provider, which allows you to run simple-to-complex python web-apps for free on their infrastructure. The [Dash Deployment Guide](https://plot.ly/dash/deployment) includes instructions on passing secret keys to the app. (this sentence is a month old and was left hanging, I'm still a little puzzled by what I was trying to communicate)
 
 ## Transferring Data
-It may be possible to store data to be served in flat files within the project folder (projects can be up to 500MB in size, including dependencies), this has not yet been tested. 
+Since the data was hosted in a local database, we need to send it up to the cloud. It may be possible to store data to be served in flat files within the project folder (projects can be up to 500MB in size, including dependencies), this has not yet been tested. Instead I used Heroku Postgres:
 
 ### Heroku Postgres
 
@@ -113,9 +113,10 @@ else:
 
 # Summary of Hiccoughs
 
-1. `data = [data]`
-2. transferring data to Heroku, ints transforming to doubles
-3. Properly labelling lines in Dash. 
+1. `data = [data]` in Dash
+2. transferring data to Heroku Postgres\
+3. `int`s turn into `double`s when transforming postgis data data to shapefiles.
+3. properly labelling lines in Dash. 
 
 # Results
 
