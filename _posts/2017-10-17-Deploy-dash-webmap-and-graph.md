@@ -2,12 +2,12 @@
 layout: post
 section-type: post
 title: "Dash Plotly Map + Graph Part2: Linking Map & Graph and deploying to Heroku"
-published: false
-date: 2017-08-21 15:00:00 -0500
+published: true
+date: 2017-10-17 9:30:00 -0500
 categories: ['tutorial']
 author: Raphael Dumas
-summary: "I try to make a demo interactive web map linked to a graph using plotly and the python web server Dash."
-tags: [ 'dash','plotly', 'python','visualization']
+summary: "I continue trying to make a demo interactive web map linked to a graph using plotly and the python web server Dash."
+tags: [ 'dash','plotly', 'python','visualization', 'heroku', 'postgresql']
 thumbnail: map  
 ---
 
@@ -115,5 +115,8 @@ else:
 
 1. `data = [data]`
 2. transferring data to Heroku, ints transforming to doubles
+3. Properly labelling lines in Dash. 
 
 # Results
+
+Check out the full page dashboard [here](mighty-savannah-97969.herokuapp.com)
