@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: "Transportation Camp NYC"
-published: false
+published: True
 date: 2017-10-28 14:00:00 -0500
 categories: ['conference-recaps']
 author: Raphael Dumas
