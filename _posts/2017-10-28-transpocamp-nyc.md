@@ -24,7 +24,9 @@ A demo of different tools for creating and editing transit routes, updating freq
 ### Tools:
 #### Enmodal
 [Link](https://app.enmodal.co)
+
  - Free and open-source
+
 #### Remix
 https://remix.com
 
@@ -36,6 +38,7 @@ https://remix.com
 - Very easy to use
 - Good sense of “What it would actually cost to make transit changes”
 - Used for communicating scenarios to the public
+
 #### Conveyal Analysis
 [Link](https://www.conveyal.com/analysis)
  
@@ -48,6 +51,7 @@ https://remix.com
    * Possible to run on a consumer laptop, analysis will be computed slower
    * Installation is a little trickier https://github.com/conveyal/analysis-ui
      - Requires Amazon Web Services S3 buckets
+
 #### Brand New Subway
 [link](http://jpwright.net/subway/)
 
@@ -95,6 +99,9 @@ People seemed shocked multiple times that [all our code was available on Github]
 Presentations I kind of wish I attended
 
 ### New Urbanist Memes for Transit-Oriented Teens
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">omg. A Moderator from New Urbanist Memes for Transit Oriented Teens is here at <a href="https://twitter.com/hashtag/tcnyc17?src=hash&amp;ref_src=twsrc%5Etfw">#tcnyc17</a> <a href="https://t.co/vb9QISEsWt">https://t.co/vb9QISEsWt</a> <a href="https://t.co/Hu8jzxUr7D">pic.twitter.com/Hu8jzxUr7D</a></p>&mdash; Raph hell dooms us👹 (@DumasRaphael) <a href="https://twitter.com/DumasRaphael/status/921746539034431494?ref_src=twsrc%5Etfw">October 21, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 Basically, [the dankest group on Facebook if you're a transit nerd](https://www.facebook.com/groups/whatwouldjanejacobsdo/), the founder and admin Juliet Eldred gave [a presentation](https://docs.google.com/presentation/d/1EOS82aFnN1UPKQGST33Gfo5JKFV1Wt6-vZra2VMwM2o/edit#slide=id.p) at the same time as my talk. It's more than just memes, promise.
 
 ### Uphill Battle - Improving Transit From Within a Difficult Political Climate
@@ -111,10 +118,19 @@ Former [McGill classmate of mine](https://twitter.com/transport4cairo) led a pro
 
 Not to be confused with transit.wiki, which is a wiki of transit agency information for riders.
 
+### Governing Transport for City Regions
+[Nicole Badstuber](https://twitter.com/NicoleBadstuber) a PhD researcher at University College London, and host of [On Our Line](https://www.londonreconnections.com/category/podcast/), the London Reconnections podcast, led a session on Transportation Governance:
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Come to my proposed session at <a href="https://twitter.com/TranspoCampNYC?ref_src=twsrc%5Etfw">@TranspoCampNYC</a> on <a href="https://twitter.com/hashtag/transport?src=hash&amp;ref_src=twsrc%5Etfw">#transport</a> <a href="https://twitter.com/hashtag/governance?src=hash&amp;ref_src=twsrc%5Etfw">#governance</a> for <a href="https://twitter.com/hashtag/cities?src=hash&amp;ref_src=twsrc%5Etfw">#cities</a>.<br>Let&#39;s discuss private↔️public<br>city↔️region<br>political agency↔️technocracy<a href="https://twitter.com/hashtag/TCNYC17?src=hash&amp;ref_src=twsrc%5Etfw">#TCNYC17</a> <a href="https://twitter.com/hashtag/transportation?src=hash&amp;ref_src=twsrc%5Etfw">#transportation</a> <a href="https://twitter.com/hashtag/urban?src=hash&amp;ref_src=twsrc%5Etfw">#urban</a> <a href="https://t.co/hAHFJMRdtl">pic.twitter.com/hAHFJMRdtl</a></p>&mdash; Nicole Badstuber (@NicoleBadstuber) <a href="https://twitter.com/NicoleBadstuber/status/921749487701385216?ref_src=twsrc%5Etfw">October 21, 2017</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+Someone(s) did a very good job of taking notes, and they [are all here](https://docs.google.com/document/d/1t5haQkqjxzI9iVHsvfyuX9sg0rjQuxNcQSxBvwnZWEI/edit)
+
+
 ### Other sessions with notes
 The organizers did not promote the crowdsourced notes angle well enough, but some sessions had exceptional note-takers. Here they are, in no particular order:
 
- - [Governing Transport for City Regions](https://docs.google.com/document/d/1t5haQkqjxzI9iVHsvfyuX9sg0rjQuxNcQSxBvwnZWEI/edit)
  - [Why Isn't Congestion Pricing More Popular in NYC?](https://docs.google.com/document/d/1I1GvsMzZusnaL1O84Sc4sSY1lFyA6aH6-XrUoK0B7f0/edit)
  - [Welcome to AV Hell](https://docs.google.com/document/d/1dXG3oWcmRKapyGtjDivwcFPNXohIinFyQ31VgL5m1lo/edit)
  - [Use the Fun Theory to Nudge Behavior Change](https://docs.google.com/document/d/1mQVwCentyHsQ58_-etgmMXxlhvd7dtMyTC-7SW6TrpU/edit#heading=h.ew067dnigcmf)
