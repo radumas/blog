@@ -2,7 +2,7 @@
 layout: post
 section-type: post
 title: "Dash Plotly Map + Graph Part2: Linking Map & Graph and deploying to Heroku"
-published: true
+published: false
 date: 2017-10-17 9:30:00 -0500
 categories: ['tutorial']
 author: Raphael Dumas
